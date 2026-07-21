@@ -1,430 +1,219 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services — OptiLux Premium Eyewear</title>
-  <meta name="description"
-    content="OptiLux services — comprehensive eye tests, lens fitting, designer frames, contact lenses, kids eyewear, and more." />
+  <title>Clinical Services — OptiLux Eyewear &amp; Optometry</title>
+  <meta name="description" content="OptiLux services — digital eye diagnostics, precision lens centration, bespoke frame fitting, contact lens studio, and paediatric eyecare." />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
-
 <body>
-  <div id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-logo">Opti<span>Lux</span></div>
-      <div class="preloader-bar">
-        <div class="preloader-bar-fill"></div>
+<div id="preloader"><div class="preloader-inner"><div class="preloader-logo">Opti<span>Lux</span></div><div class="preloader-bar"><div class="preloader-bar-fill"></div></div><div class="preloader-dots"><div class="preloader-dot"></div><div class="preloader-dot"></div><div class="preloader-dot"></div></div></div></div>
+<div id="page-progress"></div>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/><path d="M2 12h0.5"/><path d="M21.5 12h0.5"/></svg>
       </div>
-      <div class="preloader-dots">
-        <div class="preloader-dot"></div>
-        <div class="preloader-dot"></div>
-        <div class="preloader-dot"></div>
+      <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Precision Eyewear</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="services.html" class="nav-link active">Services</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+      <li><a href="blog.html" class="nav-link">Blog</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" data-theme-toggle><span class="icon-moon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="icon-sun" style="display:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></span></button>
+      <button class="nav-icon-btn" data-rtl-toggle>RTL</button>
+      <a href="contact.html" class="btn btn-primary btn-sm">Book Eye Test</a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" class="mobile-nav-link">Home</a>
+  <a href="services.html" class="mobile-nav-link">Services</a>
+  <a href="about.html" class="mobile-nav-link">About</a>
+  <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+  <a href="blog.html" class="mobile-nav-link">Blog</a>
+  <a href="contact.html" class="mobile-nav-link">Contact</a>
+</div>
+
+<!-- ═══ SECTION 1: PAGE HERO ═══ -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1582142306909-195724d33ffc?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(18,16,15,0.92) 0%, rgba(18,16,15,0.7) 100%)"></div>
+  </div>
+  <div class="container page-hero-content">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,0.7)">Services</span></nav>
+    <h1 class="page-hero-title">Clinical <span style="color:var(--cyan)">Eyecare Services</span></h1>
+    <p class="page-hero-desc">Digital refraction, freeform lens surfacing, bespoke frame centration, and specialized paediatric optometry.</p>
+  </div>
+</section>
+
+<!-- ═══ SECTION 2: SERVICES GRID ═══ -->
+<section class="section bg-primary" id="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Diagnostic Solutions</span>
+      <h2 class="section-title reveal">Complete <span>Optical Care</span></h2>
+      <p class="section-subtitle reveal stagger-2">From diagnostic screening to precision lens mounting — we engineer your vision for life.</p>
+    </div>
+    <div class="grid grid-3 gap-6">
+
+      <!-- Service 1 -->
+      <div class="service-card reveal" id="eye-test">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Comprehensive Eye Diagnostics</h3>
+        <p>Computerized refraction assessment, corneal topography, non-contact tonometry, and retinal tomography scanning.</p>
+        <ul style="margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
+          <li class="pricing-feature"><span class="check">✓</span> 3D OCT Retinal Imaging</li>
+          <li class="pricing-feature"><span class="check">✓</span> Non-contact Glaucoma Pressure Check</li>
+          <li class="pricing-feature"><span class="check">✓</span> Clinical Prescription Issuance</li>
+        </ul>
+        <a href="contact.html" class="service-link">Schedule Consultation →</a>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card reveal stagger-2" id="lens-guide">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3>Digital Freeform Lens Surfacing</h3>
+        <p>Sub-millimeter optical centration and customized pantoscopic tilt adjustments for zero distortion progressive corridors.</p>
+        <ul style="margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
+          <li class="pricing-feature"><span class="check">✓</span> German Freeform Surfacing</li>
+          <li class="pricing-feature"><span class="check">✓</span> Anti-Blue &amp; AR Coating Demos</li>
+          <li class="pricing-feature"><span class="check">✓</span> Zeiss &amp; Essilor Lens Portfolio</li>
+        </ul>
+        <a href="index.html#lens-guide" class="service-link">View Lens Guide →</a>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card reveal stagger-3" id="frames">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/></svg>
+        </div>
+        <h3>Bespoke Frame Styling</h3>
+        <p>Private styling consultations with senior opticians to evaluate bridge fit, temple width, and face morphology.</p>
+        <ul style="margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
+          <li class="pricing-feature"><span class="check">✓</span> Japanese Titanium &amp; Italian Acetate</li>
+          <li class="pricing-feature"><span class="check">✓</span> 40+ International Designer Houses</li>
+          <li class="pricing-feature"><span class="check">✓</span> Facial Morphology Fitting</li>
+        </ul>
+        <a href="gallery.html" class="service-link">Browse Showcase →</a>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card reveal stagger-2" id="contact-lenses">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 14a4 4 0 1 1 4-4 4 4 0 0 1-4 4z"/></svg>
+        </div>
+        <h3>Contact Lens Clinic</h3>
+        <p>Astigmatic toric, progressive multifocal, and corneal fitting for daily and extended wear contact lenses.</p>
+        <ul style="margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
+          <li class="pricing-feature"><span class="check">✓</span> Corneal Curvature Mapping</li>
+          <li class="pricing-feature"><span class="check">✓</span> Dry Eye Tear-Film Evaluation</li>
+          <li class="pricing-feature"><span class="check">✓</span> Trial Lenses &amp; Aftercare</li>
+        </ul>
+        <a href="contact.html" class="service-link">Book Lens Fitting →</a>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="service-card reveal stagger-3">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Paediatric Vision Care</h3>
+        <p>Specialized paediatric refraction, amblyopia management, and flexible impact-resistant kids' spectacles.</p>
+        <ul style="margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
+          <li class="pricing-feature"><span class="check">✓</span> Child-Friendly Vision Testing</li>
+          <li class="pricing-feature"><span class="check">✓</span> Childhood Myopia Control</li>
+          <li class="pricing-feature"><span class="check">✓</span> Indestructible FlexiFrames</li>
+        </ul>
+        <a href="contact.html" class="service-link">Book Paediatric Exam →</a>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="service-card reveal stagger-4">
+        <div class="service-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Ultrasonic Repair &amp; Alignment</h3>
+        <p>Same-day ultrasonic frame restoration, titanium soldering, nose pad replacement, and lens re-glazing.</p>
+        <ul style="margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
+          <li class="pricing-feature"><span class="check">✓</span> Same-Day Express Service</li>
+          <li class="pricing-feature"><span class="check">✓</span> Precision Laser Welding</li>
+          <li class="pricing-feature"><span class="check">✓</span> Rimless Re-glazing</li>
+        </ul>
+        <a href="contact.html" class="service-link">Visit Studio →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 3: HOW IT WORKS ═══ -->
+<section class="section bg-secondary">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Patient Workflow</span>
+      <h2 class="section-title reveal">Your Journey to <span>Clarity</span></h2>
+      <p class="section-subtitle reveal stagger-2">Four seamless steps from reservation to perfect vision.</p>
+    </div>
+    <div class="grid grid-4 process-steps gap-6 reveal-scale">
+      <div class="step-item">
+        <div class="step-icon">1</div>
+        <h4>Book Consultation</h4>
+        <p style="font-size:var(--text-sm)">Reserve your appointment slot online or via telephone.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-icon">2</div>
+        <h4>Digital Diagnostics</h4>
+        <p style="font-size:var(--text-sm)">3D eye refraction and corneal mapping with resident optometrists.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-icon">3</div>
+        <h4>Frame Selection</h4>
+        <p style="font-size:var(--text-sm)">Custom frame styling from 2,500+ Japanese &amp; Italian designs.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-icon">4</div>
+        <h4>Precision Delivery</h4>
+        <p style="font-size:var(--text-sm)">Calibrated lens surfacing and final centration fitting.</p>
       </div>
     </div>
   </div>
-  <div id="page-progress"></div>
+</section>
 
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <a href="index.html" class="nav-logo">
-        <div class="nav-logo-icon">👓</div>
-        <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Premium Eyewear</span>
-        </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="services.html" class="nav-link active">Services</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-        <li><a href="blog.html" class="nav-link">Blog</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="nav-icon-btn" data-theme-toggle><span class="icon-moon">🌙</span><span class="icon-sun"
-            style="display:none">☀️</span></button>
-        <button class="nav-icon-btn" data-rtl-toggle>RTL</button>
-        <a href="contact.html" class="btn btn-primary btn-sm">Book Eye Test</a>
-        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:var(--space-4);display:inline-flex">
+          <div class="nav-logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/><path d="M2 12h0.5"/><path d="M21.5 12h0.5"/></svg>
+          </div>
+          <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Precision Eyewear</span></div>
+        </a>
+        <p>Providing precision optical consultations, bespoke titanium frames, and digital lens surfacing since 2008.</p>
       </div>
     </div>
-  </nav>
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html" class="mobile-nav-link">🏠 Home</a>
-    <a href="services.html" class="mobile-nav-link">⚕ Services</a>
-    <a href="about.html" class="mobile-nav-link">💡 About</a>
-    <a href="gallery.html" class="mobile-nav-link">🖼 Gallery</a>
-    <a href="blog.html" class="mobile-nav-link">📰 Blog</a>
-    <a href="contact.html" class="mobile-nav-link">📞 Contact</a>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <a href="index.html">OptiLux</a>. All rights reserved. Precision Ophthalmic Engineering.</p>
+    </div>
   </div>
+</footer>
 
-  <!-- ═══ SECTION 1: PAGE HERO ═══ -->
-  <section class="page-hero">
-    <div class="page-hero-bg">
-      <div
-        style="position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(6,182,212,0.18) 0%,transparent 60%)">
-      </div>
-    </div>
-    <div class="container page-hero-content">
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>/</span><span
-          style="color:rgba(255,255,255,0.7)">Services</span></nav>
-      <h1 class="page-hero-title">Our <span style="color:var(--cyan)">Services</span></h1>
-      <p class="page-hero-desc">Comprehensive eye care solutions for the whole family. Expert optometrists, cutting-edge
-        technology, premium eyewear.</p>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 2: SERVICES GRID ═══ -->
-  <section class="section bg-primary" id="services">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">What We Do</span>
-        <h2 class="section-title reveal">Complete <span>Eye Care</span> Solutions</h2>
-        <p class="section-subtitle reveal stagger-2">From your first eye test to your perfect frames — we cover every
-          step of your vision journey.</p>
-      </div>
-      <div class="grid grid-3 gap-6">
-        <div class="service-card reveal" id="eye-test">
-          <div class="service-icon"><span>👁</span></div>
-          <h3>Comprehensive Eye Examination</h3>
-          <p>Our 45-minute examination covers visual acuity, refraction, binocular vision, eye pressure, and full
-            retinal health assessment using the latest diagnostic equipment.</p>
-          <ul style="margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
-            <li class="pricing-feature"><span class="check">✓</span> OCT retinal scan</li>
-            <li class="pricing-feature"><span class="check">✓</span> Glaucoma pressure test</li>
-            <li class="pricing-feature"><span class="check">✓</span> Prescription issuance</li>
-          </ul>
-          <a href="contact.html" class="service-link">Book now →</a>
-        </div>
-        <div class="service-card reveal stagger-2" id="lens-guide">
-          <div class="service-icon"><span>🔬</span></div>
-          <h3>Advanced Lens Consultation</h3>
-          <p>Not all lenses are created equal. Our lens consultation matches your prescription, lifestyle, and budget to
-            the perfect lens type, coating, and material.</p>
-          <ul style="margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
-            <li class="pricing-feature"><span class="check">✓</span> Lifestyle assessment</li>
-            <li class="pricing-feature"><span class="check">✓</span> Lens comparison demo</li>
-            <li class="pricing-feature"><span class="check">✓</span> All brands available</li>
-          </ul>
-          <a href="#lens-guide-section" class="service-link">Lens guide →</a>
-        </div>
-        <div class="service-card reveal stagger-3" id="frames">
-          <div class="service-icon"><span>🕶</span></div>
-          <h3>Designer Frame Styling</h3>
-          <p>Our trained frame stylists help you choose eyewear that complements your face shape, skin tone, and
-            personal style from 2,500+ frames.</p>
-          <ul style="margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
-            <li class="pricing-feature"><span class="check">✓</span> Face shape analysis</li>
-            <li class="pricing-feature"><span class="check">✓</span> 40+ premium brands</li>
-            <li class="pricing-feature"><span class="check">✓</span> Virtual try-on</li>
-          </ul>
-          <a href="gallery.html" class="service-link">View collection →</a>
-        </div>
-        <div class="service-card reveal stagger-2" id="contact-lenses">
-          <div class="service-icon"><span>💧</span></div>
-          <h3>Contact Lens Fitting & Supply</h3>
-          <p>Expert fitting for daily disposables, monthly, toric, multifocal, and specialty contact lenses. Ongoing
-            supply, aftercare, and troubleshooting.</p>
-          <ul style="margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
-            <li class="pricing-feature"><span class="check">✓</span> Trial lens fitting</li>
-            <li class="pricing-feature"><span class="check">✓</span> Dry eye assessment</li>
-            <li class="pricing-feature"><span class="check">✓</span> Auto-refill available</li>
-          </ul>
-          <a href="contact.html" class="service-link">Book fitting →</a>
-        </div>
-        <div class="service-card reveal stagger-3">
-          <div class="service-icon"><span>🌈</span></div>
-          <h3>Kids Eye Health Programme</h3>
-          <p>Specialised paediatric eye exams with child-friendly tools. Early detection of myopia, amblyopia, and
-            convergence issues for school-ready vision.</p>
-          <ul style="margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
-            <li class="pricing-feature"><span class="check">✓</span> From age 3 upwards</li>
-            <li class="pricing-feature"><span class="check">✓</span> Myopia management</li>
-            <li class="pricing-feature"><span class="check">✓</span> Durable kids' frames</li>
-          </ul>
-          <a href="contact.html" class="service-link">Book kids' test →</a>
-        </div>
-        <div class="service-card reveal stagger-4">
-          <div class="service-icon"><span>🔧</span></div>
-          <h3>Repairs, Adjustments & More</h3>
-          <p>Same-day frame repairs, nose pad replacement, temple adjustments, and lens re-glazing. Walk-in service, no
-            appointment needed.</p>
-          <ul style="margin-top:var(--space-4);display:flex;flex-direction:column;gap:var(--space-2)">
-            <li class="pricing-feature"><span class="check">✓</span> Same-day service</li>
-            <li class="pricing-feature"><span class="check">✓</span> All brands repaired</li>
-            <li class="pricing-feature"><span class="check">✓</span> Lens re-glazing</li>
-          </ul>
-          <a href="contact.html" class="service-link">Walk in →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 3: HOW IT WORKS ═══ -->
-  <section class="section bg-secondary">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">The Process</span>
-        <h2 class="section-title reveal">Your Journey to <span>Perfect Vision</span></h2>
-        <p class="section-subtitle reveal stagger-2">Four simple steps from booking to beautiful eyewear.</p>
-      </div>
-      <div class="grid grid-4 process-steps gap-6 reveal-scale">
-        <div class="step-item">
-          <div class="step-icon">01</div>
-          <h4>Book Online</h4>
-          <p style="font-size:var(--text-sm)">Choose your preferred store, date, and time. Instant confirmation via
-            email &amp; SMS.</p>
-        </div>
-        <div class="step-item">
-          <div class="step-icon" style="background:linear-gradient(135deg,var(--cyan),var(--cyan-light))">02</div>
-          <h4>Eye Examination</h4>
-          <p style="font-size:var(--text-sm)">45-minute comprehensive test with our qualified optometrist using advanced
-            technology.</p>
-        </div>
-        <div class="step-item">
-          <div class="step-icon" style="background:linear-gradient(135deg,var(--emerald),#059669)">03</div>
-          <h4>Choose Frames</h4>
-          <p style="font-size:var(--text-sm)">Browse 2,500+ frames with personal styling advice. Try before you buy.</p>
-        </div>
-        <div class="step-item">
-          <div class="step-icon" style="background:linear-gradient(135deg,var(--amber),#D97706);color:var(--graphite)">
-            04</div>
-          <h4>Collect & Enjoy</h4>
-          <p style="font-size:var(--text-sm)">Same-day to 5 days. Free adjustments for 30 days. See the world
-            differently.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 4: PRICING ═══ -->
-  <section class="section bg-primary">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Clear Pricing</span>
-        <h2 class="section-title reveal">Simple, Transparent <span>Packages</span></h2>
-        <p class="section-subtitle reveal stagger-2">No hidden costs. Every package includes your eye test and
-          professional dispensing.</p>
-      </div>
-      <div class="grid grid-3 gap-6">
-        <div class="pricing-card reveal">
-          <div class="pricing-name">Essential</div>
-          <div class="pricing-price">
-            <span class="pricing-currency">₹</span>
-            <span class="pricing-amount">1,999</span>
-            <span class="pricing-period">/ package</span>
-          </div>
-          <p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-4)">Perfect for
-            first-time visitors and basic prescription needs.</p>
-          <div class="pricing-features">
-            <div class="pricing-feature"><span class="check">✓</span> Comprehensive eye test</div>
-            <div class="pricing-feature"><span class="check">✓</span> Prescription issuance</div>
-            <div class="pricing-feature"><span class="check">✓</span> Frame selection support</div>
-            <div class="pricing-feature"><span class="check">✓</span> Single vision lenses</div>
-            <div class="pricing-feature"><span class="cross">✗</span> Anti-glare coating</div>
-            <div class="pricing-feature"><span class="cross">✗</span> Blue light filter</div>
-          </div>
-          <a href="contact.html" class="btn btn-secondary w-full" style="justify-content:center">Book Essential</a>
-        </div>
-        <div class="pricing-card featured reveal stagger-2">
-          <div class="pricing-badge">Most Popular</div>
-          <div class="pricing-name">Premium</div>
-          <div class="pricing-price">
-            <span class="pricing-currency">₹</span>
-            <span class="pricing-amount">4,999</span>
-            <span class="pricing-period">/ package</span>
-          </div>
-          <p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-4)">Best value. Covers
-            everything for a perfect vision experience.</p>
-          <div class="pricing-features">
-            <div class="pricing-feature"><span class="check">✓</span> Comprehensive eye test + OCT</div>
-            <div class="pricing-feature"><span class="check">✓</span> Full prescription report</div>
-            <div class="pricing-feature"><span class="check">✓</span> Personal frame styling</div>
-            <div class="pricing-feature"><span class="check">✓</span> Progressive lenses</div>
-            <div class="pricing-feature"><span class="check">✓</span> Anti-glare coating</div>
-            <div class="pricing-feature"><span class="check">✓</span> Blue light filter</div>
-          </div>
-          <a href="contact.html" class="btn btn-primary w-full" style="justify-content:center">Book Premium</a>
-        </div>
-        <div class="pricing-card reveal stagger-3">
-          <div class="pricing-name">Family Plan</div>
-          <div class="pricing-price">
-            <span class="pricing-currency">₹</span>
-            <span class="pricing-amount">12,999</span>
-            <span class="pricing-period">/ family</span>
-          </div>
-          <p style="font-size:var(--text-sm);color:var(--text-muted);margin-bottom:var(--space-4)">4 comprehensive eye
-            tests for the whole family, including kids.</p>
-          <div class="pricing-features">
-            <div class="pricing-feature"><span class="check">✓</span> 4× comprehensive eye tests</div>
-            <div class="pricing-feature"><span class="check">✓</span> Kids paediatric assessment</div>
-            <div class="pricing-feature"><span class="check">✓</span> All prescriptions issued</div>
-            <div class="pricing-feature"><span class="check">✓</span> 15% discount on frames</div>
-            <div class="pricing-feature"><span class="check">✓</span> Priority appointments</div>
-            <div class="pricing-feature"><span class="check">✓</span> 30-day guarantee</div>
-          </div>
-          <a href="contact.html" class="btn btn-secondary w-full" style="justify-content:center">Book Family Plan</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 5: BRAND PARTNERS ═══ -->
-  <section class="brands-strip bg-secondary">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:var(--space-8)">
-        <span class="section-label">Official Partners</span>
-        <h3 class="section-title" style="font-size:var(--text-2xl)">Brands We <span>Carry</span></h3>
-      </div>
-      <div class="brands-track">
-        <div class="brands-scroll">
-          <span class="brand-logo">Ray-Ban</span><span class="brand-logo">Oakley</span><span
-            class="brand-logo">Prada</span>
-          <span class="brand-logo">Gucci</span><span class="brand-logo">Essilor</span><span
-            class="brand-logo">Zeiss</span>
-          <span class="brand-logo">Tom Ford</span><span class="brand-logo">Persol</span><span class="brand-logo">Maui
-            Jim</span>
-          <span class="brand-logo">Silhouette</span><span class="brand-logo">Lindberg</span><span
-            class="brand-logo">Luxottica</span>
-        </div>
-        <div class="brands-scroll" aria-hidden="true">
-          <span class="brand-logo">Ray-Ban</span><span class="brand-logo">Oakley</span><span
-            class="brand-logo">Prada</span>
-          <span class="brand-logo">Gucci</span><span class="brand-logo">Essilor</span><span
-            class="brand-logo">Zeiss</span>
-          <span class="brand-logo">Tom Ford</span><span class="brand-logo">Persol</span><span class="brand-logo">Maui
-            Jim</span>
-          <span class="brand-logo">Silhouette</span><span class="brand-logo">Lindberg</span><span
-            class="brand-logo">Luxottica</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 6: FAQ ═══ -->
-  <section class="section bg-primary">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Got Questions?</span>
-        <h2 class="section-title reveal">Service <span>FAQs</span></h2>
-      </div>
-      <div style="max-width:760px;margin-inline:auto">
-        <div class="faq-item reveal"><button class="faq-question">Is the eye test free? <span
-              class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">We offer a free eye test with the purchase of any frame and lens package.
-              Standalone eye tests start from ₹499. Children under 12 always receive a free eye test.</div>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-2"><button class="faq-question">What age can children have an eye test?
-            <span class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">We can test children from as young as 3 years old using our specialised
-              paediatric techniques that don't require the child to read or speak. Earlier detection leads to better
-              outcomes.</div>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-3"><button class="faq-question">Do you accept vision insurance? <span
-              class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Yes, we accept most major corporate and individual vision insurance plans.
-              Bring your insurance card and we'll handle the claim paperwork. We also provide itemised receipts for
-              reimbursement.</div>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-4"><button class="faq-question">How long does it take to make glasses? <span
-              class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Single vision standard lenses: same day to 24 hours. Progressive and specialty
-              lenses: 3–5 working days. High prescriptions or specialty coatings may take up to 7 days.</div>
-          </div>
-        </div>
-        <div class="faq-item reveal"><button class="faq-question">Can I bring my existing prescription? <span
-              class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Absolutely. If you have a valid prescription from another registered optician
-              (within 2 years for adults, 1 year for children), we can dispense glasses from it. However, we do
-              recommend an eye test with us to verify the prescription is still current.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 7: BOOKING CTA + FOOTER ═══ -->
-  <section
-    style="padding-block:var(--section-py);background:linear-gradient(135deg,var(--sapphire-dark),var(--graphite-deep));text-align:center;position:relative;overflow:hidden">
-    <div
-      style="position:absolute;inset:0;background:radial-gradient(circle at 70% 30%,rgba(6,182,212,0.15) 0%,transparent 60%)">
-    </div>
-    <div class="container" style="position:relative;z-index:5">
-      <span class="section-label" style="color:var(--cyan)">Ready?</span>
-      <h2
-        style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:900;color:#fff;margin-bottom:var(--space-4)">
-        Book Your <span style="color:var(--cyan)">Eye Test</span> Today</h2>
-      <p style="color:rgba(255,255,255,0.7);max-width:480px;margin-inline:auto;margin-bottom:var(--space-8)">No referral
-        needed. Walk-in or book online. Available 7 days a week across 3 locations.</p>
-      <div class="btn-group" style="justify-content:center">
-        <a href="contact.html" class="btn btn-white btn-xl">📅 Book Online</a>
-        <a href="tel:+919876543210" class="btn btn-glass btn-xl"
-          style="color:#fff;border-color:rgba(255,255,255,0.25)">📞 Call: +91 98765 43210</a>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-main">
-        <div class="footer-brand"><a href="index.html" class="nav-logo"
-            style="margin-bottom:var(--space-4);display:inline-flex">
-            <div class="nav-logo-icon">👓</div>
-            <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Premium
-                Eyewear</span></div>
-          </a>
-          <p>Premium eyewear &amp; expert eye care since 2008.</p>
-          <div class="footer-socials" style="margin-top:var(--space-4)"><a href="#" class="social-icon">f</a><a href="#"
-              class="social-icon">ig</a><a href="#" class="social-icon">tw</a></div>
-        </div>
-        <div class="footer-col">
-          <h4>Pages</h4>
-          <ul class="footer-links">
-            <li><a href="index.html" class="footer-link">→ Home</a></li>
-            <li><a href="about.html" class="footer-link">→ About</a></li>
-            <li><a href="services.html" class="footer-link">→ Services</a></li>
-            <li><a href="gallery.html" class="footer-link">→ Gallery</a></li>
-            <li><a href="blog.html" class="footer-link">→ Blog</a></li>
-            <li><a href="contact.html" class="footer-link">→ Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul class="footer-links">
-            <li><a href="services.html#eye-test" class="footer-link">→ Eye Examination</a></li>
-            <li><a href="services.html#lens-guide" class="footer-link">→ Lens Guide</a></li>
-            <li><a href="services.html#frames" class="footer-link">→ Frame Styling</a></li>
-            <li><a href="services.html#contact-lenses" class="footer-link">→ Contact Lenses</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Newsletter</h4>
-          <p style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);margin-bottom:var(--space-3)">Eye care tips
-            &amp; exclusive offers.</p>
-          <form class="footer-newsletter" data-form="newsletter"><input type="email" placeholder="Your email" /><button
-              type="submit">→</button></form>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 <a href="index.html">OptiLux</a>. All rights reserved.</p>
-        <div class="footer-bottom-links"><a href="privacy-policy.html">Privacy Policy</a><a
-            href="terms.html">Terms</a><a href="sitemap.html">Sitemap</a></div>
-      </div>
-    </div>
-  </footer>
-
-  <button class="back-to-top">↑</button>
-  <script src="assets/js/main.js"></script>
+<button class="back-to-top">↑</button>
+<script src="assets/js/main.js"></script>
 </body>
-
 </html>

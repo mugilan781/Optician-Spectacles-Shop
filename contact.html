@@ -1,469 +1,214 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us — OptiLux Premium Eyewear</title>
-  <meta name="description"
-    content="Contact OptiLux — visit our stores, book an eye test, or send us a message. We're here to help with all your eyewear needs." />
+  <title>Contact Optical Studio — OptiLux Eyewear</title>
+  <meta name="description" content="Contact OptiLux optical studios in Koramangala, Indiranagar, and Whitefield. Schedule eye diagnostic exams or frame fittings." />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
-
 <body>
-  <div id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-logo">Opti<span>Lux</span></div>
-      <div class="preloader-bar">
-        <div class="preloader-bar-fill"></div>
+<div id="preloader"><div class="preloader-inner"><div class="preloader-logo">Opti<span>Lux</span></div><div class="preloader-bar"><div class="preloader-bar-fill"></div></div><div class="preloader-dots"><div class="preloader-dot"></div><div class="preloader-dot"></div><div class="preloader-dot"></div></div></div></div>
+<div id="page-progress"></div>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/><path d="M2 12h0.5"/><path d="M21.5 12h0.5"/></svg>
       </div>
-      <div class="preloader-dots">
-        <div class="preloader-dot"></div>
-        <div class="preloader-dot"></div>
-        <div class="preloader-dot"></div>
+      <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Precision Eyewear</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+      <li><a href="blog.html" class="nav-link">Blog</a></li>
+      <li><a href="contact.html" class="nav-link active">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" data-theme-toggle><span class="icon-moon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="icon-sun" style="display:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></span></button>
+      <button class="nav-icon-btn" data-rtl-toggle>RTL</button>
+      <a href="contact.html" class="btn btn-primary btn-sm">Book Eye Test</a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" class="mobile-nav-link">Home</a>
+  <a href="services.html" class="mobile-nav-link">Services</a>
+  <a href="about.html" class="mobile-nav-link">About</a>
+  <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+  <a href="blog.html" class="mobile-nav-link">Blog</a>
+  <a href="contact.html" class="mobile-nav-link">Contact</a>
+</div>
+
+<!-- ═══ SECTION 1: HERO ═══ -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(18,16,15,0.92) 0%, rgba(18,16,15,0.7) 100%)"></div>
+  </div>
+  <div class="container page-hero-content">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,0.7)">Contact Studios</span></nav>
+    <h1 class="page-hero-title">Contact <span style="color:var(--cyan)">Ateliers</span></h1>
+    <p class="page-hero-desc">Schedule a private optical consultation, frame fitting session, or clinical eye examination.</p>
+  </div>
+</section>
+
+<!-- ═══ SECTION 2: CONTACT FORM + INFO ═══ -->
+<section class="section bg-primary">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:var(--space-16);align-items:flex-start">
+
+      <!-- Contact Form -->
+      <div class="reveal-left">
+        <span class="section-label">Patient Advisory</span>
+        <h2 class="section-title" style="text-align:left;margin-bottom:var(--space-6)">Send a <span>Message</span></h2>
+        <form data-form="contact" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="ct-fname">First Name *</label>
+              <div class="input-icon-wrap">
+                <span class="input-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </span>
+                <input type="text" id="ct-fname" class="form-input" placeholder="First name" data-validate="required" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ct-lname">Last Name *</label>
+              <input type="text" id="ct-lname" class="form-input" placeholder="Last name" data-validate="required" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="ct-email">Email Address *</label>
+              <div class="input-icon-wrap">
+                <span class="input-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </span>
+                <input type="email" id="ct-email" class="form-input" placeholder="you@domain.com" data-validate="required,email" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="ct-phone">Phone Number</label>
+              <div class="input-icon-wrap">
+                <span class="input-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </span>
+                <input type="tel" id="ct-phone" class="form-input" placeholder="+91 98765 43210" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ct-subject">Consultation Subject *</label>
+            <select id="ct-subject" class="form-select" data-validate="required">
+              <option value="">Select subject...</option>
+              <option value="booking">Book Clinical Eye Diagnostic Exam</option>
+              <option value="frames">Custom Frame &amp; Fitting Advisory</option>
+              <option value="lenses">Freeform Digital Lens Consultation</option>
+              <option value="repair">Ultrasonic Repair &amp; Alignment</option>
+              <option value="prescription">Prescription Verification</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ct-store">Preferred Atelier</label>
+            <select id="ct-store" class="form-select">
+              <option value="">Any Flagship Studio</option>
+              <option value="koramangala">Koramangala Studio</option>
+              <option value="indiranagar">Indiranagar Atelier</option>
+              <option value="whitefield">Whitefield Studio</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="ct-message">Consultation Details *</label>
+            <textarea id="ct-message" class="form-textarea" placeholder="Share your prescription details or inquiry..." data-validate="required"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg w-full" style="justify-content:center">Submit Inquiry</button>
+        </form>
+      </div>
+
+      <!-- Info Sidebar -->
+      <div class="reveal-right">
+        <span class="section-label">Studio Directives</span>
+        <h3 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-6)">Direct <span style="color:var(--sapphire)">Concierge</span></h3>
+
+        <div style="display:flex;flex-direction:column;gap:var(--space-4);margin-bottom:var(--space-8)">
+          <div style="display:flex;align-items:flex-start;gap:var(--space-4);padding:var(--space-4);background:var(--bg-tertiary);border-radius:var(--radius-lg)">
+            <div style="width:44px;height:44px;border-radius:var(--radius-md);background:rgba(30,53,47,0.1);display:flex;align-items:center;justify-content:center;color:var(--sapphire);flex-shrink:0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <p style="font-size:var(--text-xs);font-weight:700;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">Telephone Direct</p>
+              <a href="tel:+919876543210" style="font-size:var(--text-base);font-weight:700;color:var(--text-primary)">+91 98765 43210</a><br>
+              <a href="tel:+918012345678" style="font-size:var(--text-sm);color:var(--text-muted)">+91 80123 45678</a>
+            </div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:var(--space-4);padding:var(--space-4);background:var(--bg-tertiary);border-radius:var(--radius-lg)">
+            <div style="width:44px;height:44px;border-radius:var(--radius-md);background:rgba(150,124,86,0.1);display:flex;align-items:center;justify-content:center;color:var(--cyan);flex-shrink:0">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p style="font-size:var(--text-xs);font-weight:700;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">Clinical Email</p>
+              <a href="mailto:hello@optilux.in" style="font-size:var(--text-base);font-weight:700;color:var(--text-primary)">hello@optilux.in</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 3: STORE LOCATIONS ═══ -->
+<section class="section bg-secondary" id="locations">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Studios</span>
+      <h2 class="section-title reveal">Our <span>Flagship Locations</span></h2>
+    </div>
+    <div class="grid grid-3 gap-6" style="margin-bottom:var(--space-10)">
+      <div class="location-card reveal">
+        <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:var(--space-2)">Koramangala Flagship</h4>
+        <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--space-3)">42, MG Road, Koramangala, Bangalore — 560095</p>
+        <span class="badge badge-green">● Open Today</span>
+      </div>
+      <div class="location-card reveal stagger-2">
+        <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:var(--space-2)">Indiranagar Atelier</h4>
+        <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--space-3)">12, 100 Feet Road, Indiranagar, Bangalore — 560038</p>
+        <span class="badge badge-green">● Open Today</span>
+      </div>
+      <div class="location-card reveal stagger-3">
+        <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:var(--space-2)">Whitefield Studio</h4>
+        <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--space-3)">78, ITPL Main Road, Whitefield, Bangalore — 560066</p>
+        <span class="badge badge-amber">● Closes 8PM</span>
       </div>
     </div>
   </div>
-  <div id="page-progress"></div>
+</section>
 
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <a href="index.html" class="nav-logo">
-        <div class="nav-logo-icon">👓</div>
-        <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Premium Eyewear</span>
-        </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="services.html" class="nav-link">Services</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-        <li><a href="blog.html" class="nav-link">Blog</a></li>
-        <li><a href="contact.html" class="nav-link active">Contact</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="nav-icon-btn" data-theme-toggle><span class="icon-moon">🌙</span><span class="icon-sun"
-            style="display:none">☀️</span></button>
-        <button class="nav-icon-btn" data-rtl-toggle>RTL</button>
-        <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
-        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:var(--space-4);display:inline-flex">
+          <div class="nav-logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/><path d="M2 12h0.5"/><path d="M21.5 12h0.5"/></svg>
+          </div>
+          <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Precision Eyewear</span></div>
+        </a>
+        <p>Providing precision optical consultations, bespoke titanium frames, and digital lens surfacing since 2008.</p>
       </div>
     </div>
-  </nav>
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html" class="mobile-nav-link">🏠 Home</a>
-    <a href="services.html" class="mobile-nav-link">⚕ Services</a>
-    <a href="about.html" class="mobile-nav-link">💡 About</a>
-    <a href="gallery.html" class="mobile-nav-link">🖼 Gallery</a>
-    <a href="blog.html" class="mobile-nav-link">📰 Blog</a>
-    <a href="contact.html" class="mobile-nav-link">📞 Contact</a>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <a href="index.html">OptiLux</a>. All rights reserved. Precision Ophthalmic Engineering.</p>
+    </div>
   </div>
+</footer>
 
-  <!-- ═══ SECTION 1: HERO ═══ -->
-  <section class="page-hero">
-    <div class="page-hero-bg">
-      <div
-        style="position:absolute;inset:0;background:radial-gradient(circle at 70% 40%,rgba(16,185,129,0.18) 0%,transparent 55%)">
-      </div>
-    </div>
-    <div class="container page-hero-content">
-      <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span
-          style="color:rgba(255,255,255,0.7)">Contact</span></nav>
-      <h1 class="page-hero-title">Get in <span style="color:var(--cyan)">Touch</span></h1>
-      <p class="page-hero-desc">We'd love to hear from you. Book an eye test, ask a question, or find your nearest
-        store.</p>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 2: CONTACT FORM + INFO ═══ -->
-  <section class="section bg-primary">
-    <div class="container">
-      <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:var(--space-16);align-items:flex-start">
-
-        <!-- Contact Form -->
-        <div class="reveal-left">
-          <span class="section-label">Send a Message</span>
-          <h2 class="section-title" style="text-align:left;margin-bottom:var(--space-6)">We'll Reply Within <span>24
-              Hours</span></h2>
-          <form data-form="contact" novalidate>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="ct-fname">First Name *</label>
-                <div class="input-icon-wrap">
-                  <span class="input-icon">👤</span>
-                  <input type="text" id="ct-fname" class="form-input" placeholder="First name"
-                    data-validate="required" />
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="ct-lname">Last Name *</label>
-                <input type="text" id="ct-lname" class="form-input" placeholder="Last name" data-validate="required" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="ct-email">Email Address *</label>
-                <div class="input-icon-wrap">
-                  <span class="input-icon">✉</span>
-                  <input type="email" id="ct-email" class="form-input" placeholder="you@email.com"
-                    data-validate="required,email" />
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="ct-phone">Phone Number</label>
-                <div class="input-icon-wrap">
-                  <span class="input-icon">📱</span>
-                  <input type="tel" id="ct-phone" class="form-input" placeholder="+91 98765 43210" />
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="ct-subject">Subject *</label>
-              <select id="ct-subject" class="form-select" data-validate="required">
-                <option value="">Select a topic...</option>
-                <option value="booking">Book Eye Test</option>
-                <option value="frames">Frame Enquiry</option>
-                <option value="lenses">Lens Enquiry</option>
-                <option value="repair">Repair / Adjustment</option>
-                <option value="prescription">Prescription Query</option>
-                <option value="corporate">Corporate Package</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="ct-store">Preferred Store</label>
-              <select id="ct-store" class="form-select">
-                <option value="">Any store</option>
-                <option value="koramangala">Koramangala</option>
-                <option value="indiranagar">Indiranagar</option>
-                <option value="whitefield">Whitefield</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="ct-message">Message *</label>
-              <textarea id="ct-message" class="form-textarea" placeholder="Tell us how we can help you..."
-                data-validate="required"></textarea>
-            </div>
-            <div class="form-group">
-              <label class="checkbox-wrap">
-                <input type="checkbox" id="ct-newsletter" />
-                <span class="checkbox-label">Subscribe to our newsletter for eye care tips and exclusive offers</span>
-              </label>
-            </div>
-            <button type="submit" class="btn btn-primary btn-lg w-full" style="justify-content:center">Send Message
-              ✉</button>
-          </form>
-        </div>
-
-        <!-- Info Sidebar -->
-        <div class="reveal-right">
-          <span class="section-label">Contact Details</span>
-          <h3
-            style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-6)">
-            We're Always <span style="color:var(--sapphire)">Here for You</span></h3>
-
-          <div style="display:flex;flex-direction:column;gap:var(--space-4);margin-bottom:var(--space-8)">
-            <div
-              style="display:flex;align-items:flex-start;gap:var(--space-4);padding:var(--space-4);background:var(--bg-tertiary);border-radius:var(--radius-lg)">
-              <div
-                style="width:44px;height:44px;border-radius:var(--radius-md);background:rgba(37,99,235,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">
-                📞</div>
-              <div>
-                <p
-                  style="font-size:var(--text-xs);font-weight:700;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">
-                  Phone</p>
-                <a href="tel:+919876543210"
-                  style="font-size:var(--text-base);font-weight:700;color:var(--text-primary)">+91 98765 43210</a><br>
-                <a href="tel:+918012345678" style="font-size:var(--text-sm);color:var(--text-muted)">+91 80123 45678</a>
-              </div>
-            </div>
-            <div
-              style="display:flex;align-items:flex-start;gap:var(--space-4);padding:var(--space-4);background:var(--bg-tertiary);border-radius:var(--radius-lg)">
-              <div
-                style="width:44px;height:44px;border-radius:var(--radius-md);background:rgba(6,182,212,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">
-                ✉</div>
-              <div>
-                <p
-                  style="font-size:var(--text-xs);font-weight:700;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">
-                  Email</p>
-                <a href="mailto:hello@optilux.in"
-                  style="font-size:var(--text-base);font-weight:700;color:var(--sapphire)">hello@optilux.in</a><br>
-                <a href="mailto:appointments@optilux.in"
-                  style="font-size:var(--text-sm);color:var(--text-muted)">appointments@optilux.in</a>
-              </div>
-            </div>
-            <div
-              style="display:flex;align-items:flex-start;gap:var(--space-4);padding:var(--space-4);background:var(--bg-tertiary);border-radius:var(--radius-lg)">
-              <div
-                style="width:44px;height:44px;border-radius:var(--radius-md);background:rgba(16,185,129,0.1);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0">
-                ⏰</div>
-              <div>
-                <p
-                  style="font-size:var(--text-xs);font-weight:700;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">
-                  Hours</p>
-                <p style="font-size:var(--text-sm);color:var(--text-primary)">Mon–Sat: 9:30 AM – 8:30 PM</p>
-                <p style="font-size:var(--text-sm);color:var(--text-primary)">Sunday: 10:00 AM – 6:00 PM</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Social Links -->
-          <h4 style="font-family:var(--font-display);margin-bottom:var(--space-4)">Follow Us</h4>
-          <div style="display:flex;flex-wrap:wrap;gap:var(--space-3)">
-            <a href="#"
-              style="display:flex;align-items:center;gap:var(--space-2);padding:0.5rem 1rem;border:1.5px solid var(--border-color);border-radius:var(--radius-md);font-size:var(--text-sm);font-weight:600;color:var(--text-primary);background:var(--bg-secondary);transition:var(--transition-fast)"
-              onmouseenter="this.style.borderColor='var(--sapphire)';this.style.color='var(--sapphire)'"
-              onmouseleave="this.style.borderColor='var(--border-color)';this.style.color='var(--text-primary)'">📸
-              Instagram</a>
-            <a href="#"
-              style="display:flex;align-items:center;gap:var(--space-2);padding:0.5rem 1rem;border:1.5px solid var(--border-color);border-radius:var(--radius-md);font-size:var(--text-sm);font-weight:600;color:var(--text-primary);background:var(--bg-secondary);transition:var(--transition-fast)"
-              onmouseenter="this.style.borderColor='var(--sapphire)';this.style.color='var(--sapphire)'"
-              onmouseleave="this.style.borderColor='var(--border-color)';this.style.color='var(--text-primary)'">📘
-              Facebook</a>
-            <a href="#"
-              style="display:flex;align-items:center;gap:var(--space-2);padding:0.5rem 1rem;border:1.5px solid var(--border-color);border-radius:var(--radius-md);font-size:var(--text-sm);font-weight:600;color:var(--text-primary);background:var(--bg-secondary);transition:var(--transition-fast)"
-              onmouseenter="this.style.borderColor='var(--sapphire)';this.style.color='var(--sapphire)'"
-              onmouseleave="this.style.borderColor='var(--border-color)';this.style.color='var(--text-primary)'">🐦
-              Twitter</a>
-          </div>
-
-          <!-- WhatsApp CTA -->
-          <div
-            style="margin-top:var(--space-6);background:linear-gradient(135deg,#25D366,#128C7E);border-radius:var(--radius-xl);padding:var(--space-5);color:#fff;text-align:center">
-            <div style="font-size:2rem;margin-bottom:var(--space-2)">💬</div>
-            <h4 style="color:#fff;margin-bottom:var(--space-2)">WhatsApp Us</h4>
-            <p style="font-size:var(--text-sm);opacity:0.85;margin-bottom:var(--space-4)">Quick answers within minutes
-              during store hours</p>
-            <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="btn btn-white btn-sm"
-              style="justify-content:center;display:flex">Message Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 3: STORE LOCATIONS ═══ -->
-  <section class="section bg-secondary" id="locations">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Visit Us</span>
-        <h2 class="section-title reveal">Our <span>Store</span> Locations</h2>
-      </div>
-      <div class="grid grid-3 gap-6" style="margin-bottom:var(--space-10)">
-        <div class="location-card reveal">
-          <div class="location-icon">🏪</div>
-          <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:var(--space-2)">Koramangala <span
-              class="badge badge-blue" style="margin-left:var(--space-2)">Flagship</span></h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--space-3)">42, MG Road,
-            Koramangala, Bangalore — 560095</p>
-          <div style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-4)">
-            <div style="margin-bottom:4px">📞 +91 98765 43210</div>
-            <div style="margin-bottom:4px">✉ koramangala@optilux.in</div>
-            <div>⏰ Mon–Sat: 9:30AM–8:30PM | Sun: 10AM–6PM</div>
-          </div>
-          <div style="display:flex;gap:var(--space-2)">
-            <span class="badge badge-green">● Open Now</span>
-            <a href="#" class="btn btn-secondary btn-sm">Get Directions</a>
-          </div>
-        </div>
-        <div class="location-card reveal stagger-2">
-          <div class="location-icon">✨</div>
-          <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:var(--space-2)">Indiranagar <span
-              class="badge badge-cyan" style="margin-left:var(--space-2)">Boutique</span></h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--space-3)">12, 100 Feet
-            Road, Indiranagar, Bangalore — 560038</p>
-          <div style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-4)">
-            <div style="margin-bottom:4px">📞 +91 80123 45678</div>
-            <div style="margin-bottom:4px">✉ indiranagar@optilux.in</div>
-            <div>⏰ Mon–Sat: 10AM–8PM | Sun: 10AM–6PM</div>
-          </div>
-          <div style="display:flex;gap:var(--space-2)">
-            <span class="badge badge-green">● Open Now</span>
-            <a href="#" class="btn btn-secondary btn-sm">Get Directions</a>
-          </div>
-        </div>
-        <div class="location-card reveal stagger-3">
-          <div class="location-icon">🌿</div>
-          <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:var(--space-2)">Whitefield <span
-              class="badge badge-green" style="margin-left:var(--space-2)">Tech-Forward</span></h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--space-3)">78, ITPL Main
-            Road, Whitefield, Bangalore — 560066</p>
-          <div style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-4)">
-            <div style="margin-bottom:4px">📞 +91 80234 56789</div>
-            <div style="margin-bottom:4px">✉ whitefield@optilux.in</div>
-            <div>⏰ Mon–Sat: 10AM–8PM | Sun: Closed</div>
-          </div>
-          <div style="display:flex;gap:var(--space-2)">
-            <span class="badge badge-amber">● Closes 8PM</span>
-            <a href="#" class="btn btn-secondary btn-sm">Get Directions</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Map -->
-      <div class="map-wrapper reveal-scale">
-        <iframe
-          src="https://www.openstreetmap.org/export/embed.html?bbox=77.5733%2C12.9242%2C77.6333%2C12.9642&layer=mapnik"
-          height="420" title="OptiLux Bangalore store locations" loading="lazy"></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 4: FAQ MINI ═══ -->
-  <section class="section bg-primary">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Quick Answers</span>
-        <h2 class="section-title reveal" style="font-size:var(--text-3xl)">Common <span>Questions</span></h2>
-      </div>
-      <div style="max-width:700px;margin-inline:auto">
-        <div class="faq-item reveal"><button class="faq-question">What's the fastest way to book an eye test? <span
-              class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">The fastest way is to use the booking form on our homepage or contact page.
-              You can also WhatsApp us at +91 98765 43210 for instant confirmation.</div>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-2"><button class="faq-question">Can I walk in without an appointment? <span
-              class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Yes! Walk-ins are welcome during store hours. However, to guarantee your
-              preferred time slot, we recommend booking in advance — especially for weekends and holidays.</div>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-3"><button class="faq-question">Do you offer home delivery for glasses?
-            <span class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Yes, we offer home delivery across Bangalore for completed glasses orders.
-              Delivery is free for orders above ₹3,000 and takes 1–2 business days after your glasses are ready.</div>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-4"><button class="faq-question">Is there parking at your stores? <span
-              class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Yes, all three stores have dedicated parking available. The Koramangala
-              flagship also has a valet service on weekends. All stores are accessible by Metro as well.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 5: SOCIAL + EMERGENCY ═══ -->
-  <section class="section-sm bg-secondary">
-    <div class="container">
-      <div class="grid grid-2 gap-8">
-        <div class="card-glass reveal" style="padding:var(--space-8)">
-          <h3 style="font-family:var(--font-display);margin-bottom:var(--space-4)">📱 Follow Our <span
-              style="color:var(--sapphire)">Social</span></h3>
-          <p style="font-size:var(--text-sm);margin-bottom:var(--space-5)">Stay up to date with new arrivals, style
-            tips, and exclusive promotions.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:var(--space-3)">
-            <a href="#" class="social-icon"
-              style="width:auto;padding:0 var(--space-4);gap:var(--space-2);display:flex;border-radius:var(--radius-md);height:40px;color:var(--text-secondary)">📸
-              @optilux_in</a>
-            <a href="#" class="social-icon"
-              style="width:auto;padding:0 var(--space-4);gap:var(--space-2);display:flex;border-radius:var(--radius-md);height:40px;color:var(--text-secondary)">📘
-              OptiLux India</a>
-            <a href="#" class="social-icon"
-              style="width:auto;padding:0 var(--space-4);gap:var(--space-2);display:flex;border-radius:var(--radius-md);height:40px;color:var(--text-secondary)">🐦
-              @optilux</a>
-          </div>
-        </div>
-        <div class="card-glass reveal stagger-2"
-          style="padding:var(--space-8);background:rgba(244,63,94,0.05);border-color:rgba(244,63,94,0.15)">
-          <h3 style="font-family:var(--font-display);margin-bottom:var(--space-4)">🚨 Eye Emergency?</h3>
-          <p style="font-size:var(--text-sm);margin-bottom:var(--space-4)">Sudden vision loss, painful red eye, or
-            object in eye? Contact us immediately or go to the nearest emergency ophthalmic clinic.</p>
-          <a href="tel:+919876543210" class="btn btn-primary">📞 Emergency Line</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 6: TRUST BADGES ═══ -->
-  <section class="section-sm bg-primary">
-    <div class="container">
-      <div class="grid grid-4 gap-4">
-        <div
-          style="text-align:center;padding:var(--space-5);background:var(--bg-tertiary);border-radius:var(--radius-lg)">
-          <div style="font-size:2rem;margin-bottom:var(--space-2)">🔒</div>
-          <p style="font-size:var(--text-xs);font-weight:700;color:var(--text-primary)">Secure Booking</p>
-          <p style="font-size:var(--text-xs);color:var(--text-muted)">SSL Encrypted</p>
-        </div>
-        <div
-          style="text-align:center;padding:var(--space-5);background:var(--bg-tertiary);border-radius:var(--radius-lg)">
-          <div style="font-size:2rem;margin-bottom:var(--space-2)">⭐</div>
-          <p style="font-size:var(--text-xs);font-weight:700;color:var(--text-primary)">4.9★ Google</p>
-          <p style="font-size:var(--text-xs);color:var(--text-muted)">2,400+ reviews</p>
-        </div>
-        <div
-          style="text-align:center;padding:var(--space-5);background:var(--bg-tertiary);border-radius:var(--radius-lg)">
-          <div style="font-size:2rem;margin-bottom:var(--space-2)">💯</div>
-          <p style="font-size:var(--text-xs);font-weight:700;color:var(--text-primary)">30-Day Guarantee</p>
-          <p style="font-size:var(--text-xs);color:var(--text-muted)">No questions asked</p>
-        </div>
-        <div
-          style="text-align:center;padding:var(--space-5);background:var(--bg-tertiary);border-radius:var(--radius-lg)">
-          <div style="font-size:2rem;margin-bottom:var(--space-2)">🏆</div>
-          <p style="font-size:var(--text-xs);font-weight:700;color:var(--text-primary)">Award Winning</p>
-          <p style="font-size:var(--text-xs);color:var(--text-muted)">IOA Excellence 2023</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 7: FOOTER ═══ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-main">
-        <div class="footer-brand"><a href="index.html" class="nav-logo"
-            style="margin-bottom:var(--space-4);display:inline-flex">
-            <div class="nav-logo-icon">👓</div>
-            <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Premium
-                Eyewear</span></div>
-          </a>
-          <p>Premium eyewear &amp; expert eye care since 2008.</p>
-          <div class="footer-contact-item"><span class="footer-contact-icon">📞</span> +91 98765 43210</div>
-          <div class="footer-socials" style="margin-top:var(--space-4)"><a href="#" class="social-icon">f</a><a href="#"
-              class="social-icon">ig</a><a href="#" class="social-icon">tw</a></div>
-        </div>
-        <div class="footer-col">
-          <h4>Pages</h4>
-          <ul class="footer-links">
-            <li><a href="index.html" class="footer-link">→ Home</a></li>
-            <li><a href="about.html" class="footer-link">→ About</a></li>
-            <li><a href="services.html" class="footer-link">→ Services</a></li>
-            <li><a href="gallery.html" class="footer-link">→ Gallery</a></li>
-            <li><a href="blog.html" class="footer-link">→ Blog</a></li>
-            <li><a href="contact.html" class="footer-link">→ Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul class="footer-links">
-            <li><a href="services.html" class="footer-link">→ Eye Test</a></li>
-            <li><a href="services.html" class="footer-link">→ Lens Guide</a></li>
-            <li><a href="services.html" class="footer-link">→ Kids Eyewear</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Newsletter</h4>
-          <form class="footer-newsletter" data-form="newsletter"><input type="email" placeholder="Your email" /><button
-              type="submit">→</button></form>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 <a href="index.html">OptiLux</a>. All rights reserved.</p>
-        <div class="footer-bottom-links"><a href="privacy-policy.html">Privacy Policy</a><a
-            href="terms.html">Terms</a><a href="sitemap.html">Sitemap</a></div>
-      </div>
-    </div>
-  </footer>
-
-  <button class="back-to-top">↑</button>
-  <script src="assets/js/main.js"></script>
+<button class="back-to-top">↑</button>
+<script src="assets/js/main.js"></script>
 </body>
-
 </html>

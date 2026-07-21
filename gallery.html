@@ -1,445 +1,253 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery — OptiLux Eyewear Collection</title>
-  <meta name="description"
-    content="Browse the OptiLux eyewear gallery — premium frames, sunglasses, kids collection, and our flagship store interiors." />
+  <title>Gallery Showcase — OptiLux Eyewear Atelier</title>
+  <meta name="description" content="Explore the OptiLux gallery — bespoke frames, luxury sunglasses, paediatric eyewear, and flagship optical store interiors." />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
-
 <body>
-  <div id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-logo">Opti<span>Lux</span></div>
-      <div class="preloader-bar">
-        <div class="preloader-bar-fill"></div>
+<div id="preloader"><div class="preloader-inner"><div class="preloader-logo">Opti<span>Lux</span></div><div class="preloader-bar"><div class="preloader-bar-fill"></div></div><div class="preloader-dots"><div class="preloader-dot"></div><div class="preloader-dot"></div><div class="preloader-dot"></div></div></div></div>
+<div id="page-progress"></div>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/><path d="M2 12h0.5"/><path d="M21.5 12h0.5"/></svg>
       </div>
-      <div class="preloader-dots">
-        <div class="preloader-dot"></div>
-        <div class="preloader-dot"></div>
-        <div class="preloader-dot"></div>
+      <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Precision Eyewear</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+      <li><a href="blog.html" class="nav-link">Blog</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" data-theme-toggle><span class="icon-moon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="icon-sun" style="display:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></span></button>
+      <button class="nav-icon-btn" data-rtl-toggle>RTL</button>
+      <a href="contact.html" class="btn btn-primary btn-sm">Book Eye Test</a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="index.html" class="mobile-nav-link">Home</a>
+  <a href="services.html" class="mobile-nav-link">Services</a>
+  <a href="about.html" class="mobile-nav-link">About</a>
+  <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+  <a href="blog.html" class="mobile-nav-link">Blog</a>
+  <a href="contact.html" class="mobile-nav-link">Contact</a>
+</div>
+
+<!-- ═══ SECTION 1: HERO ═══ -->
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(18,16,15,0.92) 0%, rgba(18,16,15,0.7) 100%)"></div>
+  </div>
+  <div class="container page-hero-content">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span style="color:rgba(255,255,255,0.7)">Gallery Showcase</span></nav>
+    <h1 class="page-hero-title">Eyewear <span style="color:var(--cyan)">Showcase</span></h1>
+    <p class="page-hero-desc">Explore 2,500+ handcrafted spectacles, designer sunglasses, and custom optical fitting galleries.</p>
+  </div>
+</section>
+
+<!-- ═══ SECTION 2: FILTER + GALLERY ═══ -->
+<section class="section bg-primary">
+  <div class="container">
+    <!-- Filter Navigation -->
+    <div class="filter-nav reveal">
+      <button class="filter-btn active" data-filter="all">All Atelier Collections</button>
+      <button class="filter-btn" data-filter="frames">Titanium Frames</button>
+      <button class="filter-btn" data-filter="sunglasses">Polarized Sunglasses</button>
+      <button class="filter-btn" data-filter="kids">Paediatric Eyewear</button>
+      <button class="filter-btn" data-filter="reading">Reading Lenses</button>
+      <button class="filter-btn" data-filter="store">Optical Studios</button>
+    </div>
+
+    <!-- Masonry Gallery with Real High-Res Photography -->
+    <div class="gallery-grid" id="gallery-grid">
+
+      <!-- Item 1 -->
+      <div class="gallery-item reveal" data-category="frames" data-lightbox="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1200&q=80" data-alt="Titanium Aviator Pro Frame">
+        <div style="height:260px;overflow:hidden;position:relative">
+          <img src="assets/images/prod_aviator.png" alt="Titanium Aviator Pro" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="gallery-item-overlay">
+          <div style="text-align:center;color:#fff">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <p style="font-size:var(--text-sm);font-weight:700">Titanium Aviator Pro</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="gallery-item reveal stagger-2" data-category="sunglasses" data-lightbox="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=1200&q=80" data-alt="Polarized UV400 Elite Sunglasses">
+        <div style="height:220px;overflow:hidden;position:relative">
+          <img src="assets/images/prod_sunglasses.png" alt="Polarized UV400 Elite" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="gallery-item-overlay">
+          <div style="text-align:center;color:#fff">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <p style="font-size:var(--text-sm);font-weight:700">Polarized UV400 Elite</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="gallery-item reveal stagger-3" data-category="kids" data-lightbox="https://images.unsplash.com/photo-1508296695146-257a814070b4?auto=format&fit=crop&w=1200&q=80" data-alt="FlexiFrame Junior">
+        <div style="height:280px;overflow:hidden;position:relative">
+          <img src="assets/images/prod_kids.png" alt="FlexiFrame Junior" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="gallery-item-overlay">
+          <div style="text-align:center;color:#fff">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <p style="font-size:var(--text-sm);font-weight:700">FlexiFrame Junior</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="gallery-item reveal" data-category="frames" data-lightbox="https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=1200&q=80" data-alt="Gold Rimless Oval">
+        <div style="height:240px;overflow:hidden;position:relative">
+          <img src="assets/images/prod_classic.png" alt="Gold Rimless Oval" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="gallery-item-overlay">
+          <div style="text-align:center;color:#fff">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <p style="font-size:var(--text-sm);font-weight:700">Gold Rimless Oval</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="gallery-item reveal stagger-2" data-category="reading" data-lightbox="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&w=1200&q=80" data-alt="Executive Half-Rim Reading Lenses">
+        <div style="height:230px;overflow:hidden;position:relative">
+          <img src="assets/images/prod_reading.png" alt="Executive Half-Rim" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="gallery-item-overlay">
+          <div style="text-align:center;color:#fff">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <p style="font-size:var(--text-sm);font-weight:700">Executive Half-Rim</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="gallery-item reveal stagger-3" data-category="store" data-lightbox="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1200&q=80" data-alt="Koramangala Optical Studio Interior">
+        <div style="height:270px;overflow:hidden;position:relative">
+          <img src="https://images.unsplash.com/photo-1562280963-8a547594084e?auto=format&fit=crop&w=800&q=80" alt="Koramangala Studio Interior" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="gallery-item-overlay">
+          <div style="text-align:center;color:#fff">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <p style="font-size:var(--text-sm);font-weight:700">Koramangala Studio Interior</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 7 -->
+      <div class="gallery-item reveal" data-category="sunglasses" data-lightbox="https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&w=1200&q=80" data-alt="Cat-Eye Fashion Luxe">
+        <div style="height:250px;overflow:hidden;position:relative">
+          <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80" alt="Cat-Eye Fashion Luxe" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="gallery-item-overlay">
+          <div style="text-align:center;color:#fff">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <p style="font-size:var(--text-sm);font-weight:700">Cat-Eye Fashion Luxe</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 8 -->
+      <div class="gallery-item reveal stagger-2" data-category="store" data-lightbox="https://images.unsplash.com/photo-1582142306909-195724d33ffc?auto=format&fit=crop&w=1200&q=80" data-alt="Optometry Diagnostic Suite">
+        <div style="height:230px;overflow:hidden;position:relative">
+          <img src="https://images.unsplash.com/photo-1582142306909-195724d33ffc?auto=format&fit=crop&w=800&q=80" alt="Optometry Diagnostic Suite" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="gallery-item-overlay">
+          <div style="text-align:center;color:#fff">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <p style="font-size:var(--text-sm);font-weight:700">Optometry Diagnostic Suite</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 3: STORE AMBIANCE ═══ -->
+<section class="section bg-secondary">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Spatial Design</span>
+      <h2 class="section-title reveal">The <span>Atelier Experience</span></h2>
+      <p class="section-subtitle reveal stagger-2">Designed for private frame consultations and clinical vision precision.</p>
+    </div>
+    <div class="grid grid-3 gap-6">
+      <div class="card-glass reveal" style="padding:0;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1542385151-efd9000785a0?auto=format&fit=crop&w=800&q=80" alt="Koramangala Flagship" style="width:100%;height:220px;object-fit:cover" />
+        <div style="padding:var(--space-6)">
+          <h4 style="font-family:var(--font-display);margin-bottom:var(--space-2)">Koramangala Flagship</h4>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Featuring our full 3D OCT retinal diagnostic clinic and master lens laboratory.</p>
+        </div>
+      </div>
+      <div class="card-glass reveal stagger-2" style="padding:0;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80" alt="Indiranagar Studio" style="width:100%;height:220px;object-fit:cover" />
+        <div style="padding:var(--space-6)">
+          <h4 style="font-family:var(--font-display);margin-bottom:var(--space-2)">Indiranagar Atelier</h4>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Specialist titanium frame styling lounge and private contact lens fitting suite.</p>
+        </div>
+      </div>
+      <div class="card-glass reveal stagger-3" style="padding:0;overflow:hidden">
+        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=800&q=80" alt="Whitefield Studio" style="width:100%;height:220px;object-fit:cover" />
+        <div style="padding:var(--space-6)">
+          <h4 style="font-family:var(--font-display);margin-bottom:var(--space-2)">Whitefield Studio</h4>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Modern optical showroom with same-day lens surfacing and paediatric care.</p>
+        </div>
       </div>
     </div>
   </div>
-  <div id="page-progress"></div>
+</section>
 
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <a href="index.html" class="nav-logo">
-        <div class="nav-logo-icon">👓</div>
-        <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Premium Eyewear</span>
-        </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="services.html" class="nav-link">Services</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
-        <li><a href="blog.html" class="nav-link">Blog</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="nav-icon-btn" data-theme-toggle><span class="icon-moon">🌙</span><span class="icon-sun"
-            style="display:none">☀️</span></button>
-        <button class="nav-icon-btn" data-rtl-toggle>RTL</button>
-        <a href="contact.html" class="btn btn-primary btn-sm">Book Eye Test</a>
-        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-      </div>
+<!-- ═══ SECTION 4: STATS BAR ═══ -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal"><div class="stat-number"><span data-counter data-target="2500" data-suffix="+">2,500+</span></div><div class="stat-label">Bespoke Designs</div></div>
+      <div class="stat-item reveal stagger-2"><div class="stat-number"><span data-counter data-target="40" data-suffix="+">40+</span></div><div class="stat-label">Designer Brands</div></div>
+      <div class="stat-item reveal stagger-3"><div class="stat-number"><span data-counter data-target="15000" data-suffix="+">15,000+</span></div><div class="stat-label">Patients Served</div></div>
+      <div class="stat-item reveal stagger-4"><div class="stat-number"><span data-counter data-target="100" data-suffix="%">100%</span></div><div class="stat-label">Authentic Guarantee</div></div>
     </div>
-  </nav>
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html" class="mobile-nav-link">🏠 Home</a>
-    <a href="services.html" class="mobile-nav-link">⚕ Services</a>
-    <a href="about.html" class="mobile-nav-link">💡 About</a>
-    <a href="gallery.html" class="mobile-nav-link">🖼 Gallery</a>
-    <a href="blog.html" class="mobile-nav-link">📰 Blog</a>
-    <a href="contact.html" class="mobile-nav-link">📞 Contact</a>
   </div>
+</section>
 
-  <!-- ═══ SECTION 1: HERO ═══ -->
-  <section class="page-hero">
-    <div class="page-hero-bg">
-      <div
-        style="position:absolute;inset:0;background:radial-gradient(circle at 50% 60%,rgba(6,182,212,0.2) 0%,transparent 55%)">
+<!-- ═══ SECTION 5: FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="margin-bottom:var(--space-4);display:inline-flex">
+          <div class="nav-logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/><path d="M2 12h0.5"/><path d="M21.5 12h0.5"/></svg>
+          </div>
+          <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Precision Eyewear</span></div>
+        </a>
+        <p>Providing precision optical consultations, bespoke titanium frames, and digital lens surfacing since 2008.</p>
       </div>
     </div>
-    <div class="container page-hero-content">
-      <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span
-          style="color:rgba(255,255,255,0.7)">Gallery</span></nav>
-      <h1 class="page-hero-title">Eyewear <span style="color:var(--cyan)">Collection</span></h1>
-      <p class="page-hero-desc">2,500+ premium frames, sunglasses, and kids' eyewear — each crafted for beauty, comfort,
-        and visual precision.</p>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <a href="index.html">OptiLux</a>. All rights reserved. Precision Ophthalmic Engineering.</p>
     </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- ═══ SECTION 2: FILTER + GALLERY ═══ -->
-  <section class="section bg-primary">
-    <div class="container">
-      <!-- Filter Navigation -->
-      <div class="filter-nav reveal">
-        <button class="filter-btn active" data-filter="all">All Collections</button>
-        <button class="filter-btn" data-filter="frames">Designer Frames</button>
-        <button class="filter-btn" data-filter="sunglasses">Sunglasses</button>
-        <button class="filter-btn" data-filter="kids">Kids Collection</button>
-        <button class="filter-btn" data-filter="reading">Reading Glasses</button>
-        <button class="filter-btn" data-filter="store">Store Interiors</button>
-      </div>
-
-      <!-- Masonry Gallery -->
-      <div class="gallery-grid" id="gallery-grid">
-
-        <!-- Frames -->
-        <div class="gallery-item reveal" data-category="frames"
-          data-lightbox="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Crect fill='%231E3A5F'/%3E%3Ctext y='300' x='300' text-anchor='middle' dominant-baseline='middle' font-size='120'%3E👓%3C/text%3E%3C/svg%3E"
-          data-alt="Titanium Aviator Frames">
-          <div
-            style="background:linear-gradient(135deg,#1E3A5F,#2563EB20);padding:var(--space-8);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:220px;border-radius:var(--radius-lg)">
-            <div style="font-size:4rem;margin-bottom:var(--space-3)">👓</div>
-            <p style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);font-weight:600;text-align:center">Titanium
-              Aviator Pro</p>
-          </div>
-          <div class="gallery-item-overlay">
-            <div class="gallery-zoom">🔍</div>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal stagger-2" data-category="sunglasses"
-          data-lightbox="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='400'%3E%3Crect fill='%230c2340'/%3E%3Ctext y='200' x='300' text-anchor='middle' dominant-baseline='middle' font-size='120'%3E🕶%3C/text%3E%3C/svg%3E"
-          data-alt="Polarized Sunglasses">
-          <div
-            style="background:linear-gradient(135deg,#0c2340,#06B6D420);padding:var(--space-8);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px;border-radius:var(--radius-lg)">
-            <div style="font-size:4rem;margin-bottom:var(--space-3)">🕶</div>
-            <p style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);font-weight:600;text-align:center">Polarized
-              UV400 Elite</p>
-          </div>
-          <div class="gallery-item-overlay">
-            <div class="gallery-zoom">🔍</div>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal stagger-3" data-category="kids"
-          data-lightbox="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='500'%3E%3Crect fill='%230e2a1a'/%3E%3Ctext y='250' x='300' text-anchor='middle' dominant-baseline='middle' font-size='120'%3E🌈%3C/text%3E%3C/svg%3E"
-          data-alt="Kids Rainbow Frames">
-          <div
-            style="background:linear-gradient(135deg,#0e2a1a,#10B98120);padding:var(--space-8);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:260px;border-radius:var(--radius-lg)">
-            <div style="font-size:4rem;margin-bottom:var(--space-3)">🌈</div>
-            <p style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);font-weight:600;text-align:center">FlexiFrame
-              Rainbow</p>
-          </div>
-          <div class="gallery-item-overlay">
-            <div class="gallery-zoom">🔍</div>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="frames" data-lightbox="" data-alt="Gold Oval Frames">
-          <div
-            style="background:linear-gradient(135deg,#2d1b69,#8B5CF620);padding:var(--space-8);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;border-radius:var(--radius-lg)">
-            <div style="font-size:4rem;margin-bottom:var(--space-3)">💎</div>
-            <p style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);font-weight:600;text-align:center">Gold
-              Rimless Oval</p>
-          </div>
-          <div class="gallery-item-overlay">
-            <div class="gallery-zoom">🔍</div>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal stagger-2" data-category="reading" data-lightbox="" data-alt="Reading Glasses">
-          <div
-            style="background:linear-gradient(135deg,#0a1f30,#F59E0B20);padding:var(--space-8);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px;border-radius:var(--radius-lg)">
-            <div style="font-size:4rem;margin-bottom:var(--space-3)">📖</div>
-            <p style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);font-weight:600;text-align:center">Executive
-              Half-Rim</p>
-          </div>
-          <div class="gallery-item-overlay">
-            <div class="gallery-zoom">🔍</div>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal stagger-3" data-category="store" data-lightbox="" data-alt="Store Interior">
-          <div
-            style="background:linear-gradient(135deg,#0F172A,#2563EB10);padding:var(--space-8);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:240px;border-radius:var(--radius-lg)">
-            <div style="font-size:4rem;margin-bottom:var(--space-3)">🏪</div>
-            <p style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);font-weight:600;text-align:center">
-              Koramangala Store</p>
-          </div>
-          <div class="gallery-item-overlay">
-            <div class="gallery-zoom">🔍</div>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="sunglasses" data-lightbox="" data-alt="Sports Sunglasses">
-          <div
-            style="background:linear-gradient(135deg,#0a1020,#F43F5E20);padding:var(--space-8);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;border-radius:var(--radius-lg)">
-            <div style="font-size:4rem;margin-bottom:var(--space-3)">😎</div>
-            <p style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);font-weight:600;text-align:center">Wrap Sport
-              Shield</p>
-          </div>
-          <div class="gallery-item-overlay">
-            <div class="gallery-zoom">🔍</div>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal stagger-2" data-category="frames" data-lightbox=""
-          data-alt="Slim Rectangular Frames">
-          <div
-            style="background:linear-gradient(135deg,#1a0a2e,#9333EA20);padding:var(--space-8);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px;border-radius:var(--radius-lg)">
-            <div style="font-size:4rem;margin-bottom:var(--space-3)">🔷</div>
-            <p style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);font-weight:600;text-align:center">Slim
-              Rectangular</p>
-          </div>
-          <div class="gallery-item-overlay">
-            <div class="gallery-zoom">🔍</div>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal stagger-3" data-category="kids" data-lightbox="" data-alt="Kids Sport Frames">
-          <div
-            style="background:linear-gradient(135deg,#0a2010,#06B6D420);padding:var(--space-8);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:220px;border-radius:var(--radius-lg)">
-            <div style="font-size:4rem;margin-bottom:var(--space-3)">🏃</div>
-            <p style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);font-weight:600;text-align:center">Kids Sport
-              Frame</p>
-          </div>
-          <div class="gallery-item-overlay">
-            <div class="gallery-zoom">🔍</div>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal" data-category="store" data-lightbox="" data-alt="Consulting Room">
-          <div
-            style="background:linear-gradient(135deg,#0F172A,#10B98110);padding:var(--space-8);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;border-radius:var(--radius-lg)">
-            <div style="font-size:4rem;margin-bottom:var(--space-3)">🏥</div>
-            <p style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);font-weight:600;text-align:center">Consulting
-              Suite</p>
-          </div>
-          <div class="gallery-item-overlay">
-            <div class="gallery-zoom">🔍</div>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal stagger-2" data-category="sunglasses" data-lightbox=""
-          data-alt="Vintage Sunglasses">
-          <div
-            style="background:linear-gradient(135deg,#1a0a10,#F59E0B20);padding:var(--space-8);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:180px;border-radius:var(--radius-lg)">
-            <div style="font-size:4rem;margin-bottom:var(--space-3)">🌅</div>
-            <p style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);font-weight:600;text-align:center">Vintage
-              Retro Round</p>
-          </div>
-          <div class="gallery-item-overlay">
-            <div class="gallery-zoom">🔍</div>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal stagger-3" data-category="frames" data-lightbox=""
-          data-alt="Luxury Tortoise Frames">
-          <div
-            style="background:linear-gradient(135deg,#1a1000,#D9770620);padding:var(--space-8);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:240px;border-radius:var(--radius-lg)">
-            <div style="font-size:4rem;margin-bottom:var(--space-3)">🐢</div>
-            <p style="color:rgba(255,255,255,0.7);font-size:var(--text-sm);font-weight:600;text-align:center">
-              Tortoiseshell Classic</p>
-          </div>
-          <div class="gallery-item-overlay">
-            <div class="gallery-zoom">🔍</div>
-          </div>
-        </div>
-
-      </div>
-
-      <div style="text-align:center;margin-top:var(--space-10)">
-        <button class="btn btn-secondary btn-lg"
-          onclick="window.OptiLuxToast?.show('Loading more items... 🖼', 'info')">Load More →</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 3: STORE AMBIANCE ═══ -->
-  <section class="section bg-secondary">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Our Stores</span>
-        <h2 class="section-title reveal">A Premium <span>In-Store</span> Experience</h2>
-        <p class="section-subtitle reveal stagger-2">Designed to impress. Every OptiLux store is thoughtfully crafted to
-          give you a luxurious, stress-free eyewear experience.</p>
-      </div>
-      <div class="grid grid-3 gap-6">
-        <div class="card reveal" style="overflow:hidden;text-align:center;padding:var(--space-8)">
-          <div style="font-size:3.5rem;margin-bottom:var(--space-4)">🏪</div>
-          <h4 style="margin-bottom:var(--space-2)">Koramangala Flagship</h4>
-          <p style="font-size:var(--text-sm)">4,000 sq ft premium space with 2,500+ frames on display, consultation
-            rooms, and in-house lab.</p>
-          <span class="badge badge-blue" style="margin-top:var(--space-3)">Flagship Store</span>
-        </div>
-        <div class="card reveal stagger-2" style="overflow:hidden;text-align:center;padding:var(--space-8)">
-          <div style="font-size:3.5rem;margin-bottom:var(--space-4)">✨</div>
-          <h4 style="margin-bottom:var(--space-2)">Indiranagar Boutique</h4>
-          <p style="font-size:var(--text-sm)">Curated luxury boutique featuring designer brands in an intimate,
-            personalised setting.</p>
-          <span class="badge badge-cyan" style="margin-top:var(--space-3)">Designer Boutique</span>
-        </div>
-        <div class="card reveal stagger-3" style="overflow:hidden;text-align:center;padding:var(--space-8)">
-          <div style="font-size:3.5rem;margin-bottom:var(--space-4)">🌿</div>
-          <h4 style="margin-bottom:var(--space-2)">Whitefield Urban</h4>
-          <p style="font-size:var(--text-sm)">Modern tech-forward store with digital displays, virtual try-on kiosks,
-            and children's play area.</p>
-          <span class="badge badge-green" style="margin-top:var(--space-3)">Tech-Forward</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 4: STATS ═══ -->
-  <section class="stats-bar">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item reveal">
-          <div class="stat-number"><span data-counter data-target="2500" data-suffix="+">2,500+</span></div>
-          <div class="stat-label">Frame Styles</div>
-        </div>
-        <div class="stat-item reveal stagger-2">
-          <div class="stat-number"><span data-counter data-target="40" data-suffix="+">40+</span></div>
-          <div class="stat-label">Premium Brands</div>
-        </div>
-        <div class="stat-item reveal stagger-3">
-          <div class="stat-number"><span data-counter data-target="15000" data-suffix="+">15,000+</span></div>
-          <div class="stat-label">Happy Customers</div>
-        </div>
-        <div class="stat-item reveal stagger-4">
-          <div class="stat-number"><span data-counter data-target="3" data-suffix="">3</span></div>
-          <div class="stat-label">Premium Stores</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 5: VISIT US CTA ═══ -->
-  <section
-    style="padding-block:var(--section-py);background:linear-gradient(135deg,var(--sapphire-dark),var(--graphite-deep));text-align:center;position:relative;overflow:hidden">
-    <div
-      style="position:absolute;inset:0;background:radial-gradient(circle at 30% 70%,rgba(6,182,212,0.15) 0%,transparent 55%)">
-    </div>
-    <div class="container" style="position:relative;z-index:5">
-      <span class="section-label" style="color:var(--cyan)">Visit Us Today</span>
-      <h2
-        style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:900;color:#fff;margin-bottom:var(--space-4)">
-        See it All <span style="color:var(--cyan)">In Person</span></h2>
-      <p style="color:rgba(255,255,255,0.7);max-width:480px;margin-inline:auto;margin-bottom:var(--space-8)">Our frames
-        look even better in person. Come visit any of our three Bangalore stores — no appointment needed for browsing.
-      </p>
-      <div class="btn-group" style="justify-content:center">
-        <a href="contact.html" class="btn btn-white btn-xl">📍 Find a Store</a>
-        <a href="contact.html" class="btn btn-glass btn-xl" style="color:#fff;border-color:rgba(255,255,255,0.25)">📅
-          Book Appointment</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 6: TESTIMONIALS MINI ═══ -->
-  <section class="section bg-primary">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Customer Stories</span>
-        <h2 class="section-title reveal">Loved by <span>Thousands</span></h2>
-      </div>
-      <div class="grid grid-3 gap-5">
-        <div class="testimonial-card reveal">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"The frame selection is absolutely incredible. I found the perfect titanium frames
-            after years of searching. The styling session was fantastic!"</p>
-          <div class="testimonial-author">
-            <div
-              style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--sapphire),var(--cyan));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">
-              A</div>
-            <div>
-              <div class="testimonial-name">Anjali Menon</div>
-              <div class="testimonial-role">Graphic Designer, Bangalore</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal stagger-2">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"My daughter needed her first glasses and the whole experience was wonderful. The
-            kids' frame selection is the best in Bangalore, and the optometrist was brilliant with her."</p>
-          <div class="testimonial-author">
-            <div
-              style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--emerald),#059669);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">
-              S</div>
-            <div>
-              <div class="testimonial-name">Sudarshan Rao</div>
-              <div class="testimonial-role">Parent, Bangalore</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal stagger-3">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">"I bought the most beautiful sunglasses — polarized, UV400, and they look
-            incredible. The store itself feels like a luxury boutique. Worth every rupee."</p>
-          <div class="testimonial-author">
-            <div
-              style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--amber),#D97706);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">
-              N</div>
-            <div>
-              <div class="testimonial-name">Neha Joshi</div>
-              <div class="testimonial-role">Fashion Blogger, Bangalore</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 7: FOOTER ═══ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-main">
-        <div class="footer-brand"><a href="index.html" class="nav-logo"
-            style="margin-bottom:var(--space-4);display:inline-flex">
-            <div class="nav-logo-icon">👓</div>
-            <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Premium
-                Eyewear</span></div>
-          </a>
-          <p>Premium eyewear &amp; expert eye care since 2008.</p>
-          <div class="footer-socials" style="margin-top:var(--space-4)"><a href="#" class="social-icon">f</a><a href="#"
-              class="social-icon">ig</a><a href="#" class="social-icon">tw</a></div>
-        </div>
-        <div class="footer-col">
-          <h4>Pages</h4>
-          <ul class="footer-links">
-            <li><a href="index.html" class="footer-link">→ Home</a></li>
-            <li><a href="about.html" class="footer-link">→ About</a></li>
-            <li><a href="services.html" class="footer-link">→ Services</a></li>
-            <li><a href="gallery.html" class="footer-link">→ Gallery</a></li>
-            <li><a href="blog.html" class="footer-link">→ Blog</a></li>
-            <li><a href="contact.html" class="footer-link">→ Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Collections</h4>
-          <ul class="footer-links">
-            <li><a href="gallery.html" class="footer-link">→ Designer Frames</a></li>
-            <li><a href="gallery.html" class="footer-link">→ Sunglasses</a></li>
-            <li><a href="gallery.html" class="footer-link">→ Kids Collection</a></li>
-            <li><a href="gallery.html" class="footer-link">→ Reading Glasses</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Newsletter</h4>
-          <form class="footer-newsletter" data-form="newsletter"><input type="email" placeholder="Your email" /><button
-              type="submit">→</button></form>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 <a href="index.html">OptiLux</a>. All rights reserved.</p>
-        <div class="footer-bottom-links"><a href="privacy-policy.html">Privacy Policy</a><a
-            href="terms.html">Terms</a><a href="sitemap.html">Sitemap</a></div>
-      </div>
-    </div>
-  </footer>
-
-  <button class="back-to-top">↑</button>
-  <script src="assets/js/main.js"></script>
+<button class="back-to-top">↑</button>
+<script src="assets/js/main.js"></script>
 </body>
-
 </html>

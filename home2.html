@@ -1,29 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home 2 — OptiLux Premium Eyewear</title>
-  <meta name="description"
-    content="OptiLux Home 2 — Alternate homepage layout with split-screen hero, services grid, and eye test booking." />
+  <meta name="description" content="OptiLux Home 2 — Alternate split-screen homepage layout with curated bespoke frames, diagnostics clinic showcase, and eye test booking." />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
-
 <body>
 
   <div id="preloader">
     <div class="preloader-inner">
       <div class="preloader-logo">Opti<span>Lux</span></div>
-      <div class="preloader-bar">
-        <div class="preloader-bar-fill"></div>
-      </div>
-      <div class="preloader-dots">
-        <div class="preloader-dot"></div>
-        <div class="preloader-dot"></div>
-        <div class="preloader-dot"></div>
-      </div>
+      <div class="preloader-bar"><div class="preloader-bar-fill"></div></div>
+      <div class="preloader-dots"><div class="preloader-dot"></div><div class="preloader-dot"></div><div class="preloader-dot"></div></div>
     </div>
   </div>
   <div id="page-progress"></div>
@@ -32,10 +23,12 @@
   <nav class="navbar">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">
-        <div class="nav-logo-icon">👓</div>
+        <div class="nav-logo-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/><path d="M2 12h0.5"/><path d="M21.5 12h0.5"/></svg>
+        </div>
         <div>
           <span class="nav-logo-text">Opti<span>Lux</span></span>
-          <span class="nav-logo-sub">Premium Eyewear</span>
+          <span class="nav-logo-sub">Precision Eyewear</span>
         </div>
       </a>
       <ul class="nav-links">
@@ -48,89 +41,80 @@
         <li><a href="contact.html" class="nav-link">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="nav-icon-btn" data-theme-toggle><span class="icon-moon">🌙</span><span class="icon-sun"
-            style="display:none">☀️</span></button>
+        <button class="nav-icon-btn" data-theme-toggle>
+          <span class="icon-moon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span>
+          <span class="icon-sun" style="display:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></span>
+        </button>
         <button class="nav-icon-btn" data-rtl-toggle>RTL</button>
-        <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
+        <a href="contact.html" class="btn btn-primary btn-sm">Book Eye Test</a>
         <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
       </div>
     </div>
   </nav>
   <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html" class="mobile-nav-link">🏠 Home</a>
-    <a href="services.html" class="mobile-nav-link">⚕ Services</a>
-    <a href="about.html" class="mobile-nav-link">💡 About</a>
-    <a href="gallery.html" class="mobile-nav-link">🖼 Gallery</a>
-    <a href="blog.html" class="mobile-nav-link">📰 Blog</a>
-    <a href="contact.html" class="mobile-nav-link">📞 Contact</a>
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="services.html" class="mobile-nav-link">Services</a>
+    <a href="about.html" class="mobile-nav-link">About</a>
+    <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+    <a href="blog.html" class="mobile-nav-link">Blog</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
   </div>
 
   <!-- ═══ SECTION 1: SPLIT-SCREEN HERO ═══ -->
-  <section style="min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:var(--nav-height)"
-    aria-label="Hero">
+  <section style="min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:var(--nav-height)" aria-label="Hero">
     <!-- Left: Content -->
-    <div
-      style="background:linear-gradient(135deg,var(--graphite-deep),var(--graphite));display:flex;align-items:center;padding:var(--space-16) clamp(2rem,5vw,4rem)">
+    <div style="background:linear-gradient(135deg,var(--graphite-deep),var(--graphite));display:flex;align-items:center;padding:var(--space-16) clamp(2rem,5vw,4rem)">
       <div>
-        <div
-          style="display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(37,99,235,0.2);border:1px solid rgba(37,99,235,0.35);border-radius:var(--radius-full);padding:0.4rem 1rem;margin-bottom:var(--space-6)">
-          <span
-            style="width:8px;height:8px;border-radius:50%;background:var(--emerald);animation:pulse 2s infinite"></span>
-          <span
-            style="font-size:var(--text-xs);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--cyan-light)">Now
-            Open 9AM–8PM</span>
+        <div style="display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(227,221,211,0.1);border:1px solid rgba(227,221,211,0.2);border-radius:var(--radius-full);padding:0.4rem 1rem;margin-bottom:var(--space-6)">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--emerald-light);animation:pulse 2s infinite"></span>
+          <span style="font-size:var(--text-xs);font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ice-white)">Now Open 9:30AM–8:30PM</span>
         </div>
-        <h1
-          style="font-family:var(--font-display);font-size:var(--text-6xl);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-0.04em;margin-bottom:var(--space-5)">
-          Your Vision.<br>Our <span style="color:var(--cyan)">Expertise</span>.<br>Perfect Clarity.
+        <h1 style="font-family:var(--font-display);font-size:var(--text-6xl);font-weight:900;color:#fff;line-height:1.05;letter-spacing:-0.04em;margin-bottom:var(--space-5)">
+          Your Vision.<br>Our <span style="color:var(--cyan)">Precision</span>.<br>Bespoke Style.
         </h1>
-        <p
-          style="font-size:var(--text-md);color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:var(--space-8);max-width:420px">
-          18+ years of trusted eye care. Premium frames, expert optometrists, and technology-led vision solutions for
-          the whole family.
+        <p style="font-size:var(--text-md);color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:var(--space-8);max-width:420px">
+          18+ years of trusted clinical eye care. Handcrafted spectacles, specialized lenses, and advanced diagnostics clinics.
         </p>
         <div class="btn-group">
-          <a href="contact.html" class="btn btn-primary btn-xl">📅 Book Eye Test</a>
-          <a href="services.html" class="btn btn-glass btn-xl"
-            style="color:#fff;border-color:rgba(255,255,255,0.25)">Our Services</a>
+          <a href="contact.html" class="btn btn-primary btn-xl">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+            Book Eye Test
+          </a>
+          <a href="services.html" class="btn btn-glass btn-xl" style="color:#fff;border-color:rgba(255,255,255,0.25)">Clinical Services</a>
         </div>
         <!-- Trust badges -->
         <div style="display:flex;gap:var(--space-6);margin-top:var(--space-10)">
           <div style="text-align:center">
-            <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;color:var(--cyan)">
-              15K+</div>
-            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.5)">Customers</div>
+            <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;color:var(--cyan)">15K+</div>
+            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.5)">Patients Served</div>
           </div>
           <div style="width:1px;background:rgba(255,255,255,0.1)"></div>
           <div style="text-align:center">
-            <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;color:var(--cyan)">
-              2500+</div>
-            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.5)">Frame Styles</div>
+            <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;color:var(--cyan)">2500+</div>
+            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.5)">Bespoke Frames</div>
           </div>
           <div style="width:1px;background:rgba(255,255,255,0.1)"></div>
           <div style="text-align:center">
-            <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;color:var(--cyan)">
-              18yr</div>
-            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.5)">Experience</div>
+            <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;color:var(--cyan)">18yr</div>
+            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.5)">Optometry Care</div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Right: Visual mosaic -->
-    <div
-      style="background:var(--bg-tertiary);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:4px;min-height:100vh">
-      <div
-        style="background:linear-gradient(135deg,#1E3A5F,#0c2340);display:flex;align-items:center;justify-content:center;font-size:5rem">
-        👓</div>
-      <div
-        style="background:linear-gradient(135deg,#0c2340,#0a1628);display:flex;align-items:center;justify-content:center;font-size:5rem">
-        🕶</div>
-      <div
-        style="background:linear-gradient(135deg,#0a1628,#0e2a1a);display:flex;align-items:center;justify-content:center;font-size:5rem">
-        🌈</div>
-      <div
-        style="background:linear-gradient(135deg,#0e2a1a,#1E293B);display:flex;align-items:center;justify-content:center;font-size:5rem">
-        💎</div>
+    <!-- Right: Visual mosaic of 4 real optical images -->
+    <div style="background:var(--bg-tertiary);display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:4px;min-height:100vh">
+      <div style="overflow:hidden;position:relative">
+        <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80" alt="Bespoke luxury frame fitting" style="width:100%;height:100%;object-fit:cover" />
+      </div>
+      <div style="overflow:hidden;position:relative">
+        <img src="assets/images/prod_sunglasses.png" alt="Polarized UV400 sunglasses" style="width:100%;height:100%;object-fit:cover" />
+      </div>
+      <div style="overflow:hidden;position:relative">
+        <img src="assets/images/prod_kids.png" alt="Paediatric frame range" style="width:100%;height:100%;object-fit:cover" />
+      </div>
+      <div style="overflow:hidden;position:relative">
+        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Advanced diagnostic clinic room" style="width:100%;height:100%;object-fit:cover" />
+      </div>
     </div>
   </section>
 
@@ -138,47 +122,57 @@
   <section class="section bg-primary" aria-label="Services">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">What We Offer</span>
-        <h2 class="section-title reveal">Expert <span>Eye Care</span> Services</h2>
-        <p class="section-subtitle reveal stagger-2">Comprehensive vision solutions from a team of qualified
-          optometrists and eyewear specialists.</p>
+        <span class="section-label">Diagnostic Solutions</span>
+        <h2 class="section-title reveal">Clinical <span>Ocular</span> Care</h2>
+        <p class="section-subtitle reveal stagger-2">Bespoke lenses, precision fit centration, and visual diagnostics clinic options.</p>
       </div>
       <div class="grid grid-3 gap-6">
         <div class="service-card reveal">
-          <div class="service-icon"><span>👁</span></div>
-          <h3>Comprehensive Eye Test</h3>
-          <p>Full refraction, glaucoma check, retinal screening, and prescription — all in one 45-minute appointment.
-          </p>
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Comprehensive Refraction</h3>
+          <p>Ocular diagnostics, non-contact tonometry, corneal topography, and digital prescription fitting.</p>
           <a href="services.html" class="service-link">Learn more →</a>
         </div>
         <div class="service-card reveal stagger-2">
-          <div class="service-icon"><span>🔬</span></div>
-          <h3>Advanced Lens Fitting</h3>
-          <p>Computer-aided measurements for perfect centration and optimal visual comfort with any prescription.</p>
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </div>
+          <h3>Lens Centration Fitting</h3>
+          <p>Advanced digital measurement aligning optical center height precisely to visual axes for zero distortion progressive corridors.</p>
           <a href="services.html" class="service-link">Learn more →</a>
         </div>
         <div class="service-card reveal stagger-3">
-          <div class="service-icon"><span>🕶</span></div>
-          <h3>Designer Frame Styling</h3>
-          <p>Personal styling consultation with 2,500+ frames from luxury brands to find your perfect look.</p>
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/></svg>
+          </div>
+          <h3>Bespoke Styling Suite</h3>
+          <p>Facial shape assessment and Japanese titanium frame consultations with master opticians.</p>
           <a href="gallery.html" class="service-link">View Gallery →</a>
         </div>
         <div class="service-card reveal stagger-2">
-          <div class="service-icon"><span>💧</span></div>
-          <h3>Contact Lenses</h3>
-          <p>Daily, monthly, and specialty contact lenses with professional fitting and aftercare advice.</p>
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 14a4 4 0 1 1 4-4 4 4 0 0 1-4 4z"/></svg>
+          </div>
+          <h3>Contact Lens Clinic</h3>
+          <p>Custom multi-focal and astigmatic toric contact lens curvature mapping and dry-eye tests.</p>
           <a href="services.html" class="service-link">Learn more →</a>
         </div>
         <div class="service-card reveal stagger-3">
-          <div class="service-icon"><span>🌈</span></div>
-          <h3>Kids Eye Health</h3>
-          <p>Specialised paediatric eye exams and a curated selection of durable, colourful kids' frames.</p>
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Paediatric Eye Health</h3>
+          <p>Early childhood myopia management, visual acuity screening, and impact-resistant frames.</p>
           <a href="services.html" class="service-link">Learn more →</a>
         </div>
         <div class="service-card reveal stagger-4">
-          <div class="service-icon"><span>🔧</span></div>
-          <h3>Frame Repairs & Adjustments</h3>
-          <p>Same-day frame repairs, adjustments, and nose pad replacements. Walk-in welcome.</p>
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3>Atelier Repairs</h3>
+          <p>Same-day ultrasonic deep frame restoration, nose pad replacement, and lens re-glazing.</p>
           <a href="contact.html" class="service-link">Book visit →</a>
         </div>
       </div>
@@ -186,30 +180,29 @@
   </section>
 
   <!-- ═══ SECTION 3: EYE TEST CTA GLASS ═══ -->
-  <section style="padding-block:var(--section-py);background:var(--bg-secondary)" aria-label="Book eye test">
+  <section style="padding-block:var(--space-12);background:var(--bg-secondary)" aria-label="Book eye test">
     <div class="container">
-      <div
-        style="background:linear-gradient(135deg,var(--sapphire),var(--graphite-deep));border-radius:var(--radius-2xl);padding:clamp(2rem,5vw,4rem);position:relative;overflow:hidden"
-        class="reveal-scale">
-        <div
-          style="position:absolute;top:-30%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(6,182,212,0.2) 0%,transparent 70%);pointer-events:none">
+      <div style="background:linear-gradient(135deg,var(--sapphire),var(--sapphire-dark));border-radius:var(--radius-2xl);padding:clamp(2rem,5vw,4rem);position:relative;overflow:hidden" class="reveal-scale">
+        <div style="position:absolute;inset:0;overflow:hidden">
+          <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1200&q=80" alt="Optician room" style="width:100%;height:100%;object-fit:cover;opacity:0.12" />
         </div>
-        <div
-          style="display:grid;grid-template-columns:1fr auto;gap:var(--space-8);align-items:center;position:relative;z-index:5">
+        <div style="position:absolute;top:-30%;right:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(150,124,86,0.2) 0%,transparent 70%);pointer-events:none">
+        </div>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:var(--space-8);align-items:center;position:relative;z-index:5">
           <div>
-            <span
-              style="display:inline-block;background:rgba(255,255,255,0.1);color:var(--cyan-light);font-size:var(--text-xs);font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.35rem 0.9rem;border-radius:var(--radius-full);margin-bottom:var(--space-4)">Free
-              Consultation</span>
-            <h2
-              style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:900;color:#fff;margin-bottom:var(--space-3)">
-              Ready for Clearer Vision?</h2>
-            <p style="color:rgba(255,255,255,0.7);font-size:var(--text-md);max-width:520px">Book your comprehensive eye
-              examination today. Walk out with a perfect prescription and the frames that suit you best.</p>
+            <span style="display:inline-block;background:rgba(255,255,255,0.1);color:var(--silver);font-size:var(--text-xs);font-weight:700;letter-spacing:0.15em;text-transform:uppercase;padding:0.35rem 0.9rem;border-radius:var(--radius-full);margin-bottom:var(--space-4)">Clinical Consultation</span>
+            <h2 style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:900;color:#fff;margin-bottom:var(--space-3)">Ready for Clearer Vision?</h2>
+            <p style="color:rgba(255,255,255,0.75);font-size:var(--text-md);max-width:520px">Reserve your diagnostic consultation today. Walk out with a customized lens prescription and bespoke frame fitting details.</p>
           </div>
           <div style="display:flex;flex-direction:column;gap:var(--space-3);flex-shrink:0">
-            <a href="contact.html" class="btn btn-white btn-xl">📅 Book Now</a>
-            <a href="tel:+919876543210" class="btn btn-glass btn-xl"
-              style="color:#fff;border-color:rgba(255,255,255,0.25);justify-content:center">📞 Call Us</a>
+            <a href="contact.html" class="btn btn-white btn-xl">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/></svg>
+              Book Test
+            </a>
+            <a href="tel:+919876543210" class="btn btn-glass btn-xl" style="color:#fff;border-color:rgba(255,255,255,0.25);justify-content:center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call Direct
+            </a>
           </div>
         </div>
       </div>
@@ -220,322 +213,88 @@
   <section class="section bg-primary" aria-label="Product showcase">
     <div class="container">
       <div class="section-header-left" style="margin-bottom:var(--space-8)">
-        <span class="section-label">Trending Now</span>
-        <h2 class="section-title reveal" style="text-align:left">This <span>Season's</span> Bestsellers</h2>
+        <span class="section-label">Trending Bespoke Designs</span>
+        <h2 class="section-title reveal" style="text-align:left">Season's <span>Bestselling</span> Frames</h2>
       </div>
     </div>
-    <div
-      style="overflow-x:auto;padding-bottom:var(--space-4);scrollbar-width:thin;scrollbar-color:var(--sapphire) var(--bg-tertiary)">
+    <div style="overflow-x:auto;padding-bottom:var(--space-4);scrollbar-width:thin;scrollbar-color:var(--sapphire) var(--bg-tertiary)">
       <div style="display:flex;gap:var(--space-5);padding-inline:clamp(1rem,5vw,2rem);width:max-content">
-        <!-- Product items -->
-        <div
-          style="width:240px;flex-shrink:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;transition:var(--transition-spring)"
-          onmouseenter="this.style.transform='translateY(-8px)';this.style.boxShadow='var(--shadow-xl)'"
-          onmouseleave="this.style.transform='';this.style.boxShadow=''">
-          <div
-            style="height:180px;background:linear-gradient(135deg,#1E293B,#2563EB20);display:flex;align-items:center;justify-content:center;font-size:4rem">
-            👓</div>
+        
+        <!-- Product 1 -->
+        <div style="width:260px;flex-shrink:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;transition:var(--transition-spring)">
+          <div style="height:190px;position:relative;overflow:hidden">
+            <img src="assets/images/prod_aviator.png" alt="Titanium Frame" style="width:100%;height:100%;object-fit:cover" />
+          </div>
           <div style="padding:var(--space-4)">
-            <p
-              style="font-size:var(--text-xs);font-weight:700;color:var(--sapphire);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:var(--space-1)">
-              Frames</p>
-            <h4
-              style="font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--text-primary);margin-bottom:var(--space-2)">
-              Slim Rectangular</h4>
-            <p style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:800;color:var(--sapphire)">
-              ₹7,499</p>
+            <p style="font-size:var(--text-xs);font-weight:700;color:var(--cyan);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:var(--space-1)">Titanium Frames</p>
+            <h4 style="font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--text-primary);margin-bottom:var(--space-2)">Slim Rectangular</h4>
+            <p style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:800;color:var(--sapphire)">₹7,499</p>
           </div>
         </div>
-        <div
-          style="width:240px;flex-shrink:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;transition:var(--transition-spring)"
-          onmouseenter="this.style.transform='translateY(-8px)';this.style.boxShadow='var(--shadow-xl)'"
-          onmouseleave="this.style.transform='';this.style.boxShadow=''">
-          <div
-            style="height:180px;background:linear-gradient(135deg,#0c2340,#06B6D420);display:flex;align-items:center;justify-content:center;font-size:4rem">
-            🕶</div>
+
+        <!-- Product 2 -->
+        <div style="width:260px;flex-shrink:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;transition:var(--transition-spring)">
+          <div style="height:190px;position:relative;overflow:hidden">
+            <img src="assets/images/prod_sunglasses.png" alt="Sunglasses" style="width:100%;height:100%;object-fit:cover" />
+          </div>
           <div style="padding:var(--space-4)">
-            <p
-              style="font-size:var(--text-xs);font-weight:700;color:var(--cyan);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:var(--space-1)">
-              Sunglasses</p>
-            <h4
-              style="font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--text-primary);margin-bottom:var(--space-2)">
-              Classic Wayfarers</h4>
-            <p style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:800;color:var(--sapphire)">
-              ₹5,299</p>
+            <p style="font-size:var(--text-xs);font-weight:700;color:var(--cyan);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:var(--space-1)">Sunglasses</p>
+            <h4 style="font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--text-primary);margin-bottom:var(--space-2)">Polarized Aviator</h4>
+            <p style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:800;color:var(--sapphire)">₹8,999</p>
           </div>
         </div>
-        <div
-          style="width:240px;flex-shrink:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;transition:var(--transition-spring)"
-          onmouseenter="this.style.transform='translateY(-8px)';this.style.boxShadow='var(--shadow-xl)'"
-          onmouseleave="this.style.transform='';this.style.boxShadow=''">
-          <div
-            style="height:180px;background:linear-gradient(135deg,#0a1628,#10B98120);display:flex;align-items:center;justify-content:center;font-size:4rem">
-            🌈</div>
+
+        <!-- Product 3 -->
+        <div style="width:260px;flex-shrink:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;transition:var(--transition-spring)">
+          <div style="height:190px;position:relative;overflow:hidden">
+            <img src="assets/images/prod_classic.png" alt="Classic Frames" style="width:100%;height:100%;object-fit:cover" />
+          </div>
           <div style="padding:var(--space-4)">
-            <p
-              style="font-size:var(--text-xs);font-weight:700;color:var(--emerald);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:var(--space-1)">
-              Kids</p>
-            <h4
-              style="font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--text-primary);margin-bottom:var(--space-2)">
-              Rainbow Round</h4>
-            <p style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:800;color:var(--sapphire)">
-              ₹2,999</p>
+            <p style="font-size:var(--text-xs);font-weight:700;color:var(--cyan);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:var(--space-1)">Classic Lenses</p>
+            <h4 style="font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--text-primary);margin-bottom:var(--space-2)">Gold Rimless Round</h4>
+            <p style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:800;color:var(--sapphire)">₹6,499</p>
           </div>
         </div>
-        <div
-          style="width:240px;flex-shrink:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;transition:var(--transition-spring)"
-          onmouseenter="this.style.transform='translateY(-8px)';this.style.boxShadow='var(--shadow-xl)'"
-          onmouseleave="this.style.transform='';this.style.boxShadow=''">
-          <div
-            style="height:180px;background:linear-gradient(135deg,#0e2a1a,#F59E0B20);display:flex;align-items:center;justify-content:center;font-size:4rem">
-            📖</div>
+
+        <!-- Product 4 -->
+        <div style="width:260px;flex-shrink:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;transition:var(--transition-spring)">
+          <div style="height:190px;position:relative;overflow:hidden">
+            <img src="assets/images/prod_reading.png" alt="Vintage Frames" style="width:100%;height:100%;object-fit:cover" />
+          </div>
           <div style="padding:var(--space-4)">
-            <p
-              style="font-size:var(--text-xs);font-weight:700;color:var(--amber);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:var(--space-1)">
-              Reading</p>
-            <h4
-              style="font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--text-primary);margin-bottom:var(--space-2)">
-              Executive Half-Rim</h4>
-            <p style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:800;color:var(--sapphire)">
-              ₹3,199</p>
+            <p style="font-size:var(--text-xs);font-weight:700;color:var(--cyan);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:var(--space-1)">Bespoke Acetate</p>
+            <h4 style="font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--text-primary);margin-bottom:var(--space-2)">Vintage Amber Horn</h4>
+            <p style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:800;color:var(--sapphire)">₹9,299</p>
           </div>
         </div>
-        <div
-          style="width:240px;flex-shrink:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;transition:var(--transition-spring)"
-          onmouseenter="this.style.transform='translateY(-8px)';this.style.boxShadow='var(--shadow-xl)'"
-          onmouseleave="this.style.transform='';this.style.boxShadow=''">
-          <div
-            style="height:180px;background:linear-gradient(135deg,#1E293B,#8B5CF620);display:flex;align-items:center;justify-content:center;font-size:4rem">
-            💎</div>
-          <div style="padding:var(--space-4)">
-            <p
-              style="font-size:var(--text-xs);font-weight:700;color:#8B5CF6;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:var(--space-1)">
-              Luxury</p>
-            <h4
-              style="font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--text-primary);margin-bottom:var(--space-2)">
-              Gold Rimless Oval</h4>
-            <p style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:800;color:var(--sapphire)">
-              ₹18,999</p>
-          </div>
-        </div>
-        <div
-          style="width:240px;flex-shrink:0;background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-xl);overflow:hidden;transition:var(--transition-spring)"
-          onmouseenter="this.style.transform='translateY(-8px)';this.style.boxShadow='var(--shadow-xl)'"
-          onmouseleave="this.style.transform='';this.style.boxShadow=''">
-          <div
-            style="height:180px;background:linear-gradient(135deg,#0F172A,#F43F5E20);display:flex;align-items:center;justify-content:center;font-size:4rem">
-            😎</div>
-          <div style="padding:var(--space-4)">
-            <p
-              style="font-size:var(--text-xs);font-weight:700;color:var(--rose);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:var(--space-1)">
-              Sports</p>
-            <h4
-              style="font-family:var(--font-display);font-size:var(--text-md);font-weight:700;color:var(--text-primary);margin-bottom:var(--space-2)">
-              Wrap Sport Shield</h4>
-            <p style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:800;color:var(--sapphire)">
-              ₹9,499</p>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ═══ SECTION 5: FAQ ═══ -->
-  <section class="section bg-secondary" id="faq" aria-label="FAQ">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Frequently Asked</span>
-        <h2 class="section-title reveal">Common <span>Questions</span> Answered</h2>
-        <p class="section-subtitle reveal stagger-2">Have more questions? Visit us in-store or send us a message
-          anytime.</p>
-      </div>
-      <div style="max-width:760px;margin-inline:auto">
-        <div class="faq-item reveal">
-          <button class="faq-question">How long does an eye test take? <span class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">A comprehensive eye test at OptiLux typically takes 30–45 minutes. This
-              includes the full refraction assessment, eye health check, glaucoma pressure test, and a discussion of
-              your results and options.</div>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-2">
-          <button class="faq-question">Do I need an appointment for an eye test? <span
-              class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">We strongly recommend booking an appointment online or by phone to ensure your
-              preferred time slot is available. However, we do accept walk-ins based on availability.</div>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-3">
-          <button class="faq-question">How often should I get my eyes tested? <span class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Adults should get a comprehensive eye test every 2 years. Children and those
-              with existing eye conditions should be tested annually. If you notice any sudden vision changes, book
-              immediately.</div>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-4">
-          <button class="faq-question">Do you offer same-day glasses? <span class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Yes! For standard single-vision prescriptions, we offer a same-day service.
-              Progressive and specialty lenses typically take 3–5 working days. Rush orders may attract a small premium.
-            </div>
-          </div>
-        </div>
-        <div class="faq-item reveal">
-          <button class="faq-question">What brands do you carry? <span class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">We carry over 40 premium brands including Ray-Ban, Oakley, Prada, Gucci, Tom
-              Ford, Persol, Silhouette, Lindberg, and many more. We also offer our exclusive house-brand collection at
-              competitive prices.</div>
-          </div>
-        </div>
-        <div class="faq-item reveal stagger-2">
-          <button class="faq-question">What is your returns policy? <span class="faq-icon">+</span></button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">We offer a 30-day satisfaction guarantee on all eyewear. If you're not
-              completely happy with your glasses, bring them back for a free adjustment or exchange. Prescription errors
-              are corrected at no cost.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 6: STORE LOCATIONS ═══ -->
-  <section class="section bg-primary" id="locations" aria-label="Store locations">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Find Us</span>
-        <h2 class="section-title reveal">Our <span>Store</span> Locations</h2>
-        <p class="section-subtitle reveal stagger-2">Visit any of our three premium stores for a personalised eyewear
-          experience.</p>
-      </div>
-      <div class="grid grid-3 gap-6" style="margin-bottom:var(--space-10)">
-        <div class="location-card reveal">
-          <div class="location-icon">📍</div>
-          <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:var(--space-2)">Koramangala</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--space-3)">42, MG Road,
-            Koramangala, Bangalore — 560095</p>
-          <p style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-4)">📞 +91 98765
-            43210<br>⏰ Mon–Sat: 9:30AM–8:30PM</p>
-          <span class="badge badge-green">● Open</span>
-        </div>
-        <div class="location-card reveal stagger-2">
-          <div class="location-icon">📍</div>
-          <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:var(--space-2)">Indiranagar</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--space-3)">12, 100 Feet
-            Road, Indiranagar, Bangalore — 560038</p>
-          <p style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-4)">📞 +91 80123
-            45678<br>⏰ Mon–Sat: 10AM–8PM</p>
-          <span class="badge badge-green">● Open</span>
-        </div>
-        <div class="location-card reveal stagger-3">
-          <div class="location-icon">📍</div>
-          <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:var(--space-2)">Whitefield</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--space-3)">78, ITPL Main
-            Road, Whitefield, Bangalore — 560066</p>
-          <p style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-4)">📞 +91 80234
-            56789<br>⏰ Mon–Sat: 10AM–8PM</p>
-          <span class="badge badge-amber">● Closing 8PM</span>
-        </div>
-      </div>
-      <div class="map-wrapper reveal">
-        <iframe
-          src="https://www.openstreetmap.org/export/embed.html?bbox=77.5933%2C12.9342%2C77.6133%2C12.9542&layer=mapnik"
-          height="380" title="OptiLux Koramangala store location" loading="lazy" aria-label="Store location map">
-        </iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 7: NEWSLETTER + FOOTER ═══ -->
-  <section
-    style="padding-block:var(--section-py);background:linear-gradient(135deg,var(--graphite),var(--graphite-deep))"
-    aria-label="Newsletter">
-    <div class="container">
-      <div style="max-width:600px;margin-inline:auto;text-align:center">
-        <span class="section-label" style="color:var(--cyan)">Stay Updated</span>
-        <h2
-          style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:900;color:#fff;margin-bottom:var(--space-4)">
-          Get Exclusive <span style="color:var(--cyan)">Offers</span> &amp; Eye Care Tips</h2>
-        <p style="color:rgba(255,255,255,0.6);margin-bottom:var(--space-8)">Join 8,000+ subscribers getting style
-          guides, eye health articles, and member-only discounts.</p>
-        <form data-form="newsletter" style="display:flex;gap:var(--space-3);max-width:480px;margin-inline:auto">
-          <div class="input-icon-wrap" style="flex:1">
-            <span class="input-icon">✉</span>
-            <input type="email" class="form-input" placeholder="Your email address"
-              style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);color:#fff;padding-left:2.8rem"
-              data-validate="required,email" />
-          </div>
-          <button type="submit" class="btn btn-primary">Subscribe</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-main">
         <div class="footer-brand">
           <a href="index.html" class="nav-logo" style="margin-bottom:var(--space-4);display:inline-flex">
-            <div class="nav-logo-icon">👓</div>
-            <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Premium
-                Eyewear</span></div>
+            <div class="nav-logo-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/><path d="M2 12h0.5"/><path d="M21.5 12h0.5"/></svg>
+            </div>
+            <div>
+              <span class="nav-logo-text">Opti<span>Lux</span></span>
+              <span class="nav-logo-sub">Precision Eyewear</span>
+            </div>
           </a>
-          <p>Your vision is our passion. Premium eyewear & expert eye care since 2008.</p>
-          <div class="footer-contact-item"><span class="footer-contact-icon">📍</span> 42, MG Road, Koramangala,
-            Bangalore</div>
-          <div class="footer-contact-item"><span class="footer-contact-icon">📞</span> +91 98765 43210</div>
-          <div class="footer-socials" style="margin-top:var(--space-5)">
-            <a href="#" class="social-icon">f</a><a href="#" class="social-icon">ig</a><a href="#"
-              class="social-icon">tw</a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Pages</h4>
-          <ul class="footer-links">
-            <li><a href="index.html" class="footer-link">→ Home</a></li>
-            <li><a href="home2.html" class="footer-link">→ Home 2</a></li>
-            <li><a href="about.html" class="footer-link">→ About</a></li>
-            <li><a href="services.html" class="footer-link">→ Services</a></li>
-            <li><a href="gallery.html" class="footer-link">→ Gallery</a></li>
-            <li><a href="contact.html" class="footer-link">→ Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Legal</h4>
-          <ul class="footer-links">
-            <li><a href="privacy-policy.html" class="footer-link">→ Privacy Policy</a></li>
-            <li><a href="terms.html" class="footer-link">→ Terms &amp; Conditions</a></li>
-            <li><a href="sitemap.html" class="footer-link">→ Sitemap</a></li>
-            <li><a href="404.html" class="footer-link">→ 404 Demo</a></li>
-            <li><a href="maintenance.html" class="footer-link">→ Maintenance</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Newsletter</h4>
-          <p style="font-size:var(--text-sm);color:rgba(255,255,255,0.5);margin-bottom:var(--space-3)">Exclusive offers
-            & eye health tips.</p>
-          <form class="footer-newsletter" data-form="newsletter">
-            <input type="email" placeholder="Your email" />
-            <button type="submit">→</button>
-          </form>
+          <p>Bespoke titanium frame fittings, advanced diagnostics clinics, and digital varifocal surfacing since 2008.</p>
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copy">© 2026 <a href="index.html">OptiLux</a>. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="terms.html">Terms</a>
-          <a href="sitemap.html">Sitemap</a>
-        </div>
+        <p class="footer-copy">© 2026 <a href="index.html">OptiLux</a>. All rights reserved. Precision Optical Engineering.</p>
       </div>
     </div>
   </footer>
 
-  <button class="back-to-top">↑</button>
   <script src="assets/js/main.js"></script>
 </body>
-
 </html>

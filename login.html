@@ -1,198 +1,130 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login — OptiLux Premium Eyewear</title>
-  <meta name="description"
-    content="Sign in to your OptiLux account — manage appointments, view prescriptions, and access exclusive member offers." />
+  <title>Login — OptiLux Patient Portal</title>
+  <meta name="description" content="Sign in to your OptiLux portal — manage consultations, access digital prescriptions, and view bespoke frame orders." />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
 </head>
-
 <body>
-  <div id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-logo">Opti<span>Lux</span></div>
-      <div class="preloader-bar">
-        <div class="preloader-bar-fill"></div>
-      </div>
-      <div class="preloader-dots">
-        <div class="preloader-dot"></div>
-        <div class="preloader-dot"></div>
-        <div class="preloader-dot"></div>
-      </div>
+<div id="preloader"><div class="preloader-inner"><div class="preloader-logo">Opti<span>Lux</span></div><div class="preloader-bar"><div class="preloader-bar-fill"></div></div><div class="preloader-dots"><div class="preloader-dot"></div><div class="preloader-dot"></div><div class="preloader-dot"></div></div></div></div>
+<div id="page-progress"></div>
+
+<!-- ═══ AUTH LAYOUT ═══ -->
+<div class="auth-layout">
+
+  <!-- Left: Brand Panel -->
+  <div class="auth-brand" style="background-image: url('https://images.unsplash.com/photo-1577803645773-f96470509666?auto=format&fit=crop&w=1200&q=80'); background-size: cover; background-position: center; position: relative;">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(18,16,15,0.92) 0%, rgba(18,16,15,0.8) 100%)"></div>
+
+    <!-- Top: Logo -->
+    <div style="position:relative;z-index:5">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/><path d="M2 12h0.5"/><path d="M21.5 12h0.5"/></svg>
+        </div>
+        <div>
+          <span class="nav-logo-text" style="color:#fff">Opti<span>Lux</span></span>
+          <span class="nav-logo-sub">Precision Eyewear</span>
+        </div>
+      </a>
     </div>
-  </div>
-  <div id="page-progress"></div>
 
-  <!-- ═══ AUTH LAYOUT ═══ -->
-  <div class="auth-layout">
+    <!-- Middle: Quote -->
+    <div style="position:relative;z-index:5;text-align:center">
+      <blockquote style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:700;color:#fff;line-height:1.4;margin-bottom:var(--space-4)">
+        "Precision vision is the cornerstone of life."
+      </blockquote>
+      <p style="color:rgba(255,255,255,0.65);font-size:var(--text-sm)">— Dr. Suresh Iyer, Founder</p>
 
-    <!-- Left: Brand Panel -->
-    <div class="auth-brand">
-      <!-- Background pattern -->
-      <div
-        style="position:absolute;top:10%;left:10%;width:300px;height:300px;border-radius:50%;border:1px dashed rgba(255,255,255,0.07);animation:spinSlow 30s linear infinite">
-      </div>
-      <div
-        style="position:absolute;bottom:20%;right:10%;width:200px;height:200px;border-radius:50%;border:1px dashed rgba(255,255,255,0.05);animation:spinSlow 20s linear infinite reverse">
-      </div>
-
-      <!-- Top: Logo -->
-      <div style="position:relative;z-index:5">
-        <a href="index.html" class="nav-logo">
-          <div class="nav-logo-icon">👓</div>
-          <div>
-            <span class="nav-logo-text" style="color:#fff">Opti<span>Lux</span></span>
-            <span class="nav-logo-sub">Premium Eyewear</span>
-          </div>
-        </a>
-      </div>
-
-      <!-- Middle: Quote & Visual -->
-      <div style="position:relative;z-index:5;text-align:center">
-        <div style="font-size:7rem;margin-bottom:var(--space-6);animation:float 5s ease-in-out infinite">👓</div>
-        <blockquote
-          style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:700;color:#fff;line-height:1.4;margin-bottom:var(--space-4)">
-          "Your vision is our commitment.<br>See the world perfectly."
-        </blockquote>
-        <p style="color:rgba(255,255,255,0.55);font-size:var(--text-sm)">— Dr. Suresh Iyer, Founder</p>
-
-        <!-- Stats -->
-        <div style="display:flex;justify-content:center;gap:var(--space-8);margin-top:var(--space-8)">
-          <div style="text-align:center">
-            <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;color:var(--cyan)">
-              15K+</div>
-            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.45)">Members</div>
-          </div>
-          <div style="width:1px;background:rgba(255,255,255,0.1)"></div>
-          <div style="text-align:center">
-            <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;color:var(--cyan)">
-              18yr</div>
-            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.45)">Experience</div>
-          </div>
-          <div style="width:1px;background:rgba(255,255,255,0.1)"></div>
-          <div style="text-align:center">
-            <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;color:var(--cyan)">
-              4.9★</div>
-            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.45)">Google Rating</div>
-          </div>
+      <!-- Stats -->
+      <div style="display:flex;justify-content:center;gap:var(--space-8);margin-top:var(--space-8)">
+        <div style="text-align:center">
+          <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;color:var(--cyan)">15K+</div>
+          <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.45)">Patients</div>
         </div>
-      </div>
-
-      <!-- Bottom: Benefits -->
-      <div style="position:relative;z-index:5">
-        <div style="display:flex;flex-direction:column;gap:var(--space-3)">
-          <div
-            style="display:flex;align-items:center;gap:var(--space-3);color:rgba(255,255,255,0.7);font-size:var(--text-sm)">
-            <span style="color:var(--emerald)">✓</span> Book eye tests online instantly
-          </div>
-          <div
-            style="display:flex;align-items:center;gap:var(--space-3);color:rgba(255,255,255,0.7);font-size:var(--text-sm)">
-            <span style="color:var(--emerald)">✓</span> Access your prescriptions anytime
-          </div>
-          <div
-            style="display:flex;align-items:center;gap:var(--space-3);color:rgba(255,255,255,0.7);font-size:var(--text-sm)">
-            <span style="color:var(--emerald)">✓</span> Exclusive member discounts &amp; offers
-          </div>
-          <div
-            style="display:flex;align-items:center;gap:var(--space-3);color:rgba(255,255,255,0.7);font-size:var(--text-sm)">
-            <span style="color:var(--emerald)">✓</span> Order history &amp; frame wishlist
-          </div>
-        </div>
-        <!-- Theme toggle -->
-        <div style="margin-top:var(--space-6);display:flex;align-items:center;gap:var(--space-3)">
-          <button class="nav-icon-btn" data-theme-toggle
-            style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.7)"><span
-              class="icon-moon">🌙</span><span class="icon-sun" style="display:none">☀️</span></button>
-          <button class="nav-icon-btn" data-rtl-toggle
-            style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.15);color:rgba(255,255,255,0.7);font-size:0.6rem;font-weight:700">RTL</button>
+        <div style="width:1px;background:rgba(255,255,255,0.1)"></div>
+        <div style="text-align:center">
+          <div style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:900;color:var(--cyan)">18yr</div>
+          <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.45)">Experience</div>
         </div>
       </div>
     </div>
 
-    <!-- Right: Login Form -->
-    <div class="auth-form-side">
-      <div class="auth-form-box">
-        <!-- Mobile logo -->
-        <a href="index.html"
-          style="display:inline-flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-8)">
-          <div class="nav-logo-icon" style="width:36px;height:36px;font-size:1rem">👓</div>
-          <span
-            style="font-family:var(--font-display);font-weight:800;font-size:var(--text-lg);color:var(--text-primary)">Opti<span
-              style="color:var(--sapphire)">Lux</span></span>
-        </a>
-
-        <h1 class="auth-title">Welcome back 👋</h1>
-        <p class="auth-subtitle">Sign in to your OptiLux account to manage appointments and prescriptions.</p>
-
-        <!-- Social Login -->
-        <div class="social-auth">
-          <button class="social-btn" onclick="window.OptiLuxToast?.show('Google sign-in coming soon!','info')">
-            <span style="font-size:1.1rem">G</span> Continue with Google
-          </button>
-          <button class="social-btn" onclick="window.OptiLuxToast?.show('Apple sign-in coming soon!','info')">
-            <span style="font-size:1.1rem">🍎</span> Continue with Apple
-          </button>
+    <!-- Bottom: Benefits -->
+    <div style="position:relative;z-index:5">
+      <div style="display:flex;flex-direction:column;gap:var(--space-3)">
+        <div style="display:flex;align-items:center;gap:var(--space-3);color:rgba(255,255,255,0.8);font-size:var(--text-sm)">
+          <span style="color:var(--emerald-light)">✓</span> Digital prescription history access
         </div>
-
-        <div class="divider-or">or sign in with email</div>
-
-        <!-- Email/Password Form -->
-        <form data-form="login" novalidate>
-          <div class="form-group">
-            <label class="form-label" for="login-email">Email Address</label>
-            <div class="input-icon-wrap">
-              <span class="input-icon">✉</span>
-              <input type="email" id="login-email" class="form-input" placeholder="your@email.com"
-                data-validate="required,email" autocomplete="email" />
-            </div>
-            <span class="form-error">Please enter a valid email</span>
-          </div>
-
-          <div class="form-group">
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-2)">
-              <label class="form-label" style="margin:0" for="login-password">Password</label>
-              <a href="#" style="font-size:var(--text-xs);color:var(--sapphire);font-weight:600">Forgot password?</a>
-            </div>
-            <div class="input-icon-wrap" style="position:relative">
-              <span class="input-icon">🔒</span>
-              <input type="password" id="login-password" class="form-input" placeholder="Your password"
-                data-validate="required" autocomplete="current-password" />
-              <button type="button" class="input-toggle" aria-label="Toggle password visibility">👁</button>
-            </div>
-            <span class="form-error">Password is required</span>
-          </div>
-
-          <div class="form-group" style="margin-bottom:var(--space-6)">
-            <label class="checkbox-wrap">
-              <input type="checkbox" id="remember-me" />
-              <span class="checkbox-label">Remember me on this device</span>
-            </label>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-lg w-full" style="justify-content:center">Sign In →</button>
-        </form>
-
-        <p style="text-align:center;margin-top:var(--space-6);font-size:var(--text-sm);color:var(--text-muted)">
-          Don't have an account? <a href="signup.html" style="color:var(--sapphire);font-weight:700">Create one free
-            →</a>
-        </p>
-
-        <!-- Back to site -->
-        <div
-          style="margin-top:var(--space-8);padding-top:var(--space-6);border-top:1px solid var(--border-color);text-align:center">
-          <a href="index.html"
-            style="font-size:var(--text-sm);color:var(--text-muted);display:inline-flex;align-items:center;gap:var(--space-2)">←
-            Back to OptiLux.in</a>
+        <div style="display:flex;align-items:center;gap:var(--space-3);color:rgba(255,255,255,0.8);font-size:var(--text-sm)">
+          <span style="color:var(--emerald-light)">✓</span> Instant optical diagnostic booking
         </div>
       </div>
     </div>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <!-- Right: Form Panel -->
+  <div class="auth-form-container">
+    <div class="auth-form-header">
+      <h2>Welcome Back</h2>
+      <p>Sign in to your OptiLux portal account</p>
+    </div>
+
+    <!-- Social OAuth Buttons -->
+    <div class="social-auth-btns">
+      <button type="button" class="btn-social" onclick="window.OptiLuxToast.show('Google login connected','info')">
+        Google
+      </button>
+      <button type="button" class="btn-social" onclick="window.OptiLuxToast.show('Apple ID login connected','info')">
+        Apple
+      </button>
+    </div>
+
+    <div class="auth-divider"><span>or sign in with email</span></div>
+
+    <form data-form="login" novalidate>
+      <div class="form-group">
+        <label class="form-label" for="login-email">Email Address</label>
+        <div class="input-icon-wrap">
+          <span class="input-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </span>
+          <input type="email" id="login-email" class="form-input" placeholder="you@domain.com" data-validate="required,email" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:var(--space-2)">
+          <label class="form-label" for="login-pw" style="margin-bottom:0">Password</label>
+          <a href="#" style="font-size:var(--text-xs);color:var(--sapphire);font-weight:600" onclick="window.OptiLuxToast.show('Password reset link sent to email','info');return false;">Forgot password?</a>
+        </div>
+        <div class="input-icon-wrap">
+          <span class="input-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </span>
+          <input type="password" id="login-pw" class="form-input" placeholder="••••••••" data-validate="required,minLength:6" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox-wrap">
+          <input type="checkbox" id="remember-me" checked />
+          <span class="checkbox-label">Keep me signed in on this device</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg w-full" style="justify-content:center">Sign In</button>
+    </form>
+
+    <div class="auth-footer-text">
+      Don't have an account? <a href="signup.html">Create free account</a>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/main.js"></script>
 </body>
-
 </html>

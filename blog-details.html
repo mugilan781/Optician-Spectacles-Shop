@@ -1,508 +1,116 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" data-theme="light">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Screen Time & Children's Vision — OptiLux Blog</title>
-  <meta name="description"
-    content="How increasing screen time is causing a myopia epidemic in children and what parents can do — by Dr. Suresh Iyer, OptiLux." />
+  <title>Screen Time &amp; Paediatric Vision — OptiLux Journal</title>
+  <meta name="description" content="Clinical review on digital screen time impact on childhood myopia and preventive optical protocols — by Dr. Suresh Iyer, OptiLux." />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
   <style>
-    .post-content {
-      max-width: 700px;
-      margin-inline: auto;
-    }
-
-    .post-content h2 {
-      font-size: var(--text-2xl);
-      margin: var(--space-8) 0 var(--space-4);
-      color: var(--text-primary);
-    }
-
-    .post-content h3 {
-      font-size: var(--text-xl);
-      margin: var(--space-6) 0 var(--space-3);
-    }
-
-    .post-content p {
-      margin-bottom: var(--space-5);
-      line-height: 1.85;
-    }
-
-    .post-content ul,
-    .post-content ol {
-      padding-left: var(--space-6);
-      margin-bottom: var(--space-5);
-    }
-
-    .post-content li {
-      margin-bottom: var(--space-2);
-      line-height: 1.8;
-      color: var(--text-secondary);
-    }
-
-    .post-content blockquote {
-      border-left: 4px solid var(--sapphire);
-      padding: var(--space-4) var(--space-6);
-      background: rgba(37, 99, 235, 0.05);
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      margin: var(--space-8) 0;
-    }
-
-    .post-content blockquote p {
-      margin-bottom: 0;
-      font-style: italic;
-      font-size: var(--text-lg);
-      color: var(--text-primary);
-    }
-
-    .post-content .tip-box {
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.2);
-      border-radius: var(--radius-lg);
-      padding: var(--space-5);
-      margin: var(--space-6) 0;
-    }
-
-    .post-content .tip-box h4 {
-      color: var(--emerald);
-      margin-bottom: var(--space-2);
-    }
+    .post-content { max-width: 700px; margin-inline: auto; }
+    .post-content h2 { font-size: var(--text-2xl); margin: var(--space-8) 0 var(--space-4); color: var(--text-primary); }
+    .post-content p { margin-bottom: var(--space-5); line-height: 1.85; }
+    .post-content ul { padding-left: var(--space-6); margin-bottom: var(--space-5); }
+    .post-content li { margin-bottom: var(--space-2); line-height: 1.8; color: var(--text-secondary); }
+    .post-content blockquote { border-left: 4px solid var(--sapphire); padding: var(--space-4) var(--space-6); background: rgba(30,53,47,0.05); border-radius: 0 var(--radius-md) var(--radius-md) 0; margin: var(--space-8) 0; }
+    .post-content blockquote p { margin-bottom: 0; font-style: italic; font-size: var(--text-lg); color: var(--text-primary); }
   </style>
 </head>
-
 <body>
-  <div id="preloader">
-    <div class="preloader-inner">
-      <div class="preloader-logo">Opti<span>Lux</span></div>
-      <div class="preloader-bar">
-        <div class="preloader-bar-fill"></div>
+<div id="preloader"><div class="preloader-inner"><div class="preloader-logo">Opti<span>Lux</span></div><div class="preloader-bar"><div class="preloader-bar-fill"></div></div><div class="preloader-dots"><div class="preloader-dot"></div><div class="preloader-dot"></div><div class="preloader-dot"></div></div></div></div>
+<div id="page-progress"></div>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/><path d="M2 12h0.5"/><path d="M21.5 12h0.5"/></svg>
       </div>
-      <div class="preloader-dots">
-        <div class="preloader-dot"></div>
-        <div class="preloader-dot"></div>
-        <div class="preloader-dot"></div>
+      <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Precision Eyewear</span></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="services.html" class="nav-link">Services</a></li>
+      <li><a href="about.html" class="nav-link">About</a></li>
+      <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+      <li><a href="blog.html" class="nav-link active">Blog</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-icon-btn" data-theme-toggle><span class="icon-moon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></span><span class="icon-sun" style="display:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg></span></button>
+      <button class="nav-icon-btn" data-rtl-toggle>RTL</button>
+      <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══ SECTION 1: POST HERO ═══ -->
+<section class="page-hero" style="min-height:55vh">
+  <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1582142306909-195724d33ffc?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(18,16,15,0.92) 0%, rgba(18,16,15,0.7) 100%)"></div>
+  </div>
+  <div class="container page-hero-content">
+    <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="blog.html">Journal</a><span>/</span><span style="color:rgba(255,255,255,0.7)">Clinical Paediatrics</span></nav>
+    <div style="margin-bottom:var(--space-4)">
+      <span class="blog-category" style="background:rgba(30,53,47,0.2);color:var(--cyan-light)">Clinical Vision Care</span>
+      &nbsp;&nbsp;
+      <span style="font-size:var(--text-xs);color:rgba(255,255,255,0.5)">12 July 2026 · 8 min read</span>
+    </div>
+    <h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;line-height:1.15;max-width:720px;margin-bottom:var(--space-5)">Screen Time &amp; Childhood Myopia: Clinical Preventive Strategies</h1>
+    <div style="display:flex;align-items:center;gap:var(--space-3)">
+      <img src="assets/images/team_1.png" alt="Dr. Suresh Iyer" style="width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--sapphire)" />
+      <div>
+        <div style="color:#fff;font-weight:600;font-size:var(--text-sm)">Dr. Suresh Iyer</div>
+        <div style="color:rgba(255,255,255,0.5);font-size:var(--text-xs)">MCOptom · Chief Optometrist at OptiLux</div>
       </div>
     </div>
   </div>
-  <div id="page-progress"></div>
+</section>
 
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <a href="index.html" class="nav-logo">
-        <div class="nav-logo-icon">👓</div>
-        <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Premium Eyewear</span>
+<!-- ═══ SECTION 2: POST CONTENT ═══ -->
+<section class="section bg-primary">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 300px;gap:var(--space-12)">
+      <!-- Main Content -->
+      <article class="post-content reveal">
+        <p style="font-size:var(--text-lg);font-weight:500;color:var(--text-primary);line-height:1.75">Myopia prevalence in school-age children has risen markedly over recent years. Prolonged desktop and smartphone exposure alters natural binocular accommodation.</p>
+
+        <h2>Clinical Understanding of Myopic Shift</h2>
+        <p>Myopia occurs when axial elongation of the scleral coat causes incident light rays to focus anterior to the macular surface.</p>
+
+        <blockquote><p>"Early childhood vision screening combined with outdoor natural light exposure remains the single most effective barrier against rapid axial elongation."</p></blockquote>
+
+        <h2>Recommended Ophthalmic Mitigations</h2>
+        <ul>
+          <li><strong>20-20-20 Visual Rule:</strong> Every 20 minutes, shift gaze to an object 20 feet away for 20 seconds.</li>
+          <li><strong>Outdoor Illumination:</strong> Minimum 90 minutes daily outdoor activity to stimulate retinal dopamine secretion.</li>
+          <li><strong>Anti-Blue Optical Coatings:</strong> Vacuum deposited coatings filtering 415-455nm high-energy visible wavelengths.</li>
+        </ul>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="reveal stagger-2">
+        <div style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-xl);padding:var(--space-6);margin-bottom:var(--space-6)">
+          <h4 style="font-family:var(--font-display);margin-bottom:var(--space-4)">Clinical Consultation</h4>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--space-4)">Book a paediatric vision screening with our optometrists.</p>
+          <a href="contact.html" class="btn btn-primary w-full" style="justify-content:center">Book Exam</a>
         </div>
-      </a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="services.html" class="nav-link">Services</a></li>
-        <li><a href="about.html" class="nav-link">About</a></li>
-        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-        <li><a href="blog.html" class="nav-link active">Blog</a></li>
-        <li><a href="contact.html" class="nav-link">Contact</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="nav-icon-btn" data-theme-toggle><span class="icon-moon">🌙</span><span class="icon-sun"
-            style="display:none">☀️</span></button>
-        <button class="nav-icon-btn" data-rtl-toggle>RTL</button>
-        <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
-        <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-      </div>
+      </aside>
     </div>
-  </nav>
-  <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html" class="mobile-nav-link">🏠 Home</a>
-    <a href="services.html" class="mobile-nav-link">⚕ Services</a>
-    <a href="about.html" class="mobile-nav-link">💡 About</a>
-    <a href="gallery.html" class="mobile-nav-link">🖼 Gallery</a>
-    <a href="blog.html" class="mobile-nav-link">📰 Blog</a>
-    <a href="contact.html" class="mobile-nav-link">📞 Contact</a>
   </div>
+</section>
 
-  <!-- ═══ SECTION 1: POST HERO ═══ -->
-  <section class="page-hero" style="min-height:60vh">
-    <div class="page-hero-bg">
-      <div
-        style="position:absolute;inset:0;background:radial-gradient(circle at 40% 60%,rgba(37,99,235,0.2) 0%,transparent 55%)">
-      </div>
-      <div class="hero-grid-lines"></div>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 <a href="index.html">OptiLux</a>. All rights reserved. Precision Ophthalmic Engineering.</p>
     </div>
-    <div class="container page-hero-content">
-      <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="blog.html">Blog</a><span>/</span><span
-          style="color:rgba(255,255,255,0.7)">Eye Health</span></nav>
-      <div style="margin-bottom:var(--space-4)">
-        <span class="blog-category" style="background:rgba(37,99,235,0.2);color:var(--cyan-light)">Eye Health</span>
-        &nbsp;&nbsp;
-        <span style="font-size:var(--text-xs);color:rgba(255,255,255,0.5)">12 July 2026 · 8 min read</span>
-      </div>
-      <h1
-        style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;line-height:1.15;max-width:720px;margin-bottom:var(--space-5)">
-        The Silent Epidemic: How Screen Time is Reshaping Children's Vision</h1>
-      <div style="display:flex;align-items:center;gap:var(--space-3)">
-        <div
-          style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--sapphire),var(--cyan));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.1rem">
-          S</div>
-        <div>
-          <div style="color:#fff;font-weight:600;font-size:var(--text-sm)">Dr. Suresh Iyer</div>
-          <div style="color:rgba(255,255,255,0.5);font-size:var(--text-xs)">MCOptom · Chief Optometrist at OptiLux</div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
+</footer>
 
-  <!-- ═══ SECTION 2: POST CONTENT ═══ -->
-  <section class="section bg-primary">
-    <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 300px;gap:var(--space-12)">
-        <!-- Main Content -->
-        <article class="post-content reveal">
-          <p style="font-size:var(--text-lg);font-weight:500;color:var(--text-primary);line-height:1.75">Myopia rates in
-            India have doubled in the last decade. Children aged 6–16 now spend an average of 7 hours daily looking at
-            screens. As an optometrist, I see the consequences of this every day in my clinic — and the trend is
-            accelerating.</p>
-
-          <h2>What Is Myopia — and Why Should Parents Care?</h2>
-          <p>Myopia, or short-sightedness, is a refractive error that causes distant objects to appear blurry while near
-            objects remain clear. It occurs when the eyeball grows too long, causing light to focus in front of the
-            retina rather than directly on it.</p>
-          <p>While it's easily corrected with glasses or contact lenses, myopia is not merely an inconvenience. Children
-            with high myopia have significantly elevated risks of serious eye conditions later in life, including
-            retinal detachment, glaucoma, cataracts, and macular degeneration.</p>
-
-          <blockquote>
-            <p>"The question is no longer whether digital devices are affecting children's eyes — the evidence is
-              overwhelming. The question is what we're going to do about it."</p>
-          </blockquote>
-
-          <h2>The Screen Time Link: What the Research Shows</h2>
-          <p>A landmark study published in the British Journal of Ophthalmology found that each additional hour of near
-            work per day increased myopia risk by 2%. Children who spent significant time outdoors showed substantially
-            lower myopia rates — even when controlling for genetic factors.</p>
-          <p>The reasons are multi-factorial:</p>
-          <ul>
-            <li><strong>Near focus strain:</strong> Screens require sustained close-range focus, causing the eye muscles
-              to work harder and longer than they evolved to.</li>
-            <li><strong>Reduced outdoor light exposure:</strong> Natural light triggers the release of dopamine in the
-              retina, which is thought to slow eye growth.</li>
-            <li><strong>Close device distance:</strong> Many children hold phones and tablets closer than books,
-              exacerbating near-work stress.</li>
-            <li><strong>Blue light disruption:</strong> Evening screen use disrupts circadian rhythms and may affect
-              melatonin-related eye growth patterns.</li>
-          </ul>
-
-          <div class="tip-box">
-            <h4>✅ The 20-20-20 Rule</h4>
-            <p style="margin-bottom:0">Every 20 minutes of screen time, take a 20-second break and look at something 20
-              feet away. This simple habit significantly reduces eye muscle fatigue and strain.</p>
-          </div>
-
-          <h2>The Outdoor Solution</h2>
-          <p>The most powerful intervention we know of is remarkably simple: time outdoors. Studies suggest 2 hours of
-            outdoor activity per day can reduce myopia progression by up to 50% in children at risk. The key appears to
-            be exposure to high-intensity natural light, not physical exercise specifically.</p>
-
-          <h3>Practical Strategies for Parents</h3>
-          <ol>
-            <li>Limit recreational screen time to 2 hours per day for children under 12</li>
-            <li>Ensure children spend at least 2 hours outdoors daily — even in Indian cities with pollution</li>
-            <li>Maintain a reading/screen distance of at least 30cm (arm's length)</li>
-            <li>Ensure good lighting during reading and homework</li>
-            <li>Schedule annual eye tests — even for children who "seem to see fine"</li>
-          </ol>
-
-          <h2>When to Book an Eye Test</h2>
-          <p>Don't wait for your child to complain. Many children accept blurry vision as normal and won't tell you
-            they're struggling. Warning signs include:</p>
-          <ul>
-            <li>Squinting at the whiteboard or TV</li>
-            <li>Holding books or phones very close</li>
-            <li>Frequent headaches, especially after school</li>
-            <li>Avoiding reading or disliking school</li>
-            <li>Rubbing eyes frequently</li>
-          </ul>
-          <p>At OptiLux, we offer specialist paediatric eye examinations for children from age 3. Our child-friendly
-            equipment means we can test vision accurately even for very young children who can't read a letter chart.
-          </p>
-
-          <div
-            style="background:rgba(37,99,235,0.05);border:1px solid rgba(37,99,235,0.15);border-radius:var(--radius-xl);padding:var(--space-6);margin-top:var(--space-8)">
-            <h3 style="color:var(--sapphire);margin:0 0 var(--space-3)">📅 Book a Children's Eye Test</h3>
-            <p style="margin-bottom:var(--space-4)">Free paediatric eye test for children under 12 with any OptiLux
-              kids' frame purchase.</p>
-            <a href="contact.html" class="btn btn-primary">Book Now →</a>
-          </div>
-        </article>
-
-        <!-- Sidebar -->
-        <aside>
-          <!-- Author Bio -->
-          <div class="card" style="padding:var(--space-5);margin-bottom:var(--space-5)" data-component="author-bio">
-            <div
-              style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--sapphire),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff;margin-bottom:var(--space-3)">
-              👨‍⚕️</div>
-            <h4 style="margin-bottom:var(--space-1)">Dr. Suresh Iyer</h4>
-            <p style="font-size:var(--text-xs);color:var(--text-muted);margin-bottom:var(--space-3)">MCOptom (UK) · 20+
-              years in optometry. Founder of OptiLux. Specialist in paediatric vision.</p>
-            <a href="about.html" class="btn btn-secondary btn-sm">View Profile</a>
-          </div>
-
-          <!-- Share -->
-          <div class="card" style="padding:var(--space-5);margin-bottom:var(--space-5)">
-            <h4 style="margin-bottom:var(--space-4);font-size:var(--text-sm)">Share This Article</h4>
-            <div style="display:flex;flex-direction:column;gap:var(--space-2)">
-              <button class="social-btn" onclick="window.OptiLuxToast?.show('Link copied! 📋','success')">🐦 Share on
-                Twitter</button>
-              <button class="social-btn" onclick="window.OptiLuxToast?.show('Shared on Facebook! 📘','success')">📘
-                Share on Facebook</button>
-              <button class="social-btn" onclick="window.OptiLuxToast?.show('Shared on WhatsApp! 💬','success')">💬
-                Share on WhatsApp</button>
-            </div>
-          </div>
-
-          <!-- Tags -->
-          <div class="card" style="padding:var(--space-5);margin-bottom:var(--space-5)">
-            <h4 style="margin-bottom:var(--space-3);font-size:var(--text-sm)">Tags</h4>
-            <div style="display:flex;flex-wrap:wrap;gap:var(--space-2)">
-              <span class="badge badge-blue">#Myopia</span>
-              <span class="badge badge-cyan">#KidsVision</span>
-              <span class="badge badge-green">#ScreenTime</span>
-              <span class="badge badge-blue">#EyeHealth</span>
-              <span class="badge badge-amber">#EyeTest</span>
-            </div>
-          </div>
-
-          <!-- Book CTA -->
-          <div
-            style="background:linear-gradient(135deg,var(--sapphire-dark),var(--graphite));border-radius:var(--radius-xl);padding:var(--space-5);text-align:center;color:#fff">
-            <div style="font-size:2.5rem;margin-bottom:var(--space-3)">👓</div>
-            <h4 style="color:#fff;margin-bottom:var(--space-2)">Free Kids Eye Test</h4>
-            <p style="font-size:var(--text-xs);color:rgba(255,255,255,0.6);margin-bottom:var(--space-4)">Children under
-              12 tested free with any frame purchase</p>
-            <a href="contact.html" class="btn btn-white btn-sm" style="justify-content:center;display:flex">Book Now</a>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 3: AUTHOR BIO (full) ═══ -->
-  <section class="section-sm bg-secondary">
-    <div class="container" style="max-width:900px">
-      <div class="card" style="padding:var(--space-8);display:flex;align-items:flex-start;gap:var(--space-6)"
-        class="reveal">
-        <div
-          style="width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,var(--sapphire),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:#fff;flex-shrink:0">
-          👨‍⚕️</div>
-        <div>
-          <h3 style="font-family:var(--font-display);margin-bottom:var(--space-1)">Dr. Suresh Iyer</h3>
-          <p style="color:var(--sapphire);font-size:var(--text-sm);font-weight:600;margin-bottom:var(--space-3)">MCOptom
-            (UK) · Founder & Chief Optometrist, OptiLux</p>
-          <p style="font-size:var(--text-sm)">Dr. Suresh has been an optometrist for over 20 years, having trained in
-            both India and the United Kingdom. He founded OptiLux in 2008 with a mission to provide world-class eye care
-            in Bangalore. He is a Fellow of the Indian Optometric Association and sits on the board of the Child Vision
-            Care initiative.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 4: RELATED POSTS ═══ -->
-  <section class="section bg-primary">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-label">Continue Reading</span>
-        <h2 class="section-title reveal" style="font-size:var(--text-3xl)">Related <span>Articles</span></h2>
-      </div>
-      <div class="grid grid-3 gap-6">
-        <article class="blog-card reveal">
-          <div class="blog-card-img">
-            <div
-              style="width:100%;height:100%;background:linear-gradient(135deg,#0e1a2a,#F43F5E20);display:flex;align-items:center;justify-content:center;font-size:3rem">
-              🌈</div>
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta"><span class="blog-category">Kids Vision</span><span class="blog-date">10 Jun
-                2026</span></div>
-            <h3 style="font-size:var(--text-lg)">Signs Your Child May Need Glasses</h3>
-            <p style="font-size:var(--text-sm)">Squinting at the board? Here's what to look out for.</p>
-            <div class="blog-card-footer"><a href="blog-details.html"
-                style="font-size:var(--text-sm);font-weight:600;color:var(--sapphire)">Read More →</a><span
-                class="blog-read-time">5 min</span></div>
-          </div>
-        </article>
-        <article class="blog-card reveal stagger-2">
-          <div class="blog-card-img">
-            <div
-              style="width:100%;height:100%;background:linear-gradient(135deg,#0a1628,#8B5CF630);display:flex;align-items:center;justify-content:center;font-size:3rem">
-              💡</div>
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta"><span class="blog-category">Technology</span><span class="blog-date">3 Jun
-                2026</span></div>
-            <h3 style="font-size:var(--text-lg)">Blue Light Glasses: Science or Marketing?</h3>
-            <p style="font-size:var(--text-sm)">What does peer-reviewed research actually say?</p>
-            <div class="blog-card-footer"><a href="blog-details.html"
-                style="font-size:var(--text-sm);font-weight:600;color:var(--sapphire)">Read More →</a><span
-                class="blog-read-time">9 min</span></div>
-          </div>
-        </article>
-        <article class="blog-card reveal stagger-3">
-          <div class="blog-card-img">
-            <div
-              style="width:100%;height:100%;background:linear-gradient(135deg,#0e2a1a,#10B98130);display:flex;align-items:center;justify-content:center;font-size:3rem">
-              💧</div>
-          </div>
-          <div class="blog-card-body">
-            <div class="blog-meta"><span class="blog-category">Eye Health</span><span class="blog-date">2 Jul
-                2026</span></div>
-            <h3 style="font-size:var(--text-lg)">Dry Eye Syndrome: Causes &amp; Solutions</h3>
-            <p style="font-size:var(--text-sm)">40% of office workers suffer from dry eye. Expert advice.</p>
-            <div class="blog-card-footer"><a href="blog-details.html"
-                style="font-size:var(--text-sm);font-weight:600;color:var(--sapphire)">Read More →</a><span
-                class="blog-read-time">6 min</span></div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 5: COMMENTS ═══ -->
-  <section class="section-sm bg-secondary">
-    <div class="container" style="max-width:760px">
-      <h3 style="font-family:var(--font-display);font-size:var(--text-2xl);margin-bottom:var(--space-8)">Comments <span
-          style="color:var(--sapphire)">(4)</span></h3>
-
-      <!-- Comment -->
-      <div
-        style="display:flex;gap:var(--space-4);margin-bottom:var(--space-6);padding-bottom:var(--space-6);border-bottom:1px solid var(--border-color)">
-        <div
-          style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--sapphire),var(--cyan));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;flex-shrink:0">
-          P</div>
-        <div style="flex:1">
-          <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-2)">
-            <span style="font-weight:700;font-size:var(--text-sm)">Priya Sharma</span>
-            <span style="font-size:var(--text-xs);color:var(--text-muted)">July 13, 2026</span>
-          </div>
-          <p style="font-size:var(--text-sm)">Brilliant article, Dr. Iyer. My 8-year-old was diagnosed with myopia last
-            month and I wish I'd read this earlier. Booking a follow-up now!</p>
-        </div>
-      </div>
-
-      <div
-        style="display:flex;gap:var(--space-4);margin-bottom:var(--space-6);padding-bottom:var(--space-6);border-bottom:1px solid var(--border-color)">
-        <div
-          style="width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--emerald),#059669);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;flex-shrink:0">
-          R</div>
-        <div>
-          <div style="display:flex;align-items:center;gap:var(--space-3);margin-bottom:var(--space-2)">
-            <span style="font-weight:700;font-size:var(--text-sm)">Rahul Mehta</span>
-            <span style="font-size:var(--text-xs);color:var(--text-muted)">July 14, 2026</span>
-          </div>
-          <p style="font-size:var(--text-sm)">The outdoor time statistic blew my mind. 2 hours a day can reduce myopia
-            progression by 50%? We're getting our kids off screens and onto bikes!</p>
-        </div>
-      </div>
-
-      <!-- Comment Form -->
-      <h4 style="font-family:var(--font-display);margin-bottom:var(--space-5)">Leave a Comment</h4>
-      <form data-form="comment" style="display:flex;flex-direction:column;gap:var(--space-4)">
-        <div class="form-row">
-          <div class="form-group" style="margin-bottom:0">
-            <label class="form-label" for="cmt-name">Name *</label>
-            <input type="text" id="cmt-name" class="form-input" placeholder="Your name" data-validate="required" />
-          </div>
-          <div class="form-group" style="margin-bottom:0">
-            <label class="form-label" for="cmt-email">Email *</label>
-            <input type="email" id="cmt-email" class="form-input" placeholder="your@email.com"
-              data-validate="required,email" />
-          </div>
-        </div>
-        <div class="form-group" style="margin-bottom:0">
-          <label class="form-label" for="cmt-text">Comment *</label>
-          <textarea id="cmt-text" class="form-textarea" placeholder="Share your thoughts..."
-            data-validate="required"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="align-self:flex-start">Post Comment</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 6: NEWSLETTER ═══ -->
-  <section
-    style="padding-block:clamp(3rem,6vw,5rem);background:linear-gradient(135deg,var(--sapphire-dark),var(--graphite-deep));text-align:center">
-    <div class="container">
-      <h3 style="font-family:var(--font-display);font-size:var(--text-2xl);color:#fff;margin-bottom:var(--space-4)">
-        Enjoyed This Article? <span style="color:var(--cyan)">Get More Like It</span></h3>
-      <p style="color:rgba(255,255,255,0.6);margin-bottom:var(--space-6)">Subscribe for weekly eye care insights from
-        our optometrists.</p>
-      <form data-form="newsletter" style="display:flex;gap:var(--space-3);max-width:400px;margin-inline:auto">
-        <input type="email" class="form-input" placeholder="Your email"
-          style="flex:1;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:#fff"
-          data-validate="required,email" />
-        <button type="submit" class="btn btn-primary">Subscribe</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ═══ SECTION 7: FOOTER ═══ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-main">
-        <div class="footer-brand"><a href="index.html" class="nav-logo"
-            style="margin-bottom:var(--space-4);display:inline-flex">
-            <div class="nav-logo-icon">👓</div>
-            <div><span class="nav-logo-text">Opti<span>Lux</span></span><span class="nav-logo-sub">Premium
-                Eyewear</span></div>
-          </a>
-          <p>Premium eyewear &amp; expert eye care since 2008.</p>
-          <div class="footer-socials" style="margin-top:var(--space-4)"><a href="#" class="social-icon">f</a><a href="#"
-              class="social-icon">ig</a><a href="#" class="social-icon">tw</a></div>
-        </div>
-        <div class="footer-col">
-          <h4>Pages</h4>
-          <ul class="footer-links">
-            <li><a href="index.html" class="footer-link">→ Home</a></li>
-            <li><a href="about.html" class="footer-link">→ About</a></li>
-            <li><a href="services.html" class="footer-link">→ Services</a></li>
-            <li><a href="blog.html" class="footer-link">→ Blog</a></li>
-            <li><a href="contact.html" class="footer-link">→ Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Topics</h4>
-          <ul class="footer-links">
-            <li><a href="blog.html" class="footer-link">→ Eye Health</a></li>
-            <li><a href="blog.html" class="footer-link">→ Kids Vision</a></li>
-            <li><a href="blog.html" class="footer-link">→ Lens Guide</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Newsletter</h4>
-          <form class="footer-newsletter" data-form="newsletter"><input type="email" placeholder="Your email" /><button
-              type="submit">→</button></form>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="footer-copy">© 2026 <a href="index.html">OptiLux</a>. All rights reserved.</p>
-        <div class="footer-bottom-links"><a href="privacy-policy.html">Privacy Policy</a><a
-            href="terms.html">Terms</a><a href="sitemap.html">Sitemap</a></div>
-      </div>
-    </div>
-  </footer>
-
-  <button class="back-to-top">↑</button>
-  <script src="assets/js/main.js"></script>
-  <script>
-    // Comment form handler
-    document.querySelector('[data-form="comment"]')?.addEventListener('submit', function (e) {
-      e.preventDefault();
-      window.OptiLuxToast?.show('Thank you! Your comment is awaiting moderation. 💬', 'success');
-      this.reset();
-    });
-  </script>
+<button class="back-to-top">↑</button>
+<script src="assets/js/main.js"></script>
 </body>
-
 </html>
