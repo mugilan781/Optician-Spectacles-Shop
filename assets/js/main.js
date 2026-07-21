@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    OptiLux â€” Main JavaScript
    main.js â€” Core: Theme, Nav, Scroll, Cursor, Reveal, Toast
    ============================================================ */
@@ -193,7 +193,7 @@ const HeroSlider = (() => {
 // â”€â”€â”€ Scroll Reveal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const ScrollReveal = (() => {
   const init = () => {
-    const items = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const items = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur');
     if (!items.length) return;
 
     const observer = new IntersectionObserver((entries) => {

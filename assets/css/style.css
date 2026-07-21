@@ -4714,3 +4714,46 @@ p {
     padding-right: var(--space-8);
   }
 }
+/* ─── PADDING & SPACING FIXES ─── */
+.container {
+  padding-inline: clamp(1.5rem, 5vw, 3rem) !important;
+}
+.card-glass, .glass-container {
+  padding: var(--space-6) !important;
+}
+
+/* ─── ADVANCED ANIMATIONS ─── */
+@keyframes float-anim {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+.float-anim {
+  animation: float-anim 6s ease-in-out infinite;
+}
+
+.reveal-blur {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translateY(40px) scale(0.95);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, filter, transform;
+}
+.reveal-blur.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+}
+
+.card-3d {
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.card-3d:hover {
+  transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) scale3d(1.03, 1.03, 1.03);
+  box-shadow: 0 30px 60px rgba(13, 27, 42, 0.15);
+  z-index: 10;
+}
