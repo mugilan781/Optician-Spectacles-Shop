@@ -116,14 +116,25 @@ const Navbar = (() => {
     }
 
     // Active link
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const path = window.location.pathname.replace(/\\/g, '/');
+    let currentPage = path.split('/').pop();
+    const knownPages = ['about.html', 'services.html', 'gallery.html', 'blog.html', 'contact.html', 'login.html', 'signup.html', 'home2.html', 'blog-details.html'];
+    const isKnownPage = knownPages.some(page => currentPage.endsWith(page));
+    if (!isKnownPage) {
+      currentPage = 'index.html';
+    }
+
     document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
       const href = link.getAttribute('href');
-      const isBlogDetails = (currentPage === 'blog-details.html' && href === 'blog.html');
-      if (href === currentPage || (currentPage === '' && href === 'index.html') || isBlogDetails) {
+      if (!href) return;
+      const hrefPage = href.split('/').pop();
+      const isBlogDetails = (currentPage === 'blog-details.html' && hrefPage === 'blog.html');
+      if (hrefPage === currentPage || isBlogDetails) {
         link.classList.add('active');
+        link.setAttribute('aria-current', 'page');
       } else {
         link.classList.remove('active');
+        link.removeAttribute('aria-current');
       }
     });
   };
@@ -490,25 +501,57 @@ const ReadingProgress = (() => {
 const Toast = (() => {
   let container;
 
+  // Initialize escape key listener once
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const activeToasts = document.querySelectorAll('.toast');
+      if (activeToasts.length > 0) {
+        remove(activeToasts[activeToasts.length - 1]);
+      }
+    }
+  });
+
   const show = (msg, type = 'info', duration = 4000) => {
     if (!container) {
       container = document.createElement('div');
       container.className = 'toast-container';
+      container.setAttribute('aria-live', 'polite');
+      container.setAttribute('role', 'status');
       document.body.appendChild(container);
     }
-    const icons = { success: '✓', error: '✕', info: 'ℹ' };
+
+    // Modern premium SVG icons
+    const svgs = {
+      success: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-top:1px"><polyline points="20 6 9 17 4 12"/></svg>`,
+      error: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-top:1px"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
+      warning: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-top:1px"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`,
+      info: `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-top:1px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>`
+    };
+
     const toast = document.createElement('div');
     toast.className = `toast ${type}`;
+    toast.setAttribute('role', type === 'error' ? 'alert' : 'status');
     toast.innerHTML = `
-      <span class="toast-icon">${icons[type] || icons.info}</span>
+      <span class="toast-icon">${svgs[type] || svgs.info}</span>
       <span class="toast-msg">${msg}</span>
-      <button class="toast-close">✕</button>`;
+      <button class="toast-close" aria-label="Close notification" type="button">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>`;
+      
     container.appendChild(toast);
-    toast.querySelector('.toast-close').addEventListener('click', () => remove(toast));
-    setTimeout(() => remove(toast), duration);
+    
+    // Accessibility keyboard triggers on the close button
+    const closeBtn = toast.querySelector('.toast-close');
+    closeBtn.addEventListener('click', () => remove(toast));
+
+    const timeoutId = setTimeout(() => remove(toast), duration);
+    toast.dataset.timeoutId = timeoutId;
   };
 
   const remove = (toast) => {
+    if (toast.dataset.timeoutId) {
+      clearTimeout(parseInt(toast.dataset.timeoutId, 10));
+    }
     toast.style.opacity = '0';
     toast.style.transform = 'translateX(16px)';
     toast.style.transition = 'all 0.3s ease';
@@ -742,9 +785,18 @@ const Booking = (() => {
     const bookingForm = document.querySelector('form[data-form="booking"]');
     if (!bookingForm) return;
 
+    const nameInput = bookingForm.querySelector('#bk-name');
+    const phoneInput = bookingForm.querySelector('#bk-phone');
     const dateInput = bookingForm.querySelector('#booking-date');
     const hiddenTimeInput = bookingForm.querySelector('#selected-time');
     const timeSlots = bookingForm.querySelectorAll('.time-slot');
+
+    // Phone input restriction: allow only digits and '+'
+    if (phoneInput) {
+      phoneInput.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[^\d+]/g, '');
+      });
+    }
 
     const todayStr = new Date().toISOString().split('T')[0];
     if (dateInput) {
@@ -769,67 +821,73 @@ const Booking = (() => {
 
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      e.stopImmediatePropagation();
+      e.stopPropagation();
 
-      const nameInput = bookingForm.querySelector('#bk-name');
-      const phoneInput = bookingForm.querySelector('#bk-phone');
-
-      let isValid = true;
-
-      // Validate Name
-      if (!nameInput || !nameInput.value.trim()) {
+      // 1. Validate Name
+      const nameVal = nameInput ? nameInput.value.trim().replace(/\s+/g, ' ') : '';
+      if (nameInput) nameInput.value = nameVal;
+      if (!nameVal || nameVal.length < 3) {
         if (nameInput) nameInput.classList.add('error');
-        isValid = false;
+        Toast.show('Please enter your full name.', 'error');
+        return;
       } else {
         if (nameInput) nameInput.classList.remove('error');
       }
 
-      // Validate Phone
-      const phoneRegex = /^[\d\s\+\-\(\)]{7,15}$/;
-      if (!phoneInput || !phoneInput.value.trim() || !phoneRegex.test(phoneInput.value.trim())) {
+      // 2. Validate Phone
+      const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+      const isDigitsOnly = /^\+?\d+$/.test(phoneVal);
+      const isValidPhone = isDigitsOnly && phoneVal.replace('+', '').length >= 10 && phoneVal.replace('+', '').length <= 15;
+      if (!phoneVal || !isValidPhone) {
         if (phoneInput) phoneInput.classList.add('error');
-        isValid = false;
+        Toast.show('Please enter a valid phone number.', 'error');
+        return;
       } else {
         if (phoneInput) phoneInput.classList.remove('error');
       }
 
-      // Validate Date
-      if (!dateInput || !dateInput.value) {
+      // 3. Validate Date
+      if (!dateInput || !dateInput.value || dateInput.value < todayStr) {
         if (dateInput) dateInput.classList.add('error');
-        isValid = false;
-      } else if (dateInput.value < todayStr) {
-        if (dateInput) dateInput.classList.add('error');
-        Toast.show('Please select a future or today\'s date.', 'error');
+        Toast.show('Please select an appointment date.', 'error');
         return;
       } else {
         if (dateInput) dateInput.classList.remove('error');
       }
 
-      // Validate Time Slot
+      // 4. Validate Time Slot
       const selectedTime = hiddenTimeInput ? hiddenTimeInput.value.trim() : '';
       if (!selectedTime) {
-        isValid = false;
-        Toast.show('Please select a preferred time slot.', 'info');
+        Toast.show('Please choose a preferred time slot.', 'warning');
         return;
       }
 
-      if (!isValid) {
-        Toast.show('Please complete all required fields.', 'error');
-        return;
-      }
+      // Successful Booking Flow with loading state & disabled state
+      const submitBtn = bookingForm.querySelector('button[type="submit"]');
+      const originalBtnHtml = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Processing...</span>';
 
-      // Successful Booking
-      Toast.show(`Appointment booked for ${dateInput.value} at ${selectedTime}! Confirmation sent.`, 'success');
+      Toast.show('Booking is being processed...', 'info');
 
-      // Reset form
-      bookingForm.reset();
-      if (hiddenTimeInput) hiddenTimeInput.value = '';
-      timeSlots.forEach(s => {
-        s.classList.remove('selected');
-        s.style.background = 'rgba(255,255,255,0.08)';
-        s.style.color = 'rgba(255,255,255,0.7)';
-        s.style.borderColor = 'rgba(255,255,255,0.15)';
-      });
+      setTimeout(() => {
+        // Display premium success toast
+        Toast.show('✓ Appointment booked successfully!<br>Our team will contact you shortly.', 'success');
+
+        // Reset form
+        bookingForm.reset();
+        if (hiddenTimeInput) hiddenTimeInput.value = '';
+        timeSlots.forEach(s => {
+          s.classList.remove('selected');
+          s.style.background = 'rgba(255,255,255,0.08)';
+          s.style.color = 'rgba(255,255,255,0.7)';
+          s.style.borderColor = 'rgba(255,255,255,0.15)';
+        });
+
+        // Restore button state
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHtml;
+      }, 1500);
     });
   };
 

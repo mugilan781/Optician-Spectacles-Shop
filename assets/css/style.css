@@ -574,6 +574,19 @@ p {
   gap: var(--space-6);
 }
 
+@media (min-width: 1025px) {
+  .nav-inner {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+  }
+  .nav-links {
+    justify-self: center !important;
+  }
+  .nav-actions {
+    justify-self: end !important;
+  }
+}
+
 .nav-logo {
   display: flex;
   align-items: center;
@@ -4962,3 +4975,61 @@ p {
     display: none;
   }
 }
+
+/* ─── Premium Glassmorphic Lens Badges ─── */
+#lens-guide .badge {
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+  padding: 0.35rem 0.85rem !important;
+  border-radius: var(--radius-full) !important;
+  font-weight: 700 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#lens-guide .badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35) !important;
+}
+#lens-guide .badge-blue {
+  background: rgba(9, 13, 22, 0.82) !important;
+  color: #a8dadc !important;
+  border: 1px solid rgba(168, 218, 220, 0.35) !important;
+}
+#lens-guide .badge-cyan {
+  background: rgba(9, 13, 22, 0.82) !important;
+  color: #e9c46a !important;
+  border: 1px solid rgba(233, 196, 106, 0.35) !important;
+}
+#lens-guide .badge-green {
+  background: rgba(9, 13, 22, 0.82) !important;
+  color: #83c5be !important;
+  border: 1px solid rgba(131, 197, 190, 0.35) !important;
+}
+#lens-guide .badge-amber {
+  background: rgba(9, 13, 22, 0.82) !important;
+  color: #f4a261 !important;
+  border: 1px solid rgba(244, 162, 97, 0.35) !important;
+}
+
+/* ─── Toast Warning Variant & Close Centering ─── */
+.toast.warning {
+  border-left: 3px solid var(--amber) !important;
+}
+.toast.warning .toast-icon {
+  color: var(--amber) !important;
+}
+.toast-close {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 4px !important;
+  border-radius: var(--radius-sm) !important;
+}
+.toast-close:focus-visible {
+  box-shadow: 0 0 0 2px rgba(42, 157, 143, 0.4) !important;
+}
+
