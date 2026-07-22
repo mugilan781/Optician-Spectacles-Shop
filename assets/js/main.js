@@ -739,19 +739,96 @@ const SectionHighlight = (() => {
 // â”€â”€â”€ Booking Date Picker â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const Booking = (() => {
   const init = () => {
-    const dateInput = document.querySelector('#booking-date');
+    const bookingForm = document.querySelector('form[data-form="booking"]');
+    if (!bookingForm) return;
+
+    const dateInput = bookingForm.querySelector('#booking-date');
+    const hiddenTimeInput = bookingForm.querySelector('#selected-time');
+    const timeSlots = bookingForm.querySelectorAll('.time-slot');
+
+    const todayStr = new Date().toISOString().split('T')[0];
     if (dateInput) {
-      const today = new Date().toISOString().split('T')[0];
-      dateInput.setAttribute('min', today);
+      dateInput.setAttribute('min', todayStr);
     }
 
-    const timeSlots = document.querySelectorAll('.time-slot');
     timeSlots.forEach(slot => {
       slot.addEventListener('click', () => {
-        timeSlots.forEach(s => s.classList.remove('selected'));
+        timeSlots.forEach(s => {
+          s.classList.remove('selected');
+          s.style.background = 'rgba(255,255,255,0.08)';
+          s.style.color = 'rgba(255,255,255,0.7)';
+          s.style.borderColor = 'rgba(255,255,255,0.15)';
+        });
         slot.classList.add('selected');
-        const hiddenInput = document.querySelector('#selected-time');
-        if (hiddenInput) hiddenInput.value = slot.textContent.trim();
+        slot.style.background = 'var(--sapphire)';
+        slot.style.color = '#ffffff';
+        slot.style.borderColor = 'var(--sapphire)';
+        if (hiddenTimeInput) hiddenTimeInput.value = slot.textContent.trim();
+      });
+    });
+
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+
+      const nameInput = bookingForm.querySelector('#bk-name');
+      const phoneInput = bookingForm.querySelector('#bk-phone');
+
+      let isValid = true;
+
+      // Validate Name
+      if (!nameInput || !nameInput.value.trim()) {
+        if (nameInput) nameInput.classList.add('error');
+        isValid = false;
+      } else {
+        if (nameInput) nameInput.classList.remove('error');
+      }
+
+      // Validate Phone
+      const phoneRegex = /^[\d\s\+\-\(\)]{7,15}$/;
+      if (!phoneInput || !phoneInput.value.trim() || !phoneRegex.test(phoneInput.value.trim())) {
+        if (phoneInput) phoneInput.classList.add('error');
+        isValid = false;
+      } else {
+        if (phoneInput) phoneInput.classList.remove('error');
+      }
+
+      // Validate Date
+      if (!dateInput || !dateInput.value) {
+        if (dateInput) dateInput.classList.add('error');
+        isValid = false;
+      } else if (dateInput.value < todayStr) {
+        if (dateInput) dateInput.classList.add('error');
+        Toast.show('Please select a future or today\'s date.', 'error');
+        return;
+      } else {
+        if (dateInput) dateInput.classList.remove('error');
+      }
+
+      // Validate Time Slot
+      const selectedTime = hiddenTimeInput ? hiddenTimeInput.value.trim() : '';
+      if (!selectedTime) {
+        isValid = false;
+        Toast.show('Please select a preferred time slot.', 'info');
+        return;
+      }
+
+      if (!isValid) {
+        Toast.show('Please complete all required fields.', 'error');
+        return;
+      }
+
+      // Successful Booking
+      Toast.show(`Appointment booked for ${dateInput.value} at ${selectedTime}! Confirmation sent.`, 'success');
+
+      // Reset form
+      bookingForm.reset();
+      if (hiddenTimeInput) hiddenTimeInput.value = '';
+      timeSlots.forEach(s => {
+        s.classList.remove('selected');
+        s.style.background = 'rgba(255,255,255,0.08)';
+        s.style.color = 'rgba(255,255,255,0.7)';
+        s.style.borderColor = 'rgba(255,255,255,0.15)';
       });
     });
   };

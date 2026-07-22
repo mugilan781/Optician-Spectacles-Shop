@@ -4838,3 +4838,127 @@ p {
   box-shadow: 0 30px 60px rgba(13, 27, 42, 0.15);
   z-index: 10;
 }
+
+/* ─── Hero Luxury CTA & Info Cards ─── */
+.btn-secondary-luxury {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.btn-secondary-luxury:hover {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: var(--graphite-deep) !important;
+  border-color: #ffffff !important;
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-2px);
+}
+
+.btn-secondary-luxury:focus-visible {
+  outline: 2px solid var(--sapphire);
+  outline-offset: 3px;
+}
+
+.hero-slide-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: var(--space-8);
+  min-height: calc(100vh - var(--nav-height));
+  padding-block: var(--space-12);
+  width: 100%;
+}
+
+.hero-info-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 360px;
+  margin-inline-start: auto;
+  position: relative;
+  z-index: 5;
+}
+
+.hero-info-card {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  transition: var(--transition-base);
+}
+
+.hero-info-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+.hero-info-card-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.hero-info-card-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: rgba(42, 157, 143, 0.2);
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero-info-card-title {
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.hero-info-card-desc {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+}
+
+.float-anim-slow-1 {
+  animation: float-anim 6s ease-in-out infinite;
+}
+
+.float-anim-slow-2 {
+  animation: float-anim 6s ease-in-out infinite 2s;
+}
+
+/* White Calendar Picker Icon */
+#booking-date::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+  opacity: 0.85;
+}
+
+#booking-date::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .hero-slide-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-info-cards {
+    display: none;
+  }
+}
