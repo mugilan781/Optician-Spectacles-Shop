@@ -67,7 +67,8 @@
   .btn-group .btn { justify-content: center; }
   .toast-container { right: 1rem; left: 1rem; }
   .toast { min-width: auto; width: 100%; }
-  .back-to-top { left: 1rem; bottom: 1rem; }
+  .back-to-top { right: 1rem; left: auto; bottom: 1rem; }
+  [dir="rtl"] .back-to-top { right: auto; left: 1rem; }
   .countdown { flex-wrap: wrap; justify-content: center; }
 }
 

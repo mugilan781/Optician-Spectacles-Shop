@@ -2296,7 +2296,7 @@ p {
 .social-icon {
   width: 40px;
   height: 40px;
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-full);
   border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
@@ -2311,6 +2311,12 @@ p {
   border-color: var(--sapphire);
   color: #fff;
   transform: translateY(-3px);
+}
+
+.footer-bottom-links span {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: var(--text-xs);
+  user-select: none;
 }
 
 .footer-col h4 {
@@ -2822,7 +2828,7 @@ p {
 .back-to-top {
   position: fixed;
   bottom: 2rem;
-  left: 2rem;
+  right: 2rem;
   width: 48px;
   height: 48px;
   border-radius: var(--radius-full);
@@ -2851,6 +2857,11 @@ p {
 .back-to-top:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(42, 157, 143, 0.5);
+}
+
+[dir="rtl"] .back-to-top {
+  right: auto;
+  left: 2rem;
 }
 
 /* ═══════════════════════════════════════════════
