@@ -7,6 +7,354 @@
   <meta name="description" content="Contact OptiLux optical studios in Koramangala, Indiranagar, and Whitefield. Schedule eye diagnostic exams or frame fittings." />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
+  <style>
+    /* ─── Contact Info Cards ─── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: var(--space-6);
+    }
+    .contact-card-premium {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100% !important;
+    }
+    .contact-card-premium:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--sapphire);
+    }
+    .contact-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-lg);
+      background: rgba(30, 53, 47, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sapphire);
+      margin-bottom: var(--space-4);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .contact-card-premium:hover .contact-card-icon {
+      background: var(--sapphire);
+      color: #fff;
+    }
+    .contact-card-premium h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-md);
+      font-weight: 700;
+      margin-top: 0 !important;
+      margin-bottom: var(--space-3) !important;
+      color: var(--text-primary);
+    }
+    .contact-card-premium p {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-top: 0 !important;
+      margin-bottom: var(--space-2) !important;
+    }
+    .contact-card-premium p.contact-card-subtext {
+      font-size: var(--text-xs) !important;
+      color: var(--text-muted) !important;
+      margin-bottom: 0 !important;
+    }
+    .contact-card-link {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: var(--cyan);
+      text-decoration: none;
+      margin-top: auto !important;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s ease;
+    }
+    .contact-card-link:hover {
+      color: var(--sapphire);
+    }
+
+    /* ─── Premium Form Refinements ─── */
+    .form-box-premium {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-2xl);
+      padding: clamp(1.5rem, 5vw, 3rem);
+      box-shadow: var(--shadow-md);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .form-input-premium, .form-select-premium, .form-textarea-premium {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      background: var(--bg-primary);
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      color: var(--text-primary);
+      font-size: var(--text-sm);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .form-input-premium:focus, .form-select-premium:focus, .form-textarea-premium:focus {
+      border-color: var(--sapphire);
+      box-shadow: 0 0 0 4px rgba(30, 53, 47, 0.1);
+      outline: none;
+    }
+    
+    /* ─── Light/Dark Placeholder Contrast Fix ─── */
+    [data-theme="light"] .form-input-premium::placeholder,
+    [data-theme="light"] .form-textarea-premium::placeholder,
+    [data-theme="light"] .footer-newsletter input::placeholder {
+      color: #555555 !important;
+      opacity: 1 !important;
+    }
+    [data-theme="dark"] .form-input-premium::placeholder,
+    [data-theme="dark"] .form-textarea-premium::placeholder,
+    [data-theme="dark"] .footer-newsletter input::placeholder {
+      color: rgba(255, 255, 255, 0.4) !important;
+      opacity: 1 !important;
+    }
+
+    /* ─── CTA Container Redesign ─── */
+    .cta-container-premium {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-2xl);
+      padding: clamp(2.5rem, 6vw, 4.5rem);
+      box-shadow: var(--shadow-lg);
+      max-width: 900px;
+      margin: 0 auto !important;
+      text-align: center;
+    }
+
+    /* ─── Dark Mode Date & Time Input Picker Icons ─── */
+    [data-theme="dark"] input[type="date"]::-webkit-calendar-picker-indicator,
+    [data-theme="dark"] input[type="time"]::-webkit-calendar-picker-indicator {
+      filter: invert(1) brightness(100%) !important;
+      cursor: pointer;
+    }
+
+    /* ─── Google Maps & Details Grid ─── */
+    .map-section-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      align-items: center;
+    }
+    @media (min-width: 992px) {
+      .map-section-grid {
+        grid-template-columns: 1fr 1.2fr;
+      }
+    }
+    .map-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .map-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+    }
+    .map-info-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: rgba(30, 53, 47, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sapphire);
+      flex-shrink: 0;
+    }
+
+    /* ─── Support Team Cards ─── */
+    .team-grid-premium {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-8);
+    }
+    .team-card-premium {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .team-card-premium:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+    .team-img-wrap {
+      height: 320px;
+      overflow: hidden;
+      position: relative;
+    }
+    .team-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .team-card-premium:hover .team-img-wrap img {
+      transform: scale(1.05);
+    }
+    .team-details {
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .team-details h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text-primary);
+    }
+    .team-role {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-3);
+    }
+    .team-desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: var(--space-5);
+    }
+    .team-contact-btn {
+      margin-top: auto;
+      width: 100%;
+      justify-content: center;
+    }
+
+    /* ─── Social Media Hover Cards ─── */
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-6);
+    }
+    .social-card-premium {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+    }
+    .social-card-premium:hover {
+      transform: translateY(-5px);
+      border-color: var(--sapphire);
+      box-shadow: var(--shadow-md);
+    }
+    .social-icon-big {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--bg-tertiary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      margin-bottom: var(--space-4);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .social-card-premium:hover .social-icon-big {
+      background: var(--sapphire);
+      color: #fff;
+    }
+    .social-card-premium h3 {
+      font-family: var(--font-display);
+      font-size: var(--text-md);
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+      color: var(--text-primary);
+    }
+    .social-card-premium p {
+      font-size: var(--text-xs);
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-bottom: var(--space-4);
+      flex-grow: 1;
+    }
+
+    /* ─── FAQ Accordion ─── */
+    .faq-accordion-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .accordion-item {
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      border-radius: var(--radius-xl);
+      margin-bottom: var(--space-3);
+      overflow: hidden;
+      transition: border-color 0.3s ease;
+    }
+    .accordion-item.active {
+      border-color: var(--cyan);
+    }
+    .accordion-header {
+      width: 100%;
+      padding: var(--space-4) var(--space-5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: var(--font-display);
+      font-size: var(--text-md);
+      font-weight: 700;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+    .accordion-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+      color: var(--text-secondary);
+    }
+    .accordion-item.active .accordion-icon {
+      transform: rotate(45deg);
+      color: var(--cyan);
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    .accordion-inner {
+      padding: 0 var(--space-5) var(--space-4);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
 <div id="preloader"><div class="preloader-inner"><div class="preloader-logo">Opti<span>Lux</span></div><div class="preloader-bar"><div class="preloader-bar-fill"></div></div><div class="preloader-dots"><div class="preloader-dot"></div><div class="preloader-dot"></div><div class="preloader-dot"></div></div></div></div>
@@ -86,234 +434,524 @@
   </div>
 </section>
 
-<!-- ═══ SECTION 2: CONTACT FORM + INFO ═══ -->
+<!-- ═══ SECTION 2: QUICK CONTACT OVERVIEW ═══ -->
 <section class="section bg-primary">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:var(--space-16);align-items:flex-start">
+    <div class="section-header text-center">
+      <span class="section-label" style="justify-content:center">Contact Options</span>
+      <h2 class="section-title reveal">We're Here Whenever You Need <span>Expert Eye Care</span></h2>
+      <p class="section-subtitle reveal stagger-2">Whether you're booking an eye examination, selecting premium eyewear, requesting lens guidance, or seeking clinical assistance, our specialists are ready to help.</p>
+    </div>
+    
+    <div class="contact-grid">
+      <!-- Card 1 -->
+      <div class="contact-card-premium reveal stagger-1">
+        <div class="contact-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Visit Our Boutique</h3>
+        <p>42 MG Road, Koramangala,<br>Bangalore — 560095</p>
+        <p class="contact-card-subtext">Mon - Sat: 10AM - 8PM<br>Sun: 11AM - 6PM</p>
+        <a href="#map-section" class="contact-card-link">Get Directions &rarr;</a>
+      </div>
 
-      <!-- Contact Form -->
-      <div class="reveal-left">
-        <span class="section-label">Patient Advisory</span>
-        <h2 class="section-title" style="text-align:left;margin-bottom:var(--space-6)">Send a <span>Message</span></h2>
-        <form data-form="contact" novalidate>
+      <!-- Card 2 -->
+      <div class="contact-card-premium reveal stagger-2">
+        <div class="contact-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h3>Call Us</h3>
+        <p>Primary: <strong>+91 98765 43210</strong></p>
+        <p class="contact-card-subtext">Emergency Assistance:<br>+91 80123 45678</p>
+        <a href="tel:+919876543210" class="contact-card-link">Call Clinic Now &rarr;</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="contact-card-premium reveal stagger-3">
+        <div class="contact-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h3>Email Support</h3>
+        <p>Appointments: appointments@optilux.in</p>
+        <p class="contact-card-subtext">General Enquiries:<br>hello@optilux.in</p>
+        <a href="mailto:hello@optilux.in" class="contact-card-link">Send Email &rarr;</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="contact-card-premium reveal stagger-4">
+        <div class="contact-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <h3>Live Assistance</h3>
+        <p>Chat with our advisors live over WhatsApp support.</p>
+        <p class="contact-card-subtext">Average Response Time:<br>Under 15 Minutes</p>
+        <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="contact-card-link">Start Chat &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 3: APPOINTMENT BOOKING ═══ -->
+<section class="section bg-secondary" id="booking-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label" style="justify-content:center">Book Appointment</span>
+      <h2 class="section-title reveal">Reserve Your Personalized <span>Eye Consultation</span></h2>
+      <p class="section-subtitle reveal stagger-2">Choose your preferred service, specialist, and appointment schedule. Our team will confirm your reservation promptly.</p>
+    </div>
+
+    <div class="form-box-premium reveal-scale">
+      <div id="booking-form-wrapper">
+        <form id="booking-form" novalidate>
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label" for="ct-fname">First Name *</label>
-              <div class="input-icon-wrap">
-                <span class="input-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                </span>
-                <input type="text" id="ct-fname" class="form-input" placeholder="First name" data-validate="required" />
-              </div>
+              <label class="form-label" for="bk-name">Full Name *</label>
+              <input type="text" id="bk-name" class="form-input-premium" placeholder="Enter your full name" required />
             </div>
             <div class="form-group">
-              <label class="form-label" for="ct-lname">Last Name *</label>
-              <input type="text" id="ct-lname" class="form-input" placeholder="Last name" data-validate="required" />
+              <label class="form-label" for="bk-email">Email Address *</label>
+              <input type="email" id="bk-email" class="form-input-premium" placeholder="name@example.com" required />
             </div>
           </div>
+
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label" for="ct-email">Email Address *</label>
-              <div class="input-icon-wrap">
-                <span class="input-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                </span>
-                <input type="email" id="ct-email" class="form-input" placeholder="you@domain.com" data-validate="required,email" />
-              </div>
+              <label class="form-label" for="bk-phone">Phone Number *</label>
+              <input type="tel" id="bk-phone" class="form-input-premium" placeholder="+91 98765 43210" required />
             </div>
             <div class="form-group">
-              <label class="form-label" for="ct-phone">Phone Number</label>
-              <div class="input-icon-wrap">
-                <span class="input-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                </span>
-                <input type="tel" id="ct-phone" class="form-input" placeholder="+91 98765 43210" />
-              </div>
+              <label class="form-label" for="bk-service">Service Required *</label>
+              <select id="bk-service" class="form-select-premium" required>
+                <option value="" disabled selected>Select service...</option>
+                <option value="Eye Examination">Eye Examination</option>
+                <option value="Contact Lens Consultation">Contact Lens Consultation</option>
+                <option value="Frame Styling">Frame Styling</option>
+                <option value="Children's Vision">Children's Vision</option>
+                <option value="Dry Eye Assessment">Dry Eye Assessment</option>
+                <option value="Lens Upgrade">Lens Upgrade</option>
+              </select>
             </div>
           </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="bk-date">Preferred Date *</label>
+              <input type="date" id="bk-date" class="form-input-premium" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="bk-time">Preferred Time Slot *</label>
+              <input type="time" id="bk-time" class="form-input-premium" required />
+            </div>
+          </div>
+
           <div class="form-group">
-            <label class="form-label" for="ct-subject">Consultation Subject *</label>
-            <select id="ct-subject" class="form-select" data-validate="required">
-              <option value="">Select subject...</option>
-              <option value="booking">Book Clinical Eye Diagnostic Exam</option>
-              <option value="frames">Custom Frame &amp; Fitting Advisory</option>
-              <option value="lenses">Freeform Digital Lens Consultation</option>
-              <option value="repair">Ultrasonic Repair &amp; Alignment</option>
-              <option value="prescription">Prescription Verification</option>
+            <label class="form-label" for="bk-specialist">Preferred Specialist *</label>
+            <select id="bk-specialist" class="form-select-premium" required>
+              <option value="" disabled selected>Select specialist...</option>
+              <option value="iyer">Dr. Suresh Iyer (Chief Optometrist)</option>
+              <option value="sharma">Dr. Ananya Sharma (Pediatric Optometrist)</option>
+              <option value="nair">Priya Nair (Senior Styling Consultant)</option>
             </select>
           </div>
+
           <div class="form-group">
-            <label class="form-label" for="ct-store">Preferred Atelier</label>
-            <select id="ct-store" class="form-select">
-              <option value="">Any Flagship Studio</option>
-              <option value="koramangala">Koramangala Studio</option>
-              <option value="indiranagar">Indiranagar Atelier</option>
-              <option value="whitefield">Whitefield Studio</option>
-            </select>
+            <label class="form-label" for="bk-message">Special Requests or Medical History Notes</label>
+            <textarea id="bk-message" class="form-textarea-premium" rows="4" placeholder="Briefly describe any visual symptoms or requests..."></textarea>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="ct-message">Consultation Details *</label>
-            <textarea id="ct-message" class="form-textarea" placeholder="Share your prescription details or inquiry..." data-validate="required"></textarea>
+
+          <div class="form-group" style="margin-bottom:var(--space-6)">
+            <label style="display:flex;align-items:flex-start;gap:var(--space-2);cursor:pointer;font-size:var(--text-xs);color:var(--text-secondary)">
+              <input type="checkbox" required style="margin-top:2px;" />
+              <span>I consent to OptiLux storing my information to facilitate clinic scheduling and agree to the visual screening terms. *</span>
+            </label>
           </div>
-          <button type="submit" class="btn btn-primary btn-lg w-full" style="justify-content:center">Submit Inquiry</button>
+
+          <button type="submit" class="btn btn-primary btn-lg w-full" style="justify-content:center">Book Appointment</button>
         </form>
       </div>
 
-      <!-- Info Sidebar -->
-      <div class="reveal-right">
-        <span class="section-label">Studio Directives</span>
-        <h3 style="font-family:var(--font-display);font-size:var(--text-2xl);font-weight:800;margin-bottom:var(--space-6)">Direct <span style="color:var(--sapphire)">Concierge</span></h3>
-
-        <div style="display:flex;flex-direction:column;gap:var(--space-4);margin-bottom:var(--space-8)">
-          <div style="display:flex;align-items:flex-start;gap:var(--space-4);padding:var(--space-4);background:var(--bg-tertiary);border-radius:var(--radius-lg)">
-            <div style="width:44px;height:44px;border-radius:var(--radius-md);background:rgba(30,53,47,0.1);display:flex;align-items:center;justify-content:center;color:var(--sapphire);flex-shrink:0">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div>
-              <p style="font-size:var(--text-xs);font-weight:700;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">Telephone Direct</p>
-              <a href="tel:+919876543210" style="font-size:var(--text-base);font-weight:700;color:var(--text-primary)">+91 98765 43210</a><br>
-              <a href="tel:+918012345678" style="font-size:var(--text-sm);color:var(--text-muted)">+91 80123 45678</a>
-            </div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:var(--space-4);padding:var(--space-4);background:var(--bg-tertiary);border-radius:var(--radius-lg)">
-            <div style="width:44px;height:44px;border-radius:var(--radius-md);background:rgba(150,124,86,0.1);display:flex;align-items:center;justify-content:center;color:var(--cyan);flex-shrink:0">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div>
-              <p style="font-size:var(--text-xs);font-weight:700;color:var(--text-muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px">Clinical Email</p>
-              <a href="mailto:hello@optilux.in" style="font-size:var(--text-base);font-weight:700;color:var(--text-primary)">hello@optilux.in</a>
-            </div>
-          </div>
+      <!-- Booking Success State -->
+      <div id="booking-success-wrapper" style="display:none; text-align:center;">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(46,196,182,0.1);color:var(--emerald);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-4)">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
+        <h3 style="font-family:var(--font-display);font-size:var(--text-xl);font-weight:700;margin-bottom:var(--space-2);color:var(--text-primary)">Appointment Requested Successfully</h3>
+        <p style="color:var(--text-secondary);font-size:var(--text-sm);line-height:1.6;max-width:500px;margin:0 auto var(--space-6)">
+          Thank you, <strong id="booking-success-name">Patient</strong>! Your booking for <strong id="booking-success-service">Service</strong> on <strong id="booking-success-date">Date</strong> at <strong id="booking-success-time">Time</strong> with <strong id="booking-success-specialist">Specialist</strong> has been received. Our patient care coordinators will contact you shortly to finalize your slot.
+        </p>
+        <button onclick="document.getElementById('booking-form').reset(); document.getElementById('booking-success-wrapper').style.display='none'; document.getElementById('booking-form-wrapper').style.display='block';" class="btn btn-primary" style="margin:0 auto">Book Another Slot</button>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ═══ SECTION 3: STORE LOCATIONS ═══ -->
-<section class="section bg-secondary" id="locations">
+<!-- ═══ SECTION 4: SEND A MESSAGE ═══ -->
+<section class="section bg-primary">
   <div class="container">
-    <div class="section-header">
-      <span class="section-label">Studios</span>
-      <h2 class="section-title reveal">Our <span>Flagship Locations</span></h2>
+    <div class="section-header text-center">
+      <span class="section-label" style="justify-content:center">General Enquiry</span>
+      <h2 class="section-title reveal">Send Us a <span>Message</span></h2>
+      <p class="section-subtitle reveal stagger-2">Have a question before your visit? Our optical consultants are happy to help.</p>
     </div>
-    <div class="grid grid-3 gap-6" style="margin-bottom:var(--space-10)">
-      <div class="location-card reveal">
-        <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:var(--space-2)">Koramangala Flagship</h4>
-        <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--space-3)">42, MG Road, Koramangala, Bangalore — 560095</p>
-        <span class="badge badge-green">● Open Today</span>
+
+    <div class="form-box-premium reveal-scale">
+      <div id="enquiry-form-wrapper">
+        <form id="enquiry-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="enq-name">Your Name *</label>
+              <input type="text" id="enq-name" class="form-input-premium" placeholder="Enter your name" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="enq-email">Email Address *</label>
+              <input type="email" id="enq-email" class="form-input-premium" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="enq-subject">Subject *</label>
+            <input type="text" id="enq-subject" class="form-input-premium" placeholder="What is your enquiry about?" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="enq-message">Message *</label>
+            <textarea id="enq-message" class="form-textarea-premium" rows="5" placeholder="Write your message here..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg w-full" style="justify-content:center">Send Message</button>
+        </form>
       </div>
-      <div class="location-card reveal stagger-2">
-        <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:var(--space-2)">Indiranagar Atelier</h4>
-        <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--space-3)">12, 100 Feet Road, Indiranagar, Bangalore — 560038</p>
-        <span class="badge badge-green">● Open Today</span>
-      </div>
-      <div class="location-card reveal stagger-3">
-        <h4 style="font-family:var(--font-display);font-weight:700;margin-bottom:var(--space-2)">Whitefield Studio</h4>
-        <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-bottom:var(--space-3)">78, ITPL Main Road, Whitefield, Bangalore — 560066</p>
-        <span class="badge badge-amber">● Closes 8PM</span>
+
+      <!-- Enquiry Success State -->
+      <div id="enquiry-success-wrapper" style="display:none; text-align:center; padding:var(--space-6) 0">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(46,196,182,0.1);color:var(--emerald);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-4)">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3 style="font-family:var(--font-display);font-size:var(--text-lg);font-weight:700;margin-bottom:var(--space-2);color:var(--text-primary)">Message Sent Successfully</h3>
+        <p style="color:var(--text-secondary);font-size:var(--text-sm);line-height:1.6;margin-bottom:var(--space-5)">
+          Thank you, <strong id="enquiry-success-name">User</strong>! We have received your query. An optical consultant will respond to you via email within 24 hours.
+        </p>
+        <button onclick="document.getElementById('enquiry-form').reset(); document.getElementById('enquiry-success-wrapper').style.display='none'; document.getElementById('enquiry-form-wrapper').style.display='block';" class="btn btn-primary" style="margin:0 auto">Send Another Message</button>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ═══ SECTION 5: GOOGLE MAPS ═══ -->
+<section class="section bg-secondary" id="map-section">
+  <div class="container">
+    <div class="map-section-grid">
+      <!-- Location Details -->
+      <div class="reveal-left">
+        <span class="section-label">Boutique Location</span>
+        <h2 class="section-title" style="text-align:left;margin-bottom:var(--space-6)">Visit Our <span>Flagship Studio</span></h2>
+        
+        <div class="map-info-list">
+          <div class="map-info-item">
+            <div class="map-info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4 style="font-size:var(--text-sm);font-weight:700;color:var(--text-primary);margin-bottom:2px">Clinic Address</h4>
+              <p style="font-size:var(--text-xs);color:var(--text-secondary);line-height:1.4">42 MG Road, Koramangala, Bangalore, 560095</p>
+            </div>
+          </div>
 
+          <div class="map-info-item">
+            <div class="map-info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <h4 style="font-size:var(--text-sm);font-weight:700;color:var(--text-primary);margin-bottom:2px">Working Hours</h4>
+              <p style="font-size:var(--text-xs);color:var(--text-secondary);line-height:1.4">Mon - Sat: 10:00 AM - 8:00 PM<br>Sun: 11:00 AM - 6:00 PM</p>
+            </div>
+          </div>
 
-  <!-- ═══ INJECTED UNIQUE SECTION 18 ═══ -->
-  <section class="section bg-primary" aria-label="State-of-the-Art Paediatric Care">
-    <div class="container">
-      <div class="grid" style="grid-template-columns:1fr 1fr;gap:var(--space-12);align-items:center">
-        <div class="reveal-left">
-          <span class="section-label">Contact Exclusive</span>
-          <h2 class="section-title" style="text-align:left;margin-bottom:var(--space-4)">State-of-the-Art <span>Paediatric Care</span></h2>
-          <p style="color:var(--text-secondary);margin-bottom:var(--space-6)">Experience the pinnacle of optical precision. Our paediatric care division is specifically tailored for those who demand excellence in every detail. We utilize state-of-the-art methodologies to ensure your vision is uncompromised.</p>
-          <div style="display:flex;gap:var(--space-4)">
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg)">
-                <h4 style="color:var(--cyan);margin-bottom:4px">100%</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Precision Rate</div>
-             </div>
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg);animation-delay:1s">
-                <h4 style="color:var(--sapphire);margin-bottom:4px">24/7</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Support Available</div>
-             </div>
+          <div class="map-info-item">
+            <div class="map-info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div>
+              <h4 style="font-size:var(--text-sm);font-weight:700;color:var(--text-primary);margin-bottom:2px">Parking Availability</h4>
+              <p style="font-size:var(--text-xs);color:var(--text-secondary);line-height:1.4">Complimentary Valet Parking Available for all patients.</p>
+            </div>
+          </div>
+
+          <div class="map-info-item">
+            <div class="map-info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div>
+              <h4 style="font-size:var(--text-sm);font-weight:700;color:var(--text-primary);margin-bottom:2px">Nearby Landmark</h4>
+              <p style="font-size:var(--text-xs);color:var(--text-secondary);line-height:1.4">Directly opposite to the Koramangala Club main gate.</p>
+            </div>
+          </div>
+
+          <div class="map-info-item">
+            <div class="map-info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m14 15-3-3 3-3"/></svg>
+            </div>
+            <div>
+              <h4 style="font-size:var(--text-sm);font-weight:700;color:var(--text-primary);margin-bottom:2px">Wheelchair Accessibility</h4>
+              <p style="font-size:var(--text-xs);color:var(--text-secondary);line-height:1.4">Fully Wheelchair Accessible Entrance, Ramp, &amp; Elevator.</p>
+            </div>
           </div>
         </div>
-        <div class="reveal-blur" style="border-radius:var(--radius-2xl);overflow:hidden;position:relative;height:450px;box-shadow:var(--shadow-xl)">
-          <img src="assets/images/prod_kids.png" alt="Paediatric Care" style="width:100%;height:100%;object-fit:cover" />
+      </div>
+
+      <!-- Google Maps Frame -->
+      <div class="reveal-right" style="border-radius:var(--radius-2xl);overflow:hidden;box-shadow:var(--shadow-xl);height:450px;">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.001691168132!2d77.6221596!3d12.9397943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae145119794711%3A0xa1ea142345e69bf0!2sMG%20Road%2C%20Koramangala%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          title="OptiLux Koramangala Clinic Map">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 6: MEET OUR SUPPORT TEAM ═══ -->
+<section class="section bg-primary">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label" style="justify-content:center">Patient Care</span>
+      <h2 class="section-title reveal">Meet the Team That <span>Welcomes You</span></h2>
+      <p class="section-subtitle reveal stagger-2">Our dedicated coordinators ensure every visit is comfortable, organized, and personalized from arrival to follow-up.</p>
+    </div>
+
+    <div class="team-grid-premium">
+      <!-- Member 1 -->
+      <div class="team-card-premium reveal stagger-1">
+        <div class="team-img-wrap">
+          <img src="assets/images/team_sarah.png" alt="Sarah Jenkins" />
+        </div>
+        <div class="team-details">
+          <h3>Sarah Jenkins</h3>
+          <span class="team-role">Lead Clinic Coordinator</span>
+          <p class="team-desc">Sarah manages clinical scheduling and client records with meticulous care, ensuring a seamless experience.</p>
+          <a href="mailto:sarah.j@optilux.in" class="btn btn-primary team-contact-btn">Email Specialist &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="team-card-premium reveal stagger-2">
+        <div class="team-img-wrap">
+          <img src="assets/images/team_david.png" alt="David Vance" />
+        </div>
+        <div class="team-details">
+          <h3>David Vance</h3>
+          <span class="team-role">Concierge Host</span>
+          <p class="team-desc">David welcomes every guest with high-end hospitality, guiding you to your optical consultant.</p>
+          <a href="mailto:david.v@optilux.in" class="btn btn-primary team-contact-btn">Email Specialist &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="team-card-premium reveal stagger-3">
+        <div class="team-img-wrap">
+          <img src="assets/images/team_elena.png" alt="Elena Rostova" />
+        </div>
+        <div class="team-details">
+          <h3>Elena Rostova</h3>
+          <span class="team-role">Client Relations Specialist</span>
+          <p class="team-desc">Elena oversees patient follow-ups and custom orders, guaranteeing your absolute satisfaction.</p>
+          <a href="mailto:elena.r@optilux.in" class="btn btn-primary team-contact-btn">Email Specialist &rarr;</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══ INJECTED UNIQUE SECTION 19 ═══ -->
-  <section class="section bg-secondary" aria-label="Luxury Styling Highlights">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="section-label">Signature Focus</span>
-        <h2 class="section-title reveal-blur">Discover <span>Luxury Styling</span></h2>
-        <p class="section-subtitle reveal stagger-2">A specialized offering designed exclusively for our valued OptiLux patients.</p>
+<!-- ═══ SECTION 7: CONNECT WITH US ═══ -->
+<section class="section bg-secondary">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label" style="justify-content:center">Follow OptiLux</span>
+      <h2 class="section-title reveal">Stay Connected <span>Beyond Your Visit</span></h2>
+      <p class="section-subtitle reveal stagger-2">Follow our journey for vision care tips, new designer collections, clinical updates, and patient stories.</p>
+    </div>
+
+    <div class="social-grid">
+      <!-- Card 1: Instagram -->
+      <div class="social-card-premium reveal stagger-1">
+        <div class="social-icon-big">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </div>
+        <h3>Instagram</h3>
+        <p>Daily visual inspirations, new designer releases, and boutique highlights.</p>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Follow @OptiLux</a>
       </div>
-      <div class="grid grid-3 gap-6">
-        <div class="card-glass card-3d reveal-blur stagger-1">
-          <div style="color:var(--sapphire);margin-bottom:var(--space-4)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
-          <h4 style="margin-bottom:var(--space-2)">Unmatched Clarity</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Leveraging state-of-the-art physics to bend light perfectly to your retina's exact curvature.</p>
+
+      <!-- Card 2: Facebook -->
+      <div class="social-card-premium reveal stagger-2">
+        <div class="social-icon-big">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
         </div>
-        <div class="card-glass card-3d reveal-blur stagger-2">
-          <div style="color:var(--cyan);margin-bottom:var(--space-4)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-          <h4 style="margin-bottom:var(--space-2)">Ergonomic Design</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Every element is weighted and balanced to sit weightlessly upon your unique facial structure.</p>
+        <h3>Facebook</h3>
+        <p>Stay updated with community visual health tips, clinic events, and stories.</p>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Like Our Page</a>
+      </div>
+
+      <!-- Card 3: LinkedIn -->
+      <div class="social-card-premium reveal stagger-3">
+        <div class="social-icon-big">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
         </div>
-        <div class="card-glass card-3d reveal-blur stagger-3">
-          <div style="color:var(--emerald);margin-bottom:var(--space-4)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-          <h4 style="margin-bottom:var(--space-2)">Lifetime Assurance</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Because luxury styling requires a commitment that outlasts standard industry warranties.</p>
+        <h3>LinkedIn</h3>
+        <p>Professional updates, optometric diagnostic updates, and career opportunities.</p>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Connect with Us</a>
+      </div>
+
+      <!-- Card 4: YouTube -->
+      <div class="social-card-premium reveal stagger-4">
+        <div class="social-icon-big">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"></path><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"></polygon></svg>
         </div>
+        <h3>YouTube</h3>
+        <p>Watch expert design reviews, lens technology explanations, and guides.</p>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Subscribe</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══ INJECTED UNIQUE SECTION 20 ═══ -->
-  <section class="section" style="background:var(--graphite-deep);color:#fff" aria-label="Aftercare Banner">
-    <div class="container">
-      <div style="background:linear-gradient(135deg, rgba(42,157,143,0.1) 0%, rgba(212,165,90,0.1) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-2xl);padding:clamp(3rem,6vw,5rem);text-align:center" class="reveal-scale">
-        <span class="section-label" style="justify-content:center;color:var(--cyan)">Aftercare</span>
-        <h2 class="section-title" style="color:#fff">The Advanced <span>Difference</span></h2>
-        <p style="color:rgba(255,255,255,0.7);max-width:700px;margin:0 auto var(--space-8);font-size:var(--text-lg)">We redefine what it means to experience world-class optical care. This is not just eyecare; this is a completely tailored sensory upgrade.</p>
-        <div style="display:inline-flex;gap:var(--space-4)">
-            <a href="contact.html" class="btn btn-primary btn-lg">Explore Aftercare</a>
-            <a href="about.html" class="btn btn-white btn-lg" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff">Learn More</a>
-        </div>
-      </div>
+<!-- ═══ SECTION 8: FREQUENTLY ASKED QUESTIONS ═══ -->
+<section class="section bg-primary">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label" style="justify-content:center">Help Center</span>
+      <h2 class="section-title reveal">Frequently Asked <span>Questions</span></h2>
+      <p class="section-subtitle reveal stagger-2">Everything patients usually ask before booking an appointment.</p>
     </div>
-  </section>
 
-  <!-- ═══ INJECTED UNIQUE SECTION 21 ═══ -->
-  <section class="section bg-primary" aria-label="Premium Our Heritage">
-    <div class="container">
-      <div class="grid" style="grid-template-columns:1fr 1fr;gap:var(--space-12);align-items:center">
-        <div class="reveal-left">
-          <span class="section-label">Contact Exclusive</span>
-          <h2 class="section-title" style="text-align:left;margin-bottom:var(--space-4)">Premium <span>Our Heritage</span></h2>
-          <p style="color:var(--text-secondary);margin-bottom:var(--space-6)">Experience the pinnacle of optical precision. Our our heritage division is specifically tailored for those who demand excellence in every detail. We utilize premium methodologies to ensure your vision is uncompromised.</p>
-          <div style="display:flex;gap:var(--space-4)">
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg)">
-                <h4 style="color:var(--cyan);margin-bottom:4px">100%</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Precision Rate</div>
-             </div>
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg);animation-delay:1s">
-                <h4 style="color:var(--sapphire);margin-bottom:4px">24/7</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Support Available</div>
-             </div>
+    <div class="faq-accordion-container">
+      <!-- FAQ 1 -->
+      <div class="accordion-item" id="faq-item-1">
+        <button class="accordion-header" onclick="toggleContactFaq(1)">
+          <span>How do I book an appointment?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content" id="faq-content-1">
+          <div class="accordion-inner">
+            <p>You can reserve a slot using our secure reservation form above on this page, or call our concierge desk directly at +91 98765 43210. Our staff will confirm your appointment details via phone or email.</p>
           </div>
         </div>
-        <div class="reveal-blur" style="border-radius:var(--radius-2xl);overflow:hidden;position:relative;height:450px;box-shadow:var(--shadow-xl)">
-          <img src="assets/images/service_diag.png" alt="Our Heritage" style="width:100%;height:100%;object-fit:cover" />
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="accordion-item" id="faq-item-2">
+        <button class="accordion-header" onclick="toggleContactFaq(2)">
+          <span>Do I need an appointment for frame selection?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content" id="faq-content-2">
+          <div class="accordion-inner">
+            <p>While walk-ins are welcome for frame browsing, we recommend scheduling a personalized "Frame Styling" consultation to ensure an advisor is dedicated to analyzing your facial structure and selecting custom options.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="accordion-item" id="faq-item-3">
+        <button class="accordion-header" onclick="toggleContactFaq(3)">
+          <span>How long does an eye examination take?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content" id="faq-content-3">
+          <div class="accordion-inner">
+            <p>A comprehensive diagnostic clinical eye examination takes approximately 45 to 60 minutes. This includes corneal mapping, glaucoma screening, retinal imaging, and visual acuity refractions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="accordion-item" id="faq-item-4">
+        <button class="accordion-header" onclick="toggleContactFaq(4)">
+          <span>Do you provide pediatric eye care?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content" id="faq-content-4">
+          <div class="accordion-inner">
+            <p>Yes. Our pediatric optometrist, Dr. Ananya Sharma, conducts customized screening protocols tailored for young children, specifically monitoring myopia control indicators and computer screen eye strain issues.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="accordion-item" id="faq-item-5">
+        <button class="accordion-header" onclick="toggleContactFaq(5)">
+          <span>Can I update my prescription lenses only?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content" id="faq-content-5">
+          <div class="accordion-inner">
+            <p>Yes. If you have an existing frame you love, we can verify its structural integrity and surface new progressive, single-vision, or protective digital blue-filtering lenses custom-cut to your frame.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="accordion-item" id="faq-item-6">
+        <button class="accordion-header" onclick="toggleContactFaq(6)">
+          <span>Do you offer emergency consultations?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content" id="faq-content-6">
+          <div class="accordion-inner">
+            <p>Yes. For eye infections, foreign objects, sudden vision losses, or severe irritation, contact our emergency line at +91 80123 45678 for priority triage and same-day assessments.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 7 -->
+      <div class="accordion-item" id="faq-item-7">
+        <button class="accordion-header" onclick="toggleContactFaq(7)">
+          <span>Are designer frames covered by warranty?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content" id="faq-content-7">
+          <div class="accordion-inner">
+            <p>All premium optical frames purchased from OptiLux include a 12-month manufacturer warranty covering structural defects, hinges, and surfacing faults. Accidental frame breaks are handled under aftercare plans.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ 8 -->
+      <div class="accordion-item" id="faq-item-8">
+        <button class="accordion-header" onclick="toggleContactFaq(8)">
+          <span>Can I reschedule my booking?</span>
+          <span class="accordion-icon">+</span>
+        </button>
+        <div class="accordion-content" id="faq-content-8">
+          <div class="accordion-inner">
+            <p>Absolutely. You can reschedule or cancel your visual consultation up to 24 hours in advance by clicking your confirmation link or speaking directly with Sarah Jenkins at the reception line.</p>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- ═══ SECTION 9: FINAL CALL TO ACTION ═══ -->
+<section class="section bg-primary" style="border-top:1px solid var(--border-color); padding:clamp(70px, 8vw, 90px) 0 !important">
+  <div class="container">
+    <div class="cta-container-premium reveal-scale">
+      <span class="section-label" style="margin-bottom:var(--space-4);justify-content:center">Ready To Visit?</span>
+      <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--text-primary);line-height:1.15;max-width:700px;margin:0 auto var(--space-4)">Experience Precision Vision with OptiLux</h2>
+      <p style="color:var(--text-secondary);max-width:600px;margin:0 auto var(--space-6);line-height:1.6">Schedule your consultation today and discover luxury eyewear with clinically precise eye care.</p>
+      <div style="display:inline-flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap">
+        <a href="#booking-section" onclick="scrollToBooking(event)" class="btn btn-primary btn-lg">Book Eye Test</a>
+        <a href="tel:+919876543210" class="btn btn-white btn-lg" style="background:transparent;border:1px solid var(--border-color);color:var(--text-primary)">Call Now</a>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- ═══ FOOTER ═══ -->
   <footer class="footer" role="contentinfo">
@@ -418,6 +1056,103 @@
 
   <!-- Back to Top -->
   <button class="back-to-top" aria-label="Back to top">↑</button>
+<script>
+  // 1. FAQ Accordion Toggle Behavior
+  window.toggleContactFaq = function(index) {
+    const item = document.getElementById(`faq-item-${index}`);
+    const content = document.getElementById(`faq-content-${index}`);
+    if (!item || !content) return;
+
+    const isActive = item.classList.contains('active');
+    
+    // Close other FAQ items
+    document.querySelectorAll('.faq-accordion-container .accordion-item').forEach(el => {
+      el.classList.remove('active');
+      const innerContent = el.querySelector('.accordion-content');
+      if (innerContent) {
+        innerContent.style.maxHeight = null;
+      }
+    });
+
+    // Open active item
+    if (!isActive) {
+      item.classList.add('active');
+      content.style.maxHeight = `${content.scrollHeight}px`;
+    }
+  };
+
+  // 2. Smooth Scroll for Booking Action
+  window.scrollToBooking = function(e) {
+    if (e) e.preventDefault();
+    const target = document.getElementById('booking-section');
+    if (target) {
+      const offset = 80;
+      const targetPos = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({
+        top: targetPos,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // 3. Appointment Form Submit Hook
+  document.getElementById('booking-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const nameInput = document.getElementById('bk-name');
+    const emailInput = document.getElementById('bk-email');
+    const phoneInput = document.getElementById('bk-phone');
+    const serviceSelect = document.getElementById('bk-service');
+    const dateInput = document.getElementById('bk-date');
+    const timeInput = document.getElementById('bk-time');
+    const specialistSelect = document.getElementById('bk-specialist');
+    
+    // Quick validation
+    if (!nameInput.value || !emailInput.value || !phoneInput.value || !serviceSelect.value || !dateInput.value || !timeInput.value || !specialistSelect.value) {
+      alert("Please fill in all required fields marked with an asterisk (*).");
+      return;
+    }
+
+    let specName = "our clinical specialist";
+    if (specialistSelect.value === "iyer") specName = "Dr. Suresh Iyer";
+    else if (specialistSelect.value === "sharma") specName = "Dr. Ananya Sharma";
+    else if (specialistSelect.value === "nair") specName = "Priya Nair";
+
+    // Bind data
+    document.getElementById('booking-success-name').textContent = nameInput.value;
+    document.getElementById('booking-success-service').textContent = serviceSelect.value;
+    document.getElementById('booking-success-date').textContent = dateInput.value;
+    document.getElementById('booking-success-time').textContent = timeInput.value;
+    document.getElementById('booking-success-specialist').textContent = specName;
+
+    // Toggle panels
+    document.getElementById('booking-form-wrapper').style.display = 'none';
+    document.getElementById('booking-success-wrapper').style.display = 'block';
+  });
+
+  // 4. General Enquiry Form Submit Hook
+  document.getElementById('enquiry-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const nameInput = document.getElementById('enq-name');
+    const emailInput = document.getElementById('enq-email');
+    const subjectInput = document.getElementById('enq-subject');
+    const messageInput = document.getElementById('enq-message');
+
+    // Quick validation
+    if (!nameInput.value || !emailInput.value || !subjectInput.value || !messageInput.value) {
+      alert("Please fill in all required fields marked with an asterisk (*).");
+      return;
+    }
+
+    // Bind data
+    document.getElementById('enquiry-success-name').textContent = nameInput.value;
+
+    // Toggle panels
+    document.getElementById('enquiry-form-wrapper').style.display = 'none';
+    document.getElementById('enquiry-success-wrapper').style.display = 'block';
+  });
+</script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
