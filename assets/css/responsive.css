@@ -44,16 +44,48 @@
 
   /* ─── Home2 Hero — stack split ─── */
   section[aria-label="Hero"] { grid-template-columns: 1fr !important; min-height: auto !important; }
-  section[aria-label="Hero"] > div:last-child { min-height: 50vh !important; }
+  section[aria-label="Hero"] > div:last-child { display: none !important; }
 
   /* ─── Home2 CTA card inner ─── */
   [style*="grid-template-columns:1fr auto"] { grid-template-columns: 1fr !important; gap: var(--space-6) !important; text-align: center; }
+
+  /* ─── Home2 Trending Products grid ─── */
+  .trending-products-container { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; overflow: visible !important; width: 100% !important; margin-inline: 0 !important; padding-inline: 0 !important; }
+  .trending-product-card { width: auto !important; flex-shrink: 1 !important; }
+
+  /* ─── Home2 Luxury Blue Light Protection ─── */
+  section[aria-label="Luxury Blue Light Protection"] .grid[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; gap: var(--space-8) !important; }
+  section[aria-label="Luxury Blue Light Protection"] .reveal-left { text-align: center !important; }
+  section[aria-label="Luxury Blue Light Protection"] .reveal-left .section-title[style*="text-align:left"] { text-align: center !important; }
+  section[aria-label="Luxury Blue Light Protection"] .reveal-left [style*="display:flex;gap:"] { justify-content: center !important; }
+
+  /* ─── Home2 Unrivaled Difference ─── */
+  section[aria-label="Sustainability Banner"] [style*="display:inline-flex"] { flex-direction: column !important; align-items: stretch !important; }
+  section[aria-label="Sustainability Banner"] [style*="display:inline-flex"] .btn { justify-content: center !important; width: 100% !important; }
+
+  /* ─── About: Tailored Our Heritage ─── */
+  section[aria-label="Tailored Our Heritage"] .grid[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; gap: var(--space-8) !important; }
+  section[aria-label="Tailored Our Heritage"] .reveal-left { text-align: center !important; }
+  section[aria-label="Tailored Our Heritage"] .reveal-left .section-title[style*="text-align:left"] { text-align: center !important; }
+  section[aria-label="Tailored Our Heritage"] .reveal-left [style*="display:flex;gap:"] { justify-content: center !important; }
+
+  /* ─── About: State-of-the-Art Difference ─── */
+  section[aria-label="Sports Vision Banner"] [style*="display:inline-flex"] { flex-direction: column !important; align-items: stretch !important; }
+  section[aria-label="Sports Vision Banner"] [style*="display:inline-flex"] .btn { justify-content: center !important; width: 100% !important; }
 
   /* ─── Privacy / Terms — sidebar collapses ─── */
   [style*="grid-template-columns:260px 1fr"] { grid-template-columns: 1fr !important; }
 
   /* ─── About: principles 3-col → 2-col ─── */
   .about-principles-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* ─── Hide lens badges on tablet ─── */
+  #lens-guide .badge { display: none !important; }
+
+  /* ─── Testimonials: stack all 3 reviews vertically ─── */
+  [data-carousel] { overflow: visible !important; }
+  [data-carousel-track] { flex-direction: column !important; gap: var(--space-4) !important; transform: none !important; }
+  [data-carousel-track] > div { min-width: 100% !important; padding: 0 !important; }
 
   /* ─── Section padding ─── */
   .section { --section-py: clamp(3rem, 6vw, 5rem); }
@@ -68,7 +100,7 @@
   .map-section-grid { grid-template-columns: 1fr !important; }
 
   /* ─── Home2 image mosaic ─── */
-  [style*="grid-template-columns:1fr 1fr"][style*="grid-template-rows:1fr 1fr"] { min-height: 50vh !important; }
+  [style*="grid-template-columns:1fr 1fr"][style*="grid-template-rows:1fr 1fr"] { display: none !important; }
 
   /* ─── Container padding ─── */
   .container { padding-inline: clamp(1rem, 3vw, 2rem) !important; }
@@ -125,14 +157,20 @@
   section[aria-label="Eye test booking"] { padding-block: var(--space-10) !important; }
   section[aria-label="Eye test booking"] .reveal-left,
   section[aria-label="Eye test booking"] .glass-container { text-align: center; }
+  section[aria-label="Eye test booking"] .reveal-left .section-title[style*="text-align:left"] { text-align: center !important; }
   section[aria-label="Eye test booking"] .reveal-left .btn { margin-inline: auto; }
   section[aria-label="Eye test booking"] ul { align-items: center; }
 
   /* ─── Lens guide section ─── */
   #lens-guide .grid[style*="grid-template-columns:1fr 1fr;"] { gap: var(--space-8) !important; }
+  #lens-guide .badge { display: none !important; }
+  #lens-guide .reveal-right { text-align: center !important; }
+  #lens-guide .reveal-right .section-title[style*="text-align:left"] { text-align: center !important; }
+  #lens-guide .reveal-right ul { align-items: center !important; }
+  #lens-guide .reveal-right .tab-nav { justify-content: center !important; }
+  #lens-guide .reveal-right .tab-nav .tab-btn { text-align: center; }
 
-  /* ─── Testimonial carousel ─── */
-  [data-carousel-track] > div { min-width: 100% !important; padding: 0 var(--space-1) !important; }
+  /* Testimonials stacked via 1024px rule above */
 
   /* ─── Home2 Hero ─── */
   section[aria-label="Hero"] { grid-template-columns: 1fr !important; min-height: auto !important; }
@@ -141,10 +179,25 @@
   section[aria-label="Hero"] .btn-group { flex-direction: column !important; align-items: stretch !important; }
   section[aria-label="Hero"] .btn-group .btn { justify-content: center; }
   section[aria-label="Hero"] .home2-hero-left [style*="display:flex;gap:var(--space-6);margin-top"] { justify-content: center; flex-wrap: wrap; gap: var(--space-4) !important; }
-  section[aria-label="Hero"] [style*="grid-template-columns:1fr 1fr"][style*="grid-template-rows:1fr 1fr"] { min-height: 40vh !important; }
+  section[aria-label="Hero"] [style*="grid-template-columns:1fr 1fr"][style*="grid-template-rows:1fr 1fr"] { display: none !important; }
 
   /* ─── Home2 CTA card inner ─── */
   [style*="grid-template-columns:1fr auto"] { grid-template-columns: 1fr !important; gap: var(--space-6) !important; text-align: center; }
+
+  /* ─── Home2 Trending Products ─── */
+  .trending-products-container { grid-template-columns: 1fr !important; }
+
+  /* ─── Home2 Luxury Blue Light Protection ─── */
+  section[aria-label="Luxury Blue Light Protection"] [style*="height:450px"] { height: auto !important; min-height: 260px !important; }
+
+  /* ─── Home2 Unrivaled Difference ─── */
+  section[aria-label="Sustainability Banner"] [style*="padding:clamp"] { padding: var(--space-8) var(--space-5) !important; }
+
+  /* ─── About: Tailored Our Heritage ─── */
+  section[aria-label="Tailored Our Heritage"] [style*="height:450px"] { height: auto !important; min-height: 260px !important; }
+
+  /* ─── About: State-of-the-Art Difference ─── */
+  section[aria-label="Sports Vision Banner"] [style*="padding:clamp"] { padding: var(--space-8) var(--space-5) !important; }
 
   /* ─── Privacy / Terms sidebar ─── */
   [style*="grid-template-columns:260px 1fr"] { grid-template-columns: 1fr !important; }
