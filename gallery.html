@@ -7,6 +7,200 @@
   <meta name="description" content="Explore the OptiLux gallery — bespoke frames, luxury sunglasses, paediatric eyewear, and flagship optical store interiors." />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
+  <style>
+    /* ─── Gallery Image Hover Contrast Upgrades ─── */
+    .gallery-item-overlay {
+      background: linear-gradient(to top, rgba(9, 13, 22, 0.95) 0%, rgba(9, 13, 22, 0.4) 70%, rgba(9, 13, 22, 0.15) 100%) !important;
+      opacity: 0 !important;
+      transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    }
+    
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1 !important;
+    }
+    
+    .gallery-item-overlay p {
+      color: #ffffff !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+      font-size: var(--text-md) !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.5px !important;
+    }
+
+    .gallery-item-overlay svg {
+      color: var(--cyan) !important;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)) !important;
+    }
+
+    /* ─── Curated Collections Card Grid ─── */
+    .collections-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)) !important;
+      gap: var(--space-8) !important;
+      margin-top: var(--space-8) !important;
+    }
+
+    .collection-card {
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius-2xl) !important;
+      overflow: hidden !important;
+      box-shadow: var(--shadow-sm) !important;
+      transition: var(--transition-spring) !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .collection-card:hover {
+      transform: translateY(-8px) !important;
+      box-shadow: var(--shadow-xl) !important;
+      border-color: rgba(42, 157, 143, 0.3) !important;
+    }
+
+    .collection-img-wrap {
+      height: 240px !important;
+      overflow: hidden !important;
+      position: relative !important;
+    }
+
+    .collection-img-wrap img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    }
+
+    .collection-card:hover .collection-img-wrap img {
+      transform: scale(1.06) !important;
+    }
+
+    .collection-count-badge {
+      position: absolute !important;
+      bottom: var(--space-4) !important;
+      right: var(--space-4) !important;
+      background: rgba(9, 13, 22, 0.85) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      color: #ffffff !important;
+      backdrop-filter: blur(8px) !important;
+      font-size: var(--text-xs) !important;
+      font-weight: 700 !important;
+      padding: var(--space-1) var(--space-3) !important;
+      border-radius: var(--radius-full) !important;
+    }
+
+    .collection-info-block {
+      padding: var(--space-6) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      flex-grow: 1 !important;
+    }
+
+    .collection-info-block h3 {
+      font-family: var(--font-display) !important;
+      font-size: var(--text-lg) !important;
+      font-weight: 700 !important;
+      color: var(--text-primary) !important;
+      margin-bottom: var(--space-2) !important;
+    }
+
+    .collection-info-block p {
+      font-size: var(--text-sm) !important;
+      color: var(--text-secondary) !important;
+      line-height: 1.6 !important;
+      margin-bottom: var(--space-5) !important;
+      flex-grow: 1 !important;
+    }
+
+    .collection-card-cta {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: var(--space-2) !important;
+      color: var(--sapphire) !important;
+      font-weight: 700 !important;
+      font-size: var(--text-sm) !important;
+      transition: gap 0.3s ease !important;
+      text-decoration: none !important;
+    }
+
+    .collection-card:hover .collection-card-cta {
+      gap: var(--space-3) !important;
+      color: var(--cyan) !important;
+    }
+
+    /* ─── Showroom Experience Feature Cards ─── */
+    .showroom-feature-row {
+      display: grid !important;
+      grid-template-columns: 1.1fr 0.9fr !important;
+      gap: var(--space-12) !important;
+      align-items: center !important;
+    }
+
+    .showroom-features-list {
+      display: grid !important;
+      grid-template-columns: 1fr !important;
+      gap: var(--space-5) !important;
+    }
+
+    .showroom-feature-item {
+      display: flex !important;
+      gap: var(--space-4) !important;
+      align-items: flex-start !important;
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius-xl) !important;
+      padding: var(--space-4) var(--space-5) !important;
+      box-shadow: var(--shadow-sm) !important;
+      transition: var(--transition-spring) !important;
+    }
+
+    .showroom-feature-item:hover {
+      transform: translateY(-3px) !important;
+      border-color: rgba(42, 157, 143, 0.25) !important;
+      box-shadow: var(--shadow-md) !important;
+    }
+
+    .showroom-feature-icon {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: var(--radius-lg) !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(42, 157, 143, 0.2) !important;
+      color: var(--sapphire) !important;
+      flex-shrink: 0 !important;
+      transition: var(--transition-base) !important;
+    }
+
+    .showroom-feature-item:hover .showroom-feature-icon {
+      background: var(--sapphire) !important;
+      color: #ffffff !important;
+      border-color: transparent !important;
+    }
+
+    .showroom-feature-item h3 {
+      font-family: var(--font-display) !important;
+      font-size: var(--text-md) !important;
+      font-weight: 700 !important;
+      color: var(--text-primary) !important;
+      margin-bottom: 2px !important;
+    }
+
+    .showroom-feature-item p {
+      font-size: var(--text-xs) !important;
+      color: var(--text-secondary) !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+    }
+
+    @media (max-width: 992px) {
+      .showroom-feature-row {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-8) !important;
+      }
+    }
+  </style>
 </head>
 <body>
 <div id="preloader"><div class="preloader-inner"><div class="preloader-logo">Opti<span>Lux</span></div><div class="preloader-bar"><div class="preloader-bar-fill"></div></div><div class="preloader-dots"><div class="preloader-dot"></div><div class="preloader-dot"></div><div class="preloader-dot"></div></div></div></div>
@@ -76,7 +270,7 @@
 
 <!-- ═══ SECTION 1: HERO ═══ -->
 <section class="page-hero">
-  <div class="page-hero-bg" style="background-image: url('assets/images/hero_sunglasses.png'); background-size: cover; background-position: center;">
+  <div class="page-hero-bg" style="background-image: url('assets/images/gallery_hero.png'); background-size: cover; background-position: center;">
     <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(18,16,15,0.92) 0%, rgba(18,16,15,0.7) 100%)"></div>
   </div>
   <div class="container page-hero-content">
@@ -103,105 +297,118 @@
     <div class="gallery-grid" id="gallery-grid">
 
       <!-- Item 1 -->
-      <div class="gallery-item reveal" data-category="frames" data-lightbox="assets/images/prod_kids.png" data-alt="Titanium Aviator Pro Frame">
+      <div class="gallery-item reveal" data-category="frames" data-lightbox="assets/images/prod_aviator.png" data-alt="Titanium Aviator Pro Frame">
         <div style="height:260px;overflow:hidden;position:relative">
           <img src="assets/images/prod_aviator.png" alt="Titanium Aviator Pro" style="width:100%;height:100%;object-fit:cover" />
         </div>
         <div class="gallery-item-overlay">
           <div style="text-align:center;color:#fff">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <p style="font-size:var(--text-sm);font-weight:700">Titanium Aviator Pro</p>
+            <p>Titanium Aviator Pro</p>
           </div>
         </div>
       </div>
 
       <!-- Item 2 -->
-      <div class="gallery-item reveal stagger-2" data-category="sunglasses" data-lightbox="assets/images/prod_reading.png" data-alt="Polarized UV400 Elite Sunglasses">
+      <div class="gallery-item reveal stagger-2" data-category="sunglasses" data-lightbox="assets/images/prod_sunglasses.png" data-alt="Polarized UV400 Elite Sunglasses">
         <div style="height:220px;overflow:hidden;position:relative">
           <img src="assets/images/prod_sunglasses.png" alt="Polarized UV400 Elite" style="width:100%;height:100%;object-fit:cover" />
         </div>
         <div class="gallery-item-overlay">
           <div style="text-align:center;color:#fff">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <p style="font-size:var(--text-sm);font-weight:700">Polarized UV400 Elite</p>
+            <p>Polarized UV400 Elite</p>
           </div>
         </div>
       </div>
 
       <!-- Item 3 -->
-      <div class="gallery-item reveal stagger-3" data-category="kids" data-lightbox="assets/images/prod_sunglasses.png" data-alt="FlexiFrame Junior">
+      <div class="gallery-item reveal stagger-3" data-category="store" data-lightbox="assets/images/gallery_item_3.png" data-alt="Bespoke Styling Consultation">
         <div style="height:280px;overflow:hidden;position:relative">
-          <img src="assets/images/prod_kids.png" alt="FlexiFrame Junior" style="width:100%;height:100%;object-fit:cover" />
+          <img src="assets/images/gallery_item_3.png" alt="Bespoke Styling Consultation" style="width:100%;height:100%;object-fit:cover" />
         </div>
         <div class="gallery-item-overlay">
           <div style="text-align:center;color:#fff">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <p style="font-size:var(--text-sm);font-weight:700">FlexiFrame Junior</p>
+            <p>Bespoke Styling Consultation</p>
           </div>
         </div>
       </div>
 
       <!-- Item 4 -->
-      <div class="gallery-item reveal" data-category="frames" data-lightbox="assets/images/service_diag.png" data-alt="Gold Rimless Oval">
+      <div class="gallery-item reveal" data-category="frames" data-lightbox="assets/images/prod_classic.png" data-alt="Gold Rimless Oval">
         <div style="height:240px;overflow:hidden;position:relative">
           <img src="assets/images/prod_classic.png" alt="Gold Rimless Oval" style="width:100%;height:100%;object-fit:cover" />
         </div>
         <div class="gallery-item-overlay">
           <div style="text-align:center;color:#fff">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <p style="font-size:var(--text-sm);font-weight:700">Gold Rimless Oval</p>
+            <p>Gold Rimless Oval</p>
           </div>
         </div>
       </div>
 
       <!-- Item 5 -->
-      <div class="gallery-item reveal stagger-2" data-category="reading" data-lightbox="assets/images/team_1.png" data-alt="Executive Half-Rim Reading Lenses">
+      <div class="gallery-item reveal stagger-2" data-category="frames" data-lightbox="assets/images/gallery_item_5.png" data-alt="Crystal Clear Acetate Frame">
         <div style="height:230px;overflow:hidden;position:relative">
-          <img src="assets/images/prod_reading.png" alt="Executive Half-Rim" style="width:100%;height:100%;object-fit:cover" />
+          <img src="assets/images/gallery_item_5.png" alt="Crystal Clear Acetate" style="width:100%;height:100%;object-fit:cover" />
         </div>
         <div class="gallery-item-overlay">
           <div style="text-align:center;color:#fff">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <p style="font-size:var(--text-sm);font-weight:700">Executive Half-Rim</p>
+            <p>Crystal Clear Acetate</p>
           </div>
         </div>
       </div>
 
       <!-- Item 6 -->
-      <div class="gallery-item reveal stagger-3" data-category="store" data-lightbox="assets/images/team_2.png" data-alt="Koramangala Optical Studio Interior">
+      <div class="gallery-item reveal stagger-3" data-category="store" data-lightbox="assets/images/blog_exam.png" data-alt="Koramangala Optical Studio Interior">
         <div style="height:270px;overflow:hidden;position:relative">
           <img src="assets/images/blog_exam.png" alt="Koramangala Studio Interior" style="width:100%;height:100%;object-fit:cover" />
         </div>
         <div class="gallery-item-overlay">
           <div style="text-align:center;color:#fff">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <p style="font-size:var(--text-sm);font-weight:700">Koramangala Studio Interior</p>
+            <p>Koramangala Studio Interior</p>
           </div>
         </div>
       </div>
 
       <!-- Item 7 -->
-      <div class="gallery-item reveal" data-category="sunglasses" data-lightbox="assets/images/hero_eye_exam.png" data-alt="Cat-Eye Fashion Luxe">
+      <div class="gallery-item reveal" data-category="sunglasses" data-lightbox="assets/images/hero_macro_glasses.png" data-alt="Cat-Eye Fashion Luxe">
         <div style="height:250px;overflow:hidden;position:relative">
           <img src="assets/images/hero_macro_glasses.png" alt="Cat-Eye Fashion Luxe" style="width:100%;height:100%;object-fit:cover" />
         </div>
         <div class="gallery-item-overlay">
           <div style="text-align:center;color:#fff">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <p style="font-size:var(--text-sm);font-weight:700">Cat-Eye Fashion Luxe</p>
+            <p>Cat-Eye Fashion Luxe</p>
           </div>
         </div>
       </div>
 
       <!-- Item 8 -->
-      <div class="gallery-item reveal stagger-2" data-category="store" data-lightbox="assets/images/hero_store_interior.png" data-alt="Optometry Diagnostic Suite">
+      <div class="gallery-item reveal stagger-2" data-category="store" data-lightbox="assets/images/hero_sunglasses.png" data-alt="Optometry Diagnostic Suite">
         <div style="height:230px;overflow:hidden;position:relative">
           <img src="assets/images/hero_sunglasses.png" alt="Optometry Diagnostic Suite" style="width:100%;height:100%;object-fit:cover" />
         </div>
         <div class="gallery-item-overlay">
           <div style="text-align:center;color:#fff">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <p style="font-size:var(--text-sm);font-weight:700">Optometry Diagnostic Suite</p>
+            <p>Optometry Diagnostic Suite</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item 9 -->
+      <div class="gallery-item reveal stagger-3" data-category="frames" data-lightbox="assets/images/gallery_item_9.png" data-alt="Luxury Titanium Navigator">
+        <div style="height:240px;overflow:hidden;position:relative">
+          <img src="assets/images/gallery_item_9.png" alt="Luxury Titanium Navigator" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+        <div class="gallery-item-overlay">
+          <div style="text-align:center;color:#fff">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom:8px"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <p>Luxury Titanium Navigator</p>
           </div>
         </div>
       </div>
@@ -244,89 +451,156 @@
   </div>
 </section>
 
-<!-- ═══ SECTION 4: STATS BAR ═══ -->
-<section class="stats-bar">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item reveal"><div class="stat-number"><span data-counter data-target="2500" data-suffix="+">2,500+</span></div><div class="stat-label">Bespoke Designs</div></div>
-      <div class="stat-item reveal stagger-2"><div class="stat-number"><span data-counter data-target="40" data-suffix="+">40+</span></div><div class="stat-label">Designer Brands</div></div>
-      <div class="stat-item reveal stagger-3"><div class="stat-number"><span data-counter data-target="15000" data-suffix="+">15,000+</span></div><div class="stat-label">Patients Served</div></div>
-      <div class="stat-item reveal stagger-4"><div class="stat-number"><span data-counter data-target="100" data-suffix="%">100%</span></div><div class="stat-label">Authentic Guarantee</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SECTION 5: FOOTER ═══ -->
-
-
-  <!-- ═══ INJECTED UNIQUE SECTION 22 ═══ -->
-  <section class="section bg-primary" aria-label="Exclusive Corporate Eyecare">
-    <div class="container">
-      <div class="grid" style="grid-template-columns:1fr 1fr;gap:var(--space-12);align-items:center">
-        <div class="reveal-left">
-          <span class="section-label">Gallery Exclusive</span>
-          <h2 class="section-title" style="text-align:left;margin-bottom:var(--space-4)">Exclusive <span>Corporate Eyecare</span></h2>
-          <p style="color:var(--text-secondary);margin-bottom:var(--space-6)">Experience the pinnacle of optical precision. Our corporate eyecare division is specifically tailored for those who demand excellence in every detail. We utilize exclusive methodologies to ensure your vision is uncompromised.</p>
-          <div style="display:flex;gap:var(--space-4)">
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg)">
-                <h4 style="color:var(--cyan);margin-bottom:4px">100%</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Precision Rate</div>
-             </div>
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg);animation-delay:1s">
-                <h4 style="color:var(--sapphire);margin-bottom:4px">24/7</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Support Available</div>
-             </div>
-          </div>
-        </div>
-        <div class="reveal-blur" style="border-radius:var(--radius-2xl);overflow:hidden;position:relative;height:450px;box-shadow:var(--shadow-xl)">
-          <img src="assets/images/prod_aviator.png" alt="Corporate Eyecare" style="width:100%;height:100%;object-fit:cover" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ INJECTED UNIQUE SECTION 23 ═══ -->
-  <section class="section bg-secondary" aria-label="Sports Vision Highlights">
+  <!-- ═══ NEW SECTION 1: CURATED COLLECTIONS ═══ -->
+  <section class="section bg-secondary" aria-label="Curated Collections">
     <div class="container">
       <div class="section-header text-center">
-        <span class="section-label">Precision Focus</span>
-        <h2 class="section-title reveal-blur">Discover <span>Sports Vision</span></h2>
-        <p class="section-subtitle reveal stagger-2">A specialized offering designed exclusively for our valued OptiLux patients.</p>
+        <span class="section-label" style="justify-content:center">Curated Collections</span>
+        <h2 class="section-title reveal" style="text-align:center">Explore Signature <span>Eyewear Collections</span></h2>
+        <p class="section-subtitle reveal stagger-2" style="max-width:700px;margin-inline:auto">Browse carefully curated collections crafted for every personality, occasion, and lifestyle.</p>
       </div>
-      <div class="grid grid-3 gap-6">
-        <div class="card-glass card-3d reveal-blur stagger-1">
-          <div style="color:var(--sapphire);margin-bottom:var(--space-4)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
-          <h4 style="margin-bottom:var(--space-2)">Unmatched Clarity</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Leveraging state-of-the-art physics to bend light perfectly to your retina's exact curvature.</p>
+
+      <div class="collections-grid">
+        
+        <!-- Collection 1 -->
+        <div class="collection-card reveal">
+          <div class="collection-img-wrap">
+            <img src="assets/images/collection_titanium.png" alt="Minimal Titanium Collection" />
+            <span class="collection-count-badge">12 Frames</span>
+          </div>
+          <div class="collection-info-block">
+            <h3>Minimal Titanium</h3>
+            <p>Surgical-grade beta-titanium frames engineered for pure weightless visual comfort and absolute durability.</p>
+            <a href="gallery.html?filter=frames" class="collection-card-cta">Browse Collection &rarr;</a>
+          </div>
         </div>
-        <div class="card-glass card-3d reveal-blur stagger-2">
-          <div style="color:var(--cyan);margin-bottom:var(--space-4)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-          <h4 style="margin-bottom:var(--space-2)">Ergonomic Design</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Every element is weighted and balanced to sit weightlessly upon your unique facial structure.</p>
+
+        <!-- Collection 2 -->
+        <div class="collection-card reveal stagger-2">
+          <div class="collection-img-wrap">
+            <img src="assets/images/collection_sunglasses.png" alt="Luxury Sunglasses Collection" />
+            <span class="collection-count-badge">18 Models</span>
+          </div>
+          <div class="collection-info-block">
+            <h3>Luxury Sunglasses</h3>
+            <p>Polarized UV400 lens shields styled in contemporary architectural silhouettes for supreme glare protection.</p>
+            <a href="gallery.html?filter=sunglasses" class="collection-card-cta">Browse Collection &rarr;</a>
+          </div>
         </div>
-        <div class="card-glass card-3d reveal-blur stagger-3">
-          <div style="color:var(--emerald);margin-bottom:var(--space-4)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-          <h4 style="margin-bottom:var(--space-2)">Lifetime Assurance</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Because sports vision requires a commitment that outlasts standard industry warranties.</p>
+
+        <!-- Collection 3 -->
+        <div class="collection-card reveal stagger-3">
+          <div class="collection-img-wrap">
+            <img src="assets/images/collection_vintage.png" alt="Vintage Heritage Collection" />
+            <span class="collection-count-badge">15 Frames</span>
+          </div>
+          <div class="collection-info-block">
+            <h3>Vintage Heritage</h3>
+            <p>Handcrafted block acetate spectacles inspired by mid-century styling traditions and classical design aesthetics.</p>
+            <a href="gallery.html?filter=frames" class="collection-card-cta">Browse Collection &rarr;</a>
+          </div>
         </div>
+
+
       </div>
     </div>
   </section>
 
-  <!-- ═══ INJECTED UNIQUE SECTION 24 ═══ -->
-  <section class="section" style="background:var(--graphite-deep);color:#fff" aria-label="Contact Lenses Banner">
+  <!-- ═══ NEW SECTION 2: INSIDE OUR GALLERY EXPERIENCE ═══ -->
+  <section class="section bg-primary" aria-label="Inside Our Gallery Experience">
     <div class="container">
-      <div style="background:linear-gradient(135deg, rgba(42,157,143,0.1) 0%, rgba(212,165,90,0.1) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-2xl);padding:clamp(3rem,6vw,5rem);text-align:center" class="reveal-scale">
-        <span class="section-label" style="justify-content:center;color:var(--cyan)">Contact Lenses</span>
-        <h2 class="section-title" style="color:#fff">The Bespoke <span>Difference</span></h2>
-        <p style="color:rgba(255,255,255,0.7);max-width:700px;margin:0 auto var(--space-8);font-size:var(--text-lg)">We redefine what it means to experience world-class optical care. This is not just eyecare; this is a completely tailored sensory upgrade.</p>
-        <div style="display:inline-flex;gap:var(--space-4)">
-            <a href="contact.html" class="btn btn-primary btn-lg">Explore Contact Lenses</a>
-            <a href="about.html" class="btn btn-white btn-lg" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff">Learn More</a>
+      <div class="section-header text-center">
+        <span class="section-label" style="justify-content:center">Showroom Experience</span>
+        <h2 class="section-title reveal" style="text-align:center">Experience Eyewear <span>Before You Choose</span></h2>
+        <p class="section-subtitle reveal stagger-2" style="max-width:700px;margin-inline:auto">Discover how every frame is displayed, curated, and professionally presented inside the OptiLux showroom.</p>
+      </div>
+
+      <div class="showroom-feature-row" style="margin-top:var(--space-8)">
+        
+        <!-- Left: Image -->
+        <div class="reveal-left" style="border-radius:var(--radius-2xl);overflow:hidden;height:520px;box-shadow:var(--shadow-xl)">
+          <img src="assets/images/showroom_exp.png" alt="Inside OptiLux showroom interior" style="width:100%;height:100%;object-fit:cover" />
         </div>
+
+        <!-- Right: Feature List -->
+        <div class="reveal-right showroom-features-list">
+          
+          <div class="showroom-feature-item">
+            <div class="showroom-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            </div>
+            <div>
+              <h3>Designer Display Zones</h3>
+              <p>Dedicated back-lit partitions showcase international designer eyewear houses in customized displays.</p>
+            </div>
+          </div>
+
+          <div class="showroom-feature-item">
+            <div class="showroom-feature-icon" style="color:var(--cyan);border-color:rgba(42, 157, 143, 0.2)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <h3>Private Styling Lounge</h3>
+              <p>One-on-one consultation desks with senior opticians to evaluate bridge fits and facial symmetry.</p>
+            </div>
+          </div>
+
+          <div class="showroom-feature-item">
+            <div class="showroom-feature-icon" style="color:var(--gold);border-color:rgba(212, 165, 90, 0.2)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/></svg>
+            </div>
+            <div>
+              <h3>Luxury Frame Library</h3>
+              <p>Access to over 2,500+ Japanese titanium, surgical steel, and Italian acetate spectacles.</p>
+            </div>
+          </div>
+
+          <div class="showroom-feature-item">
+            <div class="showroom-feature-icon" style="color:var(--emerald);border-color:rgba(46, 196, 182, 0.2)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div>
+              <h3>Hands-on Frame Trials</h3>
+              <p>Enjoy absolute freedom to touch, inspect, and trial-fit any designer frame in our collection.</p>
+            </div>
+          </div>
+
+          <div class="showroom-feature-item">
+            <div class="showroom-feature-icon" style="color:var(--cyan);border-color:rgba(42, 157, 143, 0.2)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M16.24 16.24l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
+            </div>
+            <div>
+              <h3>Professional Lighting Display</h3>
+              <p>Specialized color-rendering indexes let you inspect lens visual tones under indoor and sun light conditions.</p>
+            </div>
+          </div>
+
+          <div class="showroom-feature-item">
+            <div class="showroom-feature-icon" style="color:var(--sapphire);border-color:rgba(42, 157, 143, 0.2)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+            </div>
+            <div>
+              <h3>Premium Consultation Space</h3>
+              <p>A relaxed, luxury clinical atmosphere to discuss visual correction, progressions, and coatings.</p>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </section>
+
+  <!-- Lightbox Modal -->
+  <div class="custom-lightbox" id="custom-lightbox" aria-hidden="true" role="dialog">
+    <button class="lightbox-btn close-btn" id="lightbox-close-btn" aria-label="Close lightbox">&times;</button>
+    <button class="lightbox-btn prev-btn" id="lightbox-prev-btn" aria-label="Previous image">&#10094;</button>
+    <div class="lightbox-content-wrap">
+      <img id="lightbox-img" src="" alt="" class="lightbox-img" />
+      <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
+    <button class="lightbox-btn next-btn" id="lightbox-next-btn" aria-label="Next image">&#10095;</button>
+  </div>
 
   <!-- ═══ FOOTER ═══ -->
   <footer class="footer" role="contentinfo">
@@ -432,5 +706,101 @@
   <!-- Back to Top -->
   <button class="back-to-top" aria-label="Back to top">↑</button>
 <script src="assets/js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
+    const customLightbox = document.getElementById('custom-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.getElementById('lightbox-close-btn');
+    const prevBtn = document.getElementById('lightbox-prev-btn');
+    const nextBtn = document.getElementById('lightbox-next-btn');
+    
+    let currentIndex = 0;
+    
+    const showImage = (index) => {
+      if (index < 0) index = galleryItems.length - 1;
+      if (index >= galleryItems.length) index = 0;
+      currentIndex = index;
+      
+      const item = galleryItems[currentIndex];
+      const imgSrc = item.getAttribute('data-lightbox') || item.querySelector('img').src;
+      const caption = item.getAttribute('data-alt') || '';
+      
+      lightboxImg.src = imgSrc;
+      lightboxImg.alt = caption;
+      lightboxCaption.textContent = caption;
+    };
+    
+    const openLightbox = (index) => {
+      showImage(index);
+      customLightbox.classList.add('open');
+      customLightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+    
+    const closeLightbox = () => {
+      customLightbox.classList.remove('open');
+      customLightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+    
+    // Attach listeners to items
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopImmediatePropagation(); // Prevents global lightbox in main.js from executing!
+        openLightbox(index);
+      });
+    });
+    
+    closeBtn.addEventListener('click', closeLightbox);
+    customLightbox.addEventListener('click', (e) => {
+      if (e.target === customLightbox) closeLightbox();
+    });
+    
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(currentIndex - 1);
+    });
+    
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      showImage(currentIndex + 1);
+    });
+    
+    // Keyboard Navigation
+    document.addEventListener('keydown', (e) => {
+      if (!customLightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+      if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+    });
+    
+    // Touch Swipe Navigation
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    customLightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    
+    customLightbox.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+    
+    const handleSwipe = () => {
+      if (touchEndX < touchStartX - 50) {
+        // Swiped Left -> Next
+        showImage(currentIndex + 1);
+      }
+      if (touchEndX > touchStartX + 50) {
+        // Swiped Right -> Prev
+        showImage(currentIndex - 1);
+      }
+    };
+  });
+</script>
 </body>
 </html>
