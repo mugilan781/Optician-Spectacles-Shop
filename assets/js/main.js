@@ -124,6 +124,7 @@ const Navbar = (() => {
       currentPage = 'index.html';
     }
 
+    let hasActive = false;
     document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
       const href = link.getAttribute('href');
       if (!href) return;
@@ -132,11 +133,31 @@ const Navbar = (() => {
       if (hrefPage === currentPage || isBlogDetails) {
         link.classList.add('active');
         link.setAttribute('aria-current', 'page');
+        if (hrefPage !== 'index.html') {
+          hasActive = true;
+        }
       } else {
         link.classList.remove('active');
         link.removeAttribute('aria-current');
       }
     });
+
+    // Fallback: If no other navigation link is active, force-highlight the Home link
+    if (!hasActive || currentPage === 'index.html') {
+      document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href) {
+          const hrefPage = href.split('/').pop();
+          if (hrefPage === 'index.html') {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.classList.remove('active');
+            link.removeAttribute('aria-current');
+          }
+        }
+      });
+    }
   };
 
   return { init };
