@@ -273,6 +273,25 @@
         gap: var(--space-8) !important;
       }
     }
+    @media (max-width: 768px) {
+      .contributors-grid {
+        grid-template-columns: 1fr !important;
+      }
+      .contributor-card {
+        padding: var(--space-5) !important;
+      }
+      .contributor-stats {
+        flex-direction: column !important;
+        gap: var(--space-1) !important;
+        align-items: center !important;
+      }
+      .contributor-stats span:not([class]) {
+        display: none !important;
+      }
+      .digest-item {
+        padding: var(--space-3) var(--space-4) !important;
+      }
+    }
   </style>
 </head>
 <body>

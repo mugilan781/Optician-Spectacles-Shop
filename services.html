@@ -272,6 +272,19 @@
       .appointment-timeline::before {
         display: none !important;
       }
+      .comparison-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-5) !important;
+      }
+      .comparison-card {
+        padding: var(--space-5) !important;
+      }
     }
     
     @media (max-width: 576px) {
