@@ -34,11 +34,13 @@
   .form-row { grid-template-columns: 1fr; }
 
   /* ─── Index Hero — stack to 1-col; keep slider 100vh ─── */
-  .hero-slide-grid { grid-template-columns: 1fr !important; gap: var(--space-8) !important; min-height: auto !important; }
+  .hero-slide-grid { grid-template-columns: 1fr !important; gap: var(--space-8) !important; min-height: auto !important; padding-block: var(--space-8) !important; }
   .slide-content { text-align: center; margin-inline: auto; }
   .slide-title { font-size: clamp(2.2rem, 5vw, 3.5rem); }
+  .slide-desc { max-width: 600px; margin-inline: auto; }
   .slide-actions { justify-content: center; }
-  .hero-info-cards { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: var(--space-4) !important; max-width: 600px; margin-inline: auto; }
+  .hero-info-cards { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: var(--space-4) !important; max-width: 500px; margin-inline: auto; }
+  .slider-arrows { display: none !important; }
 
   /* ─── Home2 Hero — stack split ─── */
   section[aria-label="Hero"] { grid-template-columns: 1fr !important; min-height: auto !important; }
@@ -100,15 +102,19 @@
   .process-steps::before { display: none; }
 
   /* ─── HERO SLIDER — proper mobile ─── */
-  .hero-slide-grid { grid-template-columns: 1fr !important; gap: var(--space-6) !important; min-height: auto !important; padding-block: var(--space-6) !important; }
-  .slide-content { text-align: center; padding-block: var(--space-4); max-width: 100% !important; }
+  .hero-slide-grid { grid-template-columns: 1fr !important; gap: var(--space-6) !important; min-height: auto !important; padding-block: var(--space-8) !important; }
+  .slide-content { text-align: center; max-width: 100% !important; }
+  .slide-title { margin-bottom: var(--space-4); }
   .slide-desc { font-size: var(--text-sm) !important; }
   .slide-actions { justify-content: center; flex-direction: column !important; align-items: stretch !important; }
   .slide-actions .btn { justify-content: center; width: 100% !important; }
   .hero-info-cards { display: grid !important; grid-template-columns: 1fr !important; gap: var(--space-3) !important; max-width: 100% !important; margin-inline: auto; }
-  .hero-info-card { text-align: center; }
+  .hero-info-card { text-align: center; padding: var(--space-4) !important; }
   .hero-info-card-header { justify-content: center; }
-  .slider-controls { bottom: var(--space-4) !important; }
+  .hero-info-card-icon { width: 28px !important; height: 28px !important; }
+  .hero-info-card-title { font-size: var(--text-base) !important; }
+  .slider-controls { bottom: var(--space-5) !important; }
+  .slider-arrows { display: none !important; }
   .scroll-indicator { display: none !important; }
 
   /* ─── ALL inline 1fr 1fr grids → 1 column ─── */
