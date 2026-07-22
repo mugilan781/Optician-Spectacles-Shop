@@ -7,6 +7,351 @@
   <meta name="description" content="OptiLux services — digital eye diagnostics, precision lens centration, bespoke frame fitting, contact lens studio, and paediatric eyecare." />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
+  <style>
+    /* ─── Workflow Steps Connector Line ─── */
+    @media (min-width: 993px) {
+      .process-steps::before {
+        top: 56px !important;
+        left: 12.5% !important;
+        right: 12.5% !important;
+        height: 2px !important;
+        background: var(--sapphire) !important;
+        z-index: 0 !important;
+        opacity: 0.45 !important;
+      }
+    }
+
+    /* ─── Advanced Diagnostics Card Styles ─── */
+    .tech-feature-card {
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius-xl) !important;
+      padding: var(--space-5) var(--space-6) !important;
+      box-shadow: var(--shadow-sm) !important;
+      display: flex !important;
+      gap: var(--space-4) !important;
+      align-items: center !important;
+      transition: var(--transition-spring) !important;
+    }
+    
+    .tech-feature-card:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: var(--shadow-md) !important;
+      border-color: rgba(42, 157, 143, 0.25) !important;
+    }
+    
+    .tech-icon-container {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 48px !important;
+      height: 48px !important;
+      border-radius: var(--radius-lg) !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(42, 157, 143, 0.2) !important;
+      color: var(--sapphire) !important;
+      flex-shrink: 0 !important;
+      transition: var(--transition-base) !important;
+    }
+    
+    .tech-feature-card:hover .tech-icon-container {
+      background: var(--sapphire) !important;
+      color: #ffffff !important;
+      border-color: transparent !important;
+    }
+    
+    .tech-feature-card h3 {
+      font-family: var(--font-display) !important;
+      font-size: var(--text-md) !important;
+      font-weight: 700 !important;
+      color: var(--text-primary) !important;
+      margin-bottom: 2px !important;
+    }
+    
+    .tech-feature-card p {
+      font-size: var(--text-xs) !important;
+      color: var(--text-secondary) !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+    }
+
+    /* ─── Service Comparison Card Styles ─── */
+    .comparison-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+      gap: var(--space-6) !important;
+      align-items: stretch !important;
+    }
+    
+    .comparison-card {
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius-xl) !important;
+      padding: var(--space-6) !important;
+      box-shadow: var(--shadow-sm) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100% !important;
+      transition: var(--transition-spring) !important;
+    }
+    
+    .comparison-card:hover {
+      transform: translateY(-5px) !important;
+      box-shadow: var(--shadow-md) !important;
+      border-color: rgba(42, 157, 143, 0.25) !important;
+    }
+    
+    .comparison-header-row {
+      display: flex !important;
+      align-items: center !important;
+      gap: var(--space-4) !important;
+      margin-bottom: var(--space-4) !important;
+    }
+    
+    .comparison-icon-wrap {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 44px !important;
+      height: 44px !important;
+      border-radius: var(--radius-lg) !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(42, 157, 143, 0.2) !important;
+      color: var(--sapphire) !important;
+      flex-shrink: 0 !important;
+      transition: var(--transition-base) !important;
+    }
+    
+    .comparison-card:hover .comparison-icon-wrap {
+      background: var(--sapphire) !important;
+      color: #ffffff !important;
+      border-color: transparent !important;
+    }
+    
+    .comparison-card h3 {
+      font-family: var(--font-display) !important;
+      font-size: var(--text-md) !important;
+      font-weight: 700 !important;
+      color: var(--text-primary) !important;
+      margin: 0 !important;
+    }
+    
+    .comparison-desc {
+      font-size: var(--text-sm) !important;
+      color: var(--text-secondary) !important;
+      line-height: 1.6 !important;
+      margin-bottom: var(--space-4) !important;
+      flex: 1 !important;
+    }
+    
+    .comparison-meta-list {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: var(--space-2) !important;
+      border-top: 1px solid var(--border-color) !important;
+      border-bottom: 1px solid var(--border-color) !important;
+      padding-block: var(--space-3) !important;
+      margin-bottom: var(--space-5) !important;
+    }
+    
+    .comparison-meta-item {
+      display: flex !important;
+      justify-content: space-between !important;
+      font-size: var(--text-xs) !important;
+    }
+    
+    .meta-label {
+      color: var(--text-muted) !important;
+      font-weight: 600 !important;
+    }
+    
+    .meta-val {
+      color: var(--text-primary) !important;
+      font-weight: 700 !important;
+    }
+    
+    .comparison-cta {
+      width: 100% !important;
+      justify-content: center !important;
+      margin-top: auto !important;
+    }
+
+    /* ─── Timeline Steps Responsive Layout ─── */
+    .appointment-timeline {
+      display: grid !important;
+      grid-template-columns: repeat(6, 1fr) !important;
+      gap: var(--space-4) !important;
+      position: relative !important;
+      margin-top: var(--space-8) !important;
+    }
+    
+    .appointment-timeline::before {
+      content: '' !important;
+      position: absolute !important;
+      top: 76px !important; /* aligned exactly to the center of .timeline-icon-wrap (16px + 32px + 28px = 76px) */
+      left: 8.3% !important;
+      right: 8.3% !important;
+      height: 2px !important;
+      background: rgba(42, 157, 143, 0.2) !important;
+      z-index: 0 !important;
+    }
+    
+    .timeline-step {
+      text-align: center !important;
+      position: relative !important;
+      z-index: 1 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius-xl) !important;
+      padding: var(--space-5) var(--space-4) !important;
+      transition: var(--transition-spring) !important;
+    }
+    
+    .timeline-step:hover {
+      transform: translateY(-5px) !important;
+      box-shadow: var(--shadow-md) !important;
+      border-color: rgba(42, 157, 143, 0.25) !important;
+    }
+
+    .timeline-num-bg {
+      font-family: var(--font-display) !important;
+      font-size: var(--text-2xl) !important;
+      font-weight: 800 !important;
+      color: var(--gold) !important;
+      margin-bottom: var(--space-2) !important;
+      opacity: 0.95 !important;
+      letter-spacing: -0.5px !important;
+    }
+    
+    .timeline-icon-wrap {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 56px !important;
+      height: 56px !important;
+      border-radius: var(--radius-full) !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 2px solid rgba(42, 157, 143, 0.2) !important;
+      color: var(--sapphire) !important;
+      margin-bottom: var(--space-4) !important;
+      position: relative !important;
+      z-index: 2 !important;
+      transition: var(--transition-spring) !important;
+    }
+    
+    .timeline-step:hover .timeline-icon-wrap {
+      background: var(--sapphire) !important;
+      color: #ffffff !important;
+      border-color: transparent !important;
+      transform: scale(1.08) !important;
+    }
+    
+    .timeline-step h3 {
+      font-family: var(--font-display) !important;
+      font-size: var(--text-md) !important;
+      font-weight: 700 !important;
+      color: var(--text-primary) !important;
+      margin-bottom: var(--space-2) !important;
+    }
+    
+    .timeline-step p {
+      font-size: var(--text-xs) !important;
+      color: var(--text-secondary) !important;
+      line-height: 1.6 !important;
+      margin: 0 !important;
+    }
+    
+    @media (max-width: 992px) {
+      .appointment-timeline {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--space-8) !important;
+      }
+      .appointment-timeline::before {
+        display: none !important;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .appointment-timeline {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-8) !important;
+      }
+    }
+
+    /* ─── FAQ Accordion Styles ─── */
+    .faq-accordion-container {
+      max-width: 800px !important;
+      margin-inline: auto !important;
+      margin-top: var(--space-8) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: var(--space-3) !important;
+    }
+    
+    .faq-item {
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius-xl) !important;
+      overflow: hidden !important;
+      transition: var(--transition-spring) !important;
+    }
+    
+    .faq-question {
+      width: 100% !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      padding: var(--space-5) var(--space-6) !important;
+      background: transparent !important;
+      border: none !important;
+      color: var(--text-primary) !important;
+      font-family: var(--font-display) !important;
+      font-size: var(--text-md) !important;
+      font-weight: 700 !important;
+      text-align: left !important;
+      cursor: pointer !important;
+      transition: var(--transition-base) !important;
+    }
+    
+    .faq-question:hover {
+      color: var(--sapphire) !important;
+    }
+    
+    .faq-arrow {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      color: var(--text-muted) !important;
+    }
+    
+    .faq-item.active .faq-arrow {
+      transform: rotate(180deg) !important;
+      color: var(--sapphire) !important;
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .faq-answer p {
+      padding: 0 var(--space-6) var(--space-5) var(--space-6) !important;
+      font-size: var(--text-sm) !important;
+      color: var(--text-secondary) !important;
+      line-height: 1.65 !important;
+      margin: 0 !important;
+    }
+    
+    .faq-item.active {
+      border-color: rgba(42, 157, 143, 0.25) !important;
+      box-shadow: var(--shadow-sm) !important;
+    }
+  </style>
 </head>
 <body>
 <div id="preloader"><div class="preloader-inner"><div class="preloader-logo">Opti<span>Lux</span></div><div class="preloader-bar"><div class="preloader-bar-fill"></div></div><div class="preloader-dots"><div class="preloader-dot"></div><div class="preloader-dot"></div><div class="preloader-dot"></div></div></div></div>
@@ -76,7 +421,7 @@
 
 <!-- ═══ SECTION 1: PAGE HERO ═══ -->
 <section class="page-hero">
-  <div class="page-hero-bg" style="background-image: url('assets/images/prod_classic.png'); background-size: cover; background-position: center;">
+  <div class="page-hero-bg" style="background-image: url('assets/images/services_hero.png'); background-size: cover; background-position: center;">
     <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(18,16,15,0.92) 0%, rgba(18,16,15,0.7) 100%)"></div>
   </div>
   <div class="container page-hero-content">
@@ -225,97 +570,382 @@
 
 
 
-  <!-- ═══ INJECTED UNIQUE SECTION 45 ═══ -->
-  <section class="section bg-primary" aria-label="Luxury Vision Science">
-    <div class="container">
-      <div class="grid" style="grid-template-columns:1fr 1fr;gap:var(--space-12);align-items:center">
-        <div class="reveal-left">
-          <span class="section-label">Services Exclusive</span>
-          <h2 class="section-title" style="text-align:left;margin-bottom:var(--space-4)">Luxury <span>Vision Science</span></h2>
-          <p style="color:var(--text-secondary);margin-bottom:var(--space-6)">Experience the pinnacle of optical precision. Our vision science division is specifically tailored for those who demand excellence in every detail. We utilize luxury methodologies to ensure your vision is uncompromised.</p>
-          <div style="display:flex;gap:var(--space-4)">
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg)">
-                <h4 style="color:var(--cyan);margin-bottom:4px">100%</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Precision Rate</div>
-             </div>
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg);animation-delay:1s">
-                <h4 style="color:var(--sapphire);margin-bottom:4px">24/7</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Support Available</div>
-             </div>
-          </div>
-        </div>
-        <div class="reveal-blur" style="border-radius:var(--radius-2xl);overflow:hidden;position:relative;height:450px;box-shadow:var(--shadow-xl)">
-          <img src="assets/images/hero_sunglasses.png" alt="Vision Science" style="width:100%;height:100%;object-fit:cover" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ INJECTED UNIQUE SECTION 46 ═══ -->
-  <section class="section bg-secondary" aria-label="Frame Materials Highlights">
+  <!-- ═══ NEW SECTION 1: ADVANCED DIAGNOSTIC TECHNOLOGIES ═══ -->
+  <section class="section bg-primary" aria-label="Advanced Diagnostic Technologies">
     <div class="container">
       <div class="section-header text-center">
-        <span class="section-label">Tailored Focus</span>
-        <h2 class="section-title reveal-blur">Discover <span>Frame Materials</span></h2>
-        <p class="section-subtitle reveal stagger-2">A specialized offering designed exclusively for our valued OptiLux patients.</p>
+        <span class="section-label" style="justify-content:center">Advanced Technology</span>
+        <h2 class="section-title reveal">Precision Diagnostics for <span>Every Eye</span></h2>
+        <p class="section-subtitle reveal stagger-2" style="max-width:700px;margin-inline:auto">Our state-of-the-art visual diagnostics suite ensures sub-millimeter prescription accuracy and comprehensive eye health screening.</p>
       </div>
-      <div class="grid grid-3 gap-6">
-        <div class="card-glass card-3d reveal-blur stagger-1">
-          <div style="color:var(--sapphire);margin-bottom:var(--space-4)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
-          <h4 style="margin-bottom:var(--space-2)">Unmatched Clarity</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Leveraging state-of-the-art physics to bend light perfectly to your retina's exact curvature.</p>
+
+      <div class="grid grid-2" style="margin-top:var(--space-10); gap:var(--space-8); align-items:center">
+        <!-- Left: Image -->
+        <div class="reveal-left" style="border-radius:var(--radius-2xl);overflow:hidden;height:480px;box-shadow:var(--shadow-xl)">
+          <img src="assets/images/diag_lab.png" alt="Advanced diagnostic laboratory equipment" style="width:100%;height:100%;object-fit:cover" />
         </div>
-        <div class="card-glass card-3d reveal-blur stagger-2">
-          <div style="color:var(--cyan);margin-bottom:var(--space-4)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-          <h4 style="margin-bottom:var(--space-2)">Ergonomic Design</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Every element is weighted and balanced to sit weightlessly upon your unique facial structure.</p>
-        </div>
-        <div class="card-glass card-3d reveal-blur stagger-3">
-          <div style="color:var(--emerald);margin-bottom:var(--space-4)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-          <h4 style="margin-bottom:var(--space-2)">Lifetime Assurance</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Because frame materials requires a commitment that outlasts standard industry warranties.</p>
+
+        <!-- Right: 4 feature cards -->
+        <div class="reveal-right grid gap-6" style="grid-template-columns:1fr">
+          
+          <div class="tech-feature-card">
+            <div class="tech-icon-container">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>
+            </div>
+            <div>
+              <h3>Digital Refraction Analysis</h3>
+              <p>Automated wave-front refractometer scans map your eyes' refractive errors with sub-millimeter precision.</p>
+            </div>
+          </div>
+
+          <div class="tech-feature-card">
+            <div class="tech-icon-container" style="color:var(--cyan);border-color:rgba(42, 157, 143, 0.2)">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div>
+              <h3>OCT Retinal Imaging</h3>
+              <p>3D optical coherence tomography scans map cross-sections of the retina for early detection of macular health.</p>
+            </div>
+          </div>
+
+          <div class="tech-feature-card">
+            <div class="tech-icon-container" style="color:var(--gold);border-color:rgba(212, 165, 90, 0.2)">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h3>Corneal Topography</h3>
+              <p>Three-dimensional corneal mapping guides bespoke contact lens fittings and corneal curvature analysis.</p>
+            </div>
+          </div>
+
+          <div class="tech-feature-card">
+            <div class="tech-icon-container" style="color:var(--emerald);border-color:rgba(46, 196, 182, 0.2)">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div>
+              <h3>Precision Lens Mapping</h3>
+              <p>Calibrating frame pantoscopic tilt and face morphology to align progressive corridors with your gaze.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ INJECTED UNIQUE SECTION 47 ═══ -->
-  <section class="section" style="background:var(--graphite-deep);color:#fff" aria-label="Clinical Technology Banner">
+  <!-- ═══ NEW SECTION 2: SERVICE COMPARISON ═══ -->
+  <section class="section bg-secondary" aria-label="Service Comparison">
     <div class="container">
-      <div style="background:linear-gradient(135deg, rgba(42,157,143,0.1) 0%, rgba(212,165,90,0.1) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-2xl);padding:clamp(3rem,6vw,5rem);text-align:center" class="reveal-scale">
-        <span class="section-label" style="justify-content:center;color:var(--cyan)">Clinical Technology</span>
-        <h2 class="section-title" style="color:#fff">The Unrivaled <span>Difference</span></h2>
-        <p style="color:rgba(255,255,255,0.7);max-width:700px;margin:0 auto var(--space-8);font-size:var(--text-lg)">We redefine what it means to experience world-class optical care. This is not just eyecare; this is a completely tailored sensory upgrade.</p>
-        <div style="display:inline-flex;gap:var(--space-4)">
-            <a href="contact.html" class="btn btn-primary btn-lg">Explore Clinical Technology</a>
-            <a href="about.html" class="btn btn-white btn-lg" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff">Learn More</a>
+      <div class="section-header text-center">
+        <span class="section-label" style="justify-content:center">Our Services</span>
+        <h2 class="section-title reveal">Find the Right <span>Eye Care</span> Solution</h2>
+        <p class="section-subtitle reveal stagger-2" style="max-width:700px;margin-inline:auto">Compare our clinic's consultation options to choose the best care pathway for your visual needs.</p>
+      </div>
+
+      <div class="comparison-grid" style="margin-bottom:var(--space-6)">
+        
+        <!-- Card 1 -->
+        <div class="comparison-card reveal">
+          <div class="comparison-header-row">
+            <div class="comparison-icon-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <h3>Comprehensive Eye Exam</h3>
+          </div>
+          <p class="comparison-desc">Complete medical eye refraction and advanced diagnostics scanning for early detection of vision conditions.</p>
+          <div class="comparison-meta-list">
+            <div class="comparison-meta-item">
+              <span class="meta-label">Duration:</span>
+              <span class="meta-val">45 Mins</span>
+            </div>
+            <div class="comparison-meta-item">
+              <span class="meta-label">Suitable For:</span>
+              <span class="meta-val">Adults &amp; Seniors</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary btn-sm comparison-cta">Book Appointment</a>
         </div>
+
+        <!-- Card 2 -->
+        <div class="comparison-card reveal stagger-2">
+          <div class="comparison-header-row">
+            <div class="comparison-icon-wrap" style="color:var(--cyan);border-color:rgba(42, 157, 143, 0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 14a4 4 0 1 1 4-4 4 4 0 0 1-4 4z"/></svg>
+            </div>
+            <h3>Contact Lens Consultation</h3>
+          </div>
+          <p class="comparison-desc">Precise corneal mapping, tear-film stability scans, and custom fitting trials for toric &amp; multifocal lenses.</p>
+          <div class="comparison-meta-list">
+            <div class="comparison-meta-item">
+              <span class="meta-label">Duration:</span>
+              <span class="meta-val">30 Mins</span>
+            </div>
+            <div class="comparison-meta-item">
+              <span class="meta-label">Suitable For:</span>
+              <span class="meta-val">Lens Wearers</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary btn-sm comparison-cta">Book Fitting</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="comparison-card reveal stagger-3">
+          <div class="comparison-header-row">
+            <div class="comparison-icon-wrap" style="color:var(--gold);border-color:rgba(212, 165, 90, 0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Pediatric Eye Care</h3>
+          </div>
+          <p class="comparison-desc">Child-friendly refractive testing, binocular vision assessments, and childhood myopia control programs.</p>
+          <div class="comparison-meta-list">
+            <div class="comparison-meta-item">
+              <span class="meta-label">Duration:</span>
+              <span class="meta-val">40 Mins</span>
+            </div>
+            <div class="comparison-meta-item">
+              <span class="meta-label">Suitable For:</span>
+              <span class="meta-val">Children Under 16</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary btn-sm comparison-cta">Book Pediatric Exam</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="comparison-card reveal stagger-2">
+          <div class="comparison-header-row">
+            <div class="comparison-icon-wrap" style="color:var(--emerald);border-color:rgba(46, 196, 182, 0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/></svg>
+            </div>
+            <h3>Premium Frame Styling</h3>
+          </div>
+          <p class="comparison-desc">One-on-one styling session with an optician to analyze face shape, bridge anatomy, and style preferences.</p>
+          <div class="comparison-meta-list">
+            <div class="comparison-meta-item">
+              <span class="meta-label">Duration:</span>
+              <span class="meta-val">30 Mins</span>
+            </div>
+            <div class="comparison-meta-item">
+              <span class="meta-label">Suitable For:</span>
+              <span class="meta-val">Eyewear Enthusiasts</span>
+            </div>
+          </div>
+          <a href="gallery.html" class="btn btn-primary btn-sm comparison-cta">View Collections</a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="comparison-card reveal stagger-3">
+          <div class="comparison-header-row">
+            <div class="comparison-icon-wrap" style="color:var(--sapphire);border-color:rgba(42, 157, 143, 0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3>Vision Therapy</h3>
+          </div>
+          <p class="comparison-desc">Structured orthoptics exercises and eye focus training plans to address eye strain, tracking issues, and double vision.</p>
+          <div class="comparison-meta-list">
+            <div class="comparison-meta-item">
+              <span class="meta-label">Duration:</span>
+              <span class="meta-val">60 Mins</span>
+            </div>
+            <div class="comparison-meta-item">
+              <span class="meta-label">Suitable For:</span>
+              <span class="meta-val">Strain &amp; Focus Issues</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary btn-sm comparison-cta">Book Vision Session</a>
+        </div>
+        
+        <!-- Card 6 -->
+        <div class="comparison-card reveal stagger-4">
+          <div class="comparison-header-row">
+            <div class="comparison-icon-wrap" style="color:var(--emerald);border-color:rgba(46, 196, 182, 0.2)">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-4.3-7-13-7-13S5 10.7 5 15a7 7 0 0 0 7 7z"/></svg>
+            </div>
+            <h3>Dry Eye Clinic</h3>
+          </div>
+          <p class="comparison-desc">Advanced tear-film stability scans, meibography diagnostics, and personalized therapeutic relief plans for chronic dry eye conditions.</p>
+          <div class="comparison-meta-list">
+            <div class="comparison-meta-item">
+              <span class="meta-label">Duration:</span>
+              <span class="meta-val">30 Mins</span>
+            </div>
+            <div class="comparison-meta-item">
+              <span class="meta-label">Suitable For:</span>
+              <span class="meta-val">Chronic Dry Eye &amp; Screen Users</span>
+            </div>
+          </div>
+          <a href="contact.html" class="btn btn-primary btn-sm comparison-cta">Book Dry Eye Exam</a>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ═══ INJECTED UNIQUE SECTION 48 ═══ -->
-  <section class="section bg-primary" aria-label="State-of-the-Art Paediatric Care">
+  <!-- ═══ NEW SECTION 3: WHAT TO EXPECT DURING YOUR VISIT ═══ -->
+  <section class="section bg-primary" aria-label="Expect During Visit">
     <div class="container">
-      <div class="grid" style="grid-template-columns:1fr 1fr;gap:var(--space-12);align-items:center">
-        <div class="reveal-left">
-          <span class="section-label">Services Exclusive</span>
-          <h2 class="section-title" style="text-align:left;margin-bottom:var(--space-4)">State-of-the-Art <span>Paediatric Care</span></h2>
-          <p style="color:var(--text-secondary);margin-bottom:var(--space-6)">Experience the pinnacle of optical precision. Our paediatric care division is specifically tailored for those who demand excellence in every detail. We utilize state-of-the-art methodologies to ensure your vision is uncompromised.</p>
-          <div style="display:flex;gap:var(--space-4)">
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg)">
-                <h4 style="color:var(--cyan);margin-bottom:4px">100%</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Precision Rate</div>
-             </div>
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg);animation-delay:1s">
-                <h4 style="color:var(--sapphire);margin-bottom:4px">24/7</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Support Available</div>
-             </div>
+      <div class="section-header text-center">
+        <span class="section-label" style="justify-content:center">Patient Experience</span>
+        <h2 class="section-title reveal">What Happens During <span>Your Appointment</span></h2>
+        <p class="section-subtitle reveal stagger-2" style="max-width:700px;margin-inline:auto">Every step of your visual consultation is designed for maximum precision, comfort, and clinical accuracy.</p>
+      </div>
+
+      <div class="appointment-timeline">
+        
+        <!-- Step 1 -->
+        <div class="timeline-step reveal">
+          <div class="timeline-num-bg">01</div>
+          <div class="timeline-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"/><path d="M12 11h.01"/></svg>
+          </div>
+          <h3>Arrival</h3>
+          <p>Warm welcome at reception. Quick registration and verification of existing prescriptions.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-step reveal stagger-2">
+          <div class="timeline-num-bg">02</div>
+          <div class="timeline-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          </div>
+          <h3>Vision Assessment</h3>
+          <p>Refractive diagnostics using refractometer scans to measure focus levels.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-step reveal stagger-3">
+          <div class="timeline-num-bg">03</div>
+          <div class="timeline-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Advanced Diagnostics</h3>
+          <p>Corneal mapping, dry-eye analysis, and 3D retinal health screening.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="timeline-step reveal stagger-4">
+          <div class="timeline-num-bg">04</div>
+          <div class="timeline-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="4"/><circle cx="18" cy="12" r="4"/><path d="M10 12h4"/></svg>
+          </div>
+          <h3>Frame Consultation</h3>
+          <p>Bespoke styling mapping facial geometry and bridge anatomy.</p>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="timeline-step reveal stagger-5">
+          <div class="timeline-num-bg">05</div>
+          <div class="timeline-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3>Prescription Finalization</h3>
+          <p>Final diagnostic review by the doctor and acuity prescription printing.</p>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="timeline-step reveal stagger-6">
+          <div class="timeline-num-bg">06</div>
+          <div class="timeline-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+          </div>
+          <h3>Collection &amp; Aftercare</h3>
+          <p>Lens mounting, centration check, custom storage case, and follow-up support.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NEW SECTION 4: FREQUENTLY ASKED QUESTIONS ═══ -->
+  <section class="section bg-secondary" aria-label="Frequently Asked Questions">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-label" style="justify-content:center">Common Questions</span>
+        <h2 class="section-title reveal">Everything You Need <span>Before Your Visit</span></h2>
+        <p class="section-subtitle reveal stagger-2" style="max-width:700px;margin-inline:auto">Clear answers to the most common questions regarding appointments, diagnostics, and customized lenses.</p>
+      </div>
+
+      <div class="faq-accordion-container reveal-scale">
+        
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>How long does an eye examination take?</span>
+            <span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>A comprehensive eye examination typically takes 40 to 45 minutes, allowing ample time for computerized diagnostics, axial length scans, and styling consultations.</p>
           </div>
         </div>
-        <div class="reveal-blur" style="border-radius:var(--radius-2xl);overflow:hidden;position:relative;height:450px;box-shadow:var(--shadow-xl)">
-          <img src="assets/images/prod_kids.png" alt="Paediatric Care" style="width:100%;height:100%;object-fit:cover" />
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can I bring my previous prescription?</span>
+            <span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, bringing your previous prescription, diagnostic reports, and current spectacles helps our resident optometrists track changes in your vision fields over time.</p>
+          </div>
         </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do you provide children's eye exams?</span>
+            <span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Absolutely. We specialize in child-friendly refraction, binocular alignment, and childhood myopia control programs for kids under 16.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can I purchase frames separately?</span>
+            <span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, you can purchase any of our 2,500+ Japanese titanium and Italian block acetate frames separately without mounting lenses immediately.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do appointments include retinal imaging?</span>
+            <span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, all premium comprehensive clinical exams include 3D optical coherence tomography (OCT) retinal scans to screen macular health.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Can I upgrade my lenses later?</span>
+            <span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Definitely. We can swap lenses in your existing frames, including upgrades to high-index, blue light protection, or photochromic transition lenses.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Is contact lens fitting included?</span>
+            <span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Contact lens fitting requires a separate corneal mapping evaluation to measure tear-film stability, evaluate base curve fits, and issue trial sets.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span>Do you offer follow-up consultations?</span>
+            <span class="faq-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, we provide complimentary routine alignment adjustments and follow-up vision checks within 30 days of purchasing lenses or frames.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -424,5 +1054,33 @@
   <!-- Back to Top -->
   <button class="back-to-top" aria-label="Back to top">↑</button>
 <script src="assets/js/main.js"></script>
+<script>
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const item = button.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const isActive = item.classList.contains('active');
+      
+      // Close other active FAQs
+      document.querySelectorAll('.faq-item').forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains('active')) {
+          otherItem.classList.remove('active');
+          otherItem.querySelector('.faq-answer').style.maxHeight = '0px';
+          otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        }
+      });
+      
+      if (isActive) {
+        item.classList.remove('active');
+        answer.style.maxHeight = '0px';
+        button.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        button.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
 </body>
 </html>
