@@ -119,8 +119,11 @@ const Navbar = (() => {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
       const href = link.getAttribute('href');
-      if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+      const isBlogDetails = (currentPage === 'blog-details.html' && href === 'blog.html');
+      if (href === currentPage || (currentPage === '' && href === 'index.html') || isBlogDetails) {
         link.classList.add('active');
+      } else {
+        link.classList.remove('active');
       }
     });
   };
@@ -128,7 +131,62 @@ const Navbar = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Hero Slider â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Profile Dropdown ──────────────────────────────
+const ProfileDropdown = (() => {
+  const init = () => {
+    const profileBtn = document.getElementById('profile-btn');
+    const dropdown = document.getElementById('profile-dropdown');
+    if (!profileBtn || !dropdown) return;
+
+    const toggle = (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.toggle('open');
+      profileBtn.setAttribute('aria-expanded', isOpen);
+      dropdown.setAttribute('aria-hidden', !isOpen);
+    };
+
+    const close = () => {
+      dropdown.classList.remove('open');
+      profileBtn.setAttribute('aria-expanded', 'false');
+      dropdown.setAttribute('aria-hidden', 'true');
+    };
+
+    profileBtn.addEventListener('click', toggle);
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (!profileBtn.contains(e.target) && !dropdown.contains(e.target)) {
+        close();
+      }
+    });
+
+    // Close on ESC key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        close();
+      }
+    });
+
+    // Keyboard accessibility for links
+    const links = dropdown.querySelectorAll('a');
+    if (links.length > 0) {
+      links[links.length - 1].addEventListener('keydown', (e) => {
+        if (e.key === 'Tab' && !e.shiftKey) {
+          close();
+        }
+      });
+      links[0].addEventListener('keydown', (e) => {
+        if (e.key === 'Tab' && e.shiftKey) {
+          close();
+        }
+      });
+    }
+  };
+
+  return { init };
+})();
+
+// ─── Hero Slider ──────────────────────────────────
 const HeroSlider = (() => {
   const init = (el) => {
     if (!el) return;
@@ -706,6 +764,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ThemeManager.init();
   RTLManager.init();
   Navbar.init();
+  ProfileDropdown.init();
   ScrollReveal.init();
   CounterAnimation.init();
   FAQ.init();

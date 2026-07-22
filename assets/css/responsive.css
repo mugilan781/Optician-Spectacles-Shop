@@ -50,7 +50,8 @@
   .countdown { gap: var(--space-2); }
   .countdown-unit { min-width: 64px; padding: var(--space-3); }
   .countdown-sep { display: none; }
-  .nav-actions .nav-icon-btn { display: none; }
+  .nav-actions .nav-icon-btn,
+  .nav-actions .profile-dropdown-container { display: none; }
   .nav-actions .nav-icon-btn:last-of-type { display: flex; }
   .cursor-dot, .cursor-ring { display: none; }
   .process-steps { display: grid !important; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }

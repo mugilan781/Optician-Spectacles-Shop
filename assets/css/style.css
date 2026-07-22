@@ -740,6 +740,65 @@ p {
   transform: scale(1.05);
 }
 
+.nav-icon-btn span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Profile Dropdown */
+.profile-dropdown-container {
+  position: relative;
+  display: inline-flex;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 140px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  padding: var(--space-2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: var(--transition-base);
+  z-index: 1001;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.profile-dropdown.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.profile-dropdown a {
+  display: block;
+  padding: 0.6rem 1rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.profile-dropdown a:hover {
+  background: rgba(42, 157, 143, 0.07);
+  color: var(--sapphire);
+}
+
+/* RTL Mode Support for Profile Dropdown */
+[dir="rtl"] .profile-dropdown {
+  right: auto;
+  left: 0;
+}
+
 .nav-cta {
   padding: 0.55rem 1.25rem;
 }
