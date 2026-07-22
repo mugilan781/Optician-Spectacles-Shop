@@ -1,11 +1,11 @@
 /* ============================================================
-   OptiLux â€” Main JavaScript
-   main.js â€” Core: Theme, Nav, Scroll, Cursor, Reveal, Toast
+   OptiLux — Main JavaScript
+   main.js — Core: Theme, Nav, Scroll, Cursor, Reveal, Toast
    ============================================================ */
 
 'use strict';
 
-// â”€â”€â”€ Preloader â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Preloader ───────────────────────────────────────────────
 window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
   if (preloader) {
@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
   }
 });
 
-// â”€â”€â”€ Theme Manager â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Theme Manager ────────────────────────────────────────────
 const ThemeManager = (() => {
   const root = document.documentElement;
   const STORAGE_KEY = 'optilux-theme';
@@ -48,7 +48,7 @@ const ThemeManager = (() => {
   return { init, toggle, current: () => current };
 })();
 
-// â”€â”€â”€ RTL Manager â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── RTL Manager ─────────────────────────────────────────────
 const RTLManager = (() => {
   const STORAGE_KEY = 'optilux-rtl';
   let isRTL = localStorage.getItem(STORAGE_KEY) === 'true';
@@ -77,7 +77,7 @@ const RTLManager = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Navbar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Navbar ───────────────────────────────────────────────────
 const Navbar = (() => {
   const init = () => {
     const navbar = document.querySelector('.navbar');
@@ -248,7 +248,7 @@ const HeroSlider = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Scroll Reveal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Scroll Reveal ────────────────────────────────────────────
 const ScrollReveal = (() => {
   const init = () => {
     const items = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .reveal-blur');
@@ -269,7 +269,7 @@ const ScrollReveal = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Counter Animation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Counter Animation ────────────────────────────────────────
 const CounterAnimation = (() => {
   const animateCounter = (el) => {
     const target = parseInt(el.dataset.target || el.textContent, 10);
@@ -305,7 +305,7 @@ const CounterAnimation = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ FAQ Accordion â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── FAQ Accordion ────────────────────────────────────────────
 const FAQ = (() => {
   const init = () => {
     document.querySelectorAll('.faq-question').forEach(btn => {
@@ -321,7 +321,7 @@ const FAQ = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Tab System â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Tab System ───────────────────────────────────────────────
 const Tabs = (() => {
   const init = () => {
     document.querySelectorAll('.tab-nav').forEach(nav => {
@@ -348,7 +348,7 @@ const Tabs = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Filter Gallery â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Filter Gallery ───────────────────────────────────────────
 const FilterGallery = (() => {
   const init = () => {
     document.querySelectorAll('.filter-nav').forEach(nav => {
@@ -374,7 +374,7 @@ const FilterGallery = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Lightbox â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Lightbox ─────────────────────────────────────────────────
 const Lightbox = (() => {
   let overlay, imgEl;
 
@@ -384,7 +384,7 @@ const Lightbox = (() => {
       overlay.className = 'lightbox-overlay';
       overlay.innerHTML = `
         <div class="lightbox-inner">
-          <button class="lightbox-close" title="Close">âœ•</button>
+          <button class="lightbox-close" title="Close">✕</button>
           <img src="" alt="" />
         </div>`;
       document.body.appendChild(overlay);
@@ -417,7 +417,7 @@ const Lightbox = (() => {
   return { init, open, close };
 })();
 
-// â”€â”€â”€ Custom Cursor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Custom Cursor ────────────────────────────────────────────
 const CustomCursor = (() => {
   const init = () => {
     if (window.matchMedia('(pointer: coarse)').matches) return;
@@ -458,7 +458,7 @@ const CustomCursor = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Back to Top â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Back to Top ──────────────────────────────────────────────
 const BackToTop = (() => {
   const init = () => {
     const btn = document.querySelector('.back-to-top');
@@ -472,7 +472,7 @@ const BackToTop = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Reading Progress â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Reading Progress ─────────────────────────────────────────
 const ReadingProgress = (() => {
   const init = () => {
     const bar = document.getElementById('page-progress');
@@ -486,7 +486,7 @@ const ReadingProgress = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Toast Notifications â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Toast Notifications ──────────────────────────────────────
 const Toast = (() => {
   let container;
 
@@ -496,13 +496,13 @@ const Toast = (() => {
       container.className = 'toast-container';
       document.body.appendChild(container);
     }
-    const icons = { success: 'âœ“', error: 'âœ•', info: 'â„¹' };
+    const icons = { success: '✓', error: '✕', info: 'ℹ' };
     const toast = document.createElement('div');
     toast.className = `toast ${type}`;
     toast.innerHTML = `
       <span class="toast-icon">${icons[type] || icons.info}</span>
       <span class="toast-msg">${msg}</span>
-      <button class="toast-close">âœ•</button>`;
+      <button class="toast-close">✕</button>`;
     container.appendChild(toast);
     toast.querySelector('.toast-close').addEventListener('click', () => remove(toast));
     setTimeout(() => remove(toast), duration);
@@ -518,7 +518,7 @@ const Toast = (() => {
   return { show };
 })();
 
-// â”€â”€â”€ Password Toggle â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Password Toggle ──────────────────────────────────────────
 const PasswordToggle = (() => {
   const init = () => {
     document.querySelectorAll('.input-toggle').forEach(btn => {
@@ -535,7 +535,7 @@ const PasswordToggle = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Password Strength â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Password Strength ────────────────────────────────────────
 const PasswordStrength = (() => {
   const check = (pw) => {
     let score = 0;
@@ -567,7 +567,7 @@ const PasswordStrength = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Form Validation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Form Validation ──────────────────────────────────────────
 const FormValidator = (() => {
   const rules = {
     required: (val) => val.trim() !== '' || 'This field is required',
@@ -621,7 +621,7 @@ const FormValidator = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Countdown Timer â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Countdown Timer ──────────────────────────────────────────
 const Countdown = (() => {
   const init = () => {
     const el = document.getElementById('countdown');
@@ -648,7 +648,7 @@ const Countdown = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Testimonial Carousel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Testimonial Carousel ─────────────────────────────────────
 const TestimonialCarousel = (() => {
   const init = () => {
     document.querySelectorAll('[data-carousel]').forEach(carousel => {
@@ -696,7 +696,7 @@ const TestimonialCarousel = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Smooth Anchor Scroll â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Smooth Anchor Scroll ─────────────────────────────────────
 const SmoothScroll = (() => {
   const init = () => {
     document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -715,7 +715,7 @@ const SmoothScroll = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Sticky Section Highlight â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Sticky Section Highlight ─────────────────────────────────
 const SectionHighlight = (() => {
   const init = () => {
     const sections = document.querySelectorAll('section[id]');
@@ -736,7 +736,7 @@ const SectionHighlight = (() => {
   return { init };
 })();
 
-// â”€â”€â”€ Booking Date Picker â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+// ─── Booking Date Picker ──────────────────────────────────────
 const Booking = (() => {
   const init = () => {
     const bookingForm = document.querySelector('form[data-form="booking"]');
