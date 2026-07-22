@@ -7,6 +7,273 @@
   <meta name="description" content="OptiLux Journal — Clinical vision care insights, eyewear trends, lens technology advisories, and paediatric eye health." />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
+  <style>
+    /* ─── Editorial Categories Cards ─── */
+    .categories-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+      gap: var(--space-8) !important;
+      margin-top: var(--space-8) !important;
+    }
+
+    .category-card {
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius-2xl) !important;
+      overflow: hidden !important;
+      box-shadow: var(--shadow-sm) !important;
+      transition: var(--transition-spring) !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .category-card:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: var(--shadow-xl) !important;
+      border-color: rgba(42, 157, 143, 0.3) !important;
+    }
+
+    .category-img-wrap {
+      height: 200px !important;
+      overflow: hidden !important;
+      position: relative !important;
+    }
+
+    .category-img-wrap img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    }
+
+    .category-card:hover .category-img-wrap img {
+      transform: scale(1.06) !important;
+    }
+
+    .category-count-badge {
+      position: absolute !important;
+      bottom: var(--space-4) !important;
+      right: var(--space-4) !important;
+      background: rgba(9, 13, 22, 0.85) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      color: #ffffff !important;
+      backdrop-filter: blur(8px) !important;
+      font-size: var(--text-xs) !important;
+      font-weight: 700 !important;
+      padding: var(--space-1) var(--space-3) !important;
+      border-radius: var(--radius-full) !important;
+    }
+
+    .category-info {
+      padding: var(--space-6) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      flex-grow: 1 !important;
+    }
+
+    .category-info h3 {
+      font-family: var(--font-display) !important;
+      font-size: var(--text-lg) !important;
+      font-weight: 700 !important;
+      color: var(--text-primary) !important;
+      margin-bottom: var(--space-2) !important;
+    }
+
+    .category-info p {
+      font-size: var(--text-sm) !important;
+      color: var(--text-secondary) !important;
+      line-height: 1.6 !important;
+      margin-bottom: var(--space-5) !important;
+      flex-grow: 1 !important;
+    }
+
+    .category-card-cta {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: var(--space-2) !important;
+      color: var(--sapphire) !important;
+      font-weight: 700 !important;
+      font-size: var(--text-sm) !important;
+      transition: gap 0.3s ease !important;
+      text-decoration: none !important;
+    }
+
+    .category-card:hover .category-card-cta {
+      gap: var(--space-3) !important;
+      color: var(--cyan) !important;
+    }
+
+    /* ─── Expert Contributors Grid ─── */
+    .contributors-grid {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+      gap: var(--space-8) !important;
+      margin-top: var(--space-8) !important;
+    }
+
+    .contributor-card {
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius-2xl) !important;
+      padding: var(--space-6) !important;
+      box-shadow: var(--shadow-sm) !important;
+      transition: var(--transition-spring) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+    }
+
+    .contributor-card:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: var(--shadow-xl) !important;
+      border-color: rgba(42, 157, 143, 0.25) !important;
+    }
+
+    .contributor-photo-wrap {
+      width: 110px !important;
+      height: 110px !important;
+      border-radius: var(--radius-full) !important;
+      overflow: hidden !important;
+      border: 3px solid var(--border-color) !important;
+      margin-bottom: var(--space-4) !important;
+      transition: var(--transition-base) !important;
+    }
+
+    .contributor-card:hover .contributor-photo-wrap {
+      border-color: var(--sapphire) !important;
+    }
+
+    .contributor-photo-wrap img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    .contributor-card h3 {
+      font-family: var(--font-display) !important;
+      font-size: var(--text-md) !important;
+      font-weight: 700 !important;
+      color: var(--text-primary) !important;
+      margin-bottom: 2px !important;
+    }
+
+    .contributor-role {
+      font-size: var(--text-xs) !important;
+      color: var(--sapphire) !important;
+      font-weight: 600 !important;
+      margin-bottom: var(--space-3) !important;
+    }
+
+    .contributor-stats {
+      display: flex !important;
+      gap: var(--space-4) !important;
+      margin-bottom: var(--space-5) !important;
+      font-size: var(--text-xs) !important;
+      color: var(--text-muted) !important;
+      border-top: 1px solid var(--border-color) !important;
+      border-bottom: 1px solid var(--border-color) !important;
+      padding: var(--space-2) 0 !important;
+      width: 100% !important;
+      justify-content: center !important;
+    }
+
+    .contributor-stats span strong {
+      color: var(--text-primary) !important;
+    }
+
+    .contributor-btn {
+      width: 100% !important;
+      justify-content: center !important;
+    }
+
+    /* ─── Monthly Digest Grid ─── */
+    .digest-row {
+      display: grid !important;
+      grid-template-columns: 1.1fr 0.9fr !important;
+      gap: var(--space-12) !important;
+      align-items: center !important;
+      margin-top: var(--space-8) !important;
+    }
+
+    .digest-list {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: var(--space-4) !important;
+    }
+
+    .digest-item {
+      display: flex !important;
+      gap: var(--space-4) !important;
+      align-items: flex-start !important;
+      background: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius-xl) !important;
+      padding: var(--space-4) var(--space-5) !important;
+      box-shadow: var(--shadow-sm) !important;
+      transition: var(--transition-spring) !important;
+    }
+
+    .digest-item:hover {
+      transform: translateY(-3px) !important;
+      border-color: rgba(42, 157, 143, 0.25) !important;
+      box-shadow: var(--shadow-md) !important;
+    }
+
+    .digest-item-icon {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 42px !important;
+      height: 42px !important;
+      border-radius: var(--radius-lg) !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+      border: 1px solid rgba(42, 157, 143, 0.2) !important;
+      color: var(--sapphire) !important;
+      flex-shrink: 0 !important;
+      transition: var(--transition-base) !important;
+    }
+
+    .digest-item:hover .digest-item-icon {
+      background: var(--sapphire) !important;
+      color: #ffffff !important;
+      border-color: transparent !important;
+    }
+
+    .digest-item h3 {
+      font-family: var(--font-display) !important;
+      font-size: var(--text-md) !important;
+      font-weight: 700 !important;
+      color: var(--text-primary) !important;
+      margin-bottom: 2px !important;
+    }
+
+    .digest-item p {
+      font-size: var(--text-xs) !important;
+      color: var(--text-secondary) !important;
+      line-height: 1.5 !important;
+      margin: 0 !important;
+      margin-bottom: var(--space-2) !important;
+    }
+
+    .digest-item-link {
+      font-size: 0.7rem !important;
+      color: var(--sapphire) !important;
+      font-weight: 700 !important;
+      text-decoration: none !important;
+    }
+
+    .digest-item:hover .digest-item-link {
+      color: var(--cyan) !important;
+    }
+
+    @media (max-width: 992px) {
+      .digest-row {
+        grid-template-columns: 1fr !important;
+        gap: var(--space-8) !important;
+      }
+    }
+  </style>
 </head>
 <body>
 <div id="preloader"><div class="preloader-inner"><div class="preloader-logo">Opti<span>Lux</span></div><div class="preloader-bar"><div class="preloader-bar-fill"></div></div><div class="preloader-dots"><div class="preloader-dot"></div><div class="preloader-dot"></div><div class="preloader-dot"></div></div></div></div>
@@ -76,7 +343,7 @@
 
 <!-- ═══ SECTION 1: PAGE HERO ═══ -->
 <section class="page-hero">
-  <div class="page-hero-bg" style="background-image: url('assets/images/hero_macro_glasses.png'); background-size: cover; background-position: center;">
+  <div class="page-hero-bg" style="background-image: url('assets/images/blog_hero.png'); background-size: cover; background-position: center;">
     <div style="position:absolute;inset:0;background:linear-gradient(135deg, rgba(18,16,15,0.92) 0%, rgba(18,16,15,0.7) 100%)"></div>
   </div>
   <div class="container page-hero-content">
@@ -95,7 +362,7 @@
     </div>
     <article class="reveal-scale" style="background:var(--bg-card);border:1px solid var(--border-color);border-radius:var(--radius-2xl);overflow:hidden;display:grid;grid-template-columns:1fr 1fr">
       <div style="height:100%;min-height:380px;overflow:hidden">
-        <img src="assets/images/hero_store_interior.png" alt="Paediatric Screen Time &amp; Vision Health" style="width:100%;height:100%;object-fit:cover" />
+        <img src="assets/images/myopia_child.png" alt="Paediatric Screen Time &amp; Vision Health" style="width:100%;height:100%;object-fit:cover" />
       </div>
       <div style="padding:var(--space-10);display:flex;flex-direction:column;justify-content:center">
         <div class="blog-meta">
@@ -132,18 +399,22 @@
       <!-- Post 1 -->
       <article class="blog-card reveal">
         <div class="blog-card-img" style="height:220px;overflow:hidden">
-          <img src="assets/images/hero_sunglasses.png" alt="2026 Eyewear Trends" style="width:100%;height:100%;object-fit:cover" />
+          <img src="assets/images/collection_titanium.png" alt="2026 Eyewear Trends" style="width:100%;height:100%;object-fit:cover" />
         </div>
-        <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-category">Style Advisory</span><span class="blog-date">8 Jul 2026</span></div>
-          <h3>2026 Architectural Titanium Spectacle Trends</h3>
-          <p>Explore lightweight Japanese titanium and geometric rimless frame aesthetics crafted for executives.</p>
-          <div class="blog-card-footer">
+        <div class="blog-card-body" style="display:flex; flex-direction:column; height:calc(100% - 220px)">
+          <div class="blog-meta">
+            <span class="blog-category">Style Advisory</span>
+            <span class="blog-date">8 Jul 2026</span>
+            <span class="blog-read-time" style="margin-left:auto">5 min read</span>
+          </div>
+          <h3 style="margin-bottom:var(--space-2)">2026 Architectural Titanium Spectacle Trends</h3>
+          <p style="flex-grow:1; margin-bottom:var(--space-4)">Explore lightweight Japanese titanium and geometric rimless frame aesthetics crafted for executives.</p>
+          <div class="blog-card-footer" style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-color); padding-top:var(--space-4)">
             <div class="blog-author-mini">
-              <img src="assets/images/prod_aviator.png" alt="Priya Nair" style="width:32px;height:32px;border-radius:50%;object-fit:cover" />
+              <img src="assets/images/team_stylist.png" alt="Priya Nair" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:1.5px solid var(--sapphire)" />
               <span>Priya Nair</span>
             </div>
-            <span class="blog-read-time">5 min read</span>
+            <a href="blog-details.html" class="btn btn-primary btn-sm" style="padding:var(--space-2) var(--space-4); font-size:var(--text-xs); border-radius:var(--radius-full)">Read Article</a>
           </div>
         </div>
       </article>
@@ -151,18 +422,22 @@
       <!-- Post 2 -->
       <article class="blog-card reveal stagger-2">
         <div class="blog-card-img" style="height:220px;overflow:hidden">
-          <img src="assets/images/blog_exam.png" alt="Dry Eye Syndrome Management" style="width:100%;height:100%;object-fit:cover" />
+          <img src="assets/images/service_diag.png" alt="Dry Eye Syndrome Management" style="width:100%;height:100%;object-fit:cover" />
         </div>
-        <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-category">Clinical Diagnostics</span><span class="blog-date">2 Jul 2026</span></div>
-          <h3>Dry Eye Syndrome &amp; Tear-Film Therapy</h3>
-          <p>Over 40% of workstation users suffer ocular desiccation. Discover clinical tear-film replenishment options.</p>
-          <div class="blog-card-footer">
+        <div class="blog-card-body" style="display:flex; flex-direction:column; height:calc(100% - 220px)">
+          <div class="blog-meta">
+            <span class="blog-category">Clinical Diagnostics</span>
+            <span class="blog-date">2 Jul 2026</span>
+            <span class="blog-read-time" style="margin-left:auto">6 min read</span>
+          </div>
+          <h3 style="margin-bottom:var(--space-2)">Dry Eye Syndrome &amp; Tear-Film Therapy</h3>
+          <p style="flex-grow:1; margin-bottom:var(--space-4)">Over 40% of workstation users suffer ocular desiccation. Discover clinical tear-film replenishment options.</p>
+          <div class="blog-card-footer" style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-color); padding-top:var(--space-4)">
             <div class="blog-author-mini">
-              <img src="assets/images/team_2.png" alt="Dr. Ananya Sharma" style="width:32px;height:32px;border-radius:50%;object-fit:cover" />
+              <img src="assets/images/team_2.png" alt="Dr. Ananya Sharma" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:1.5px solid var(--sapphire)" />
               <span>Dr. Ananya Sharma</span>
             </div>
-            <span class="blog-read-time">6 min read</span>
+            <a href="blog-details.html" class="btn btn-primary btn-sm" style="padding:var(--space-2) var(--space-4); font-size:var(--text-xs); border-radius:var(--radius-full)">Read Article</a>
           </div>
         </div>
       </article>
@@ -170,18 +445,22 @@
       <!-- Post 3 -->
       <article class="blog-card reveal stagger-3">
         <div class="blog-card-img" style="height:220px;overflow:hidden">
-          <img src="assets/images/prod_classic.png" alt="Progressive vs Bifocal Lenses" style="width:100%;height:100%;object-fit:cover" />
+          <img src="assets/images/prod_reading.png" alt="Progressive vs Bifocal Lenses" style="width:100%;height:100%;object-fit:cover" />
         </div>
-        <div class="blog-card-body">
-          <div class="blog-meta"><span class="blog-category">Lens Surfacing</span><span class="blog-date">25 Jun 2026</span></div>
-          <h3>Progressive HD Varifocals vs Bifocals</h3>
-          <p>A technical evaluation of freeform progressive corridors versus traditional lined bifocals.</p>
-          <div class="blog-card-footer">
+        <div class="blog-card-body" style="display:flex; flex-direction:column; height:calc(100% - 220px)">
+          <div class="blog-meta">
+            <span class="blog-category">Lens Surfacing</span>
+            <span class="blog-date">25 Jun 2026</span>
+            <span class="blog-read-time" style="margin-left:auto">7 min read</span>
+          </div>
+          <h3 style="margin-bottom:var(--space-2)">Progressive HD Varifocals vs Bifocals</h3>
+          <p style="flex-grow:1; margin-bottom:var(--space-4)">A technical evaluation of freeform progressive corridors versus traditional lined bifocals.</p>
+          <div class="blog-card-footer" style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-color); padding-top:var(--space-4)">
             <div class="blog-author-mini">
-              <img src="assets/images/team_1.png" alt="Dr. Suresh Iyer" style="width:32px;height:32px;border-radius:50%;object-fit:cover" />
+              <img src="assets/images/team_1.png" alt="Dr. Suresh Iyer" style="width:32px;height:32px;border-radius:50%;object-fit:cover;border:1.5px solid var(--sapphire)" />
               <span>Dr. Suresh Iyer</span>
             </div>
-            <span class="blog-read-time">7 min read</span>
+            <a href="blog-details.html" class="btn btn-primary btn-sm" style="padding:var(--space-2) var(--space-4); font-size:var(--text-xs); border-radius:var(--radius-full)">Read Article</a>
           </div>
         </div>
       </article>
@@ -192,97 +471,145 @@
 
 
 
-  <!-- ═══ INJECTED UNIQUE SECTION 14 ═══ -->
-  <section class="section bg-primary" aria-label="Bespoke Bespoke Fittings">
-    <div class="container">
-      <div class="grid" style="grid-template-columns:1fr 1fr;gap:var(--space-12);align-items:center">
-        <div class="reveal-left">
-          <span class="section-label">Blog Exclusive</span>
-          <h2 class="section-title" style="text-align:left;margin-bottom:var(--space-4)">Bespoke <span>Bespoke Fittings</span></h2>
-          <p style="color:var(--text-secondary);margin-bottom:var(--space-6)">Experience the pinnacle of optical precision. Our bespoke fittings division is specifically tailored for those who demand excellence in every detail. We utilize bespoke methodologies to ensure your vision is uncompromised.</p>
-          <div style="display:flex;gap:var(--space-4)">
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg)">
-                <h4 style="color:var(--cyan);margin-bottom:4px">100%</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Precision Rate</div>
-             </div>
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg);animation-delay:1s">
-                <h4 style="color:var(--sapphire);margin-bottom:4px">24/7</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Support Available</div>
-             </div>
-          </div>
-        </div>
-        <div class="reveal-blur" style="border-radius:var(--radius-2xl);overflow:hidden;position:relative;height:450px;box-shadow:var(--shadow-xl)">
-          <img src="assets/images/hero_store_interior.png" alt="Bespoke Fittings" style="width:100%;height:100%;object-fit:cover" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ INJECTED UNIQUE SECTION 15 ═══ -->
-  <section class="section bg-secondary" aria-label="Vision Science Highlights">
+  <!-- ═══ NEW SECTION 2: EXPERT CONTRIBUTORS ═══ -->
+  <section class="section bg-secondary" aria-label="Expert Contributors">
     <div class="container">
       <div class="section-header text-center">
-        <span class="section-label">Luxury Focus</span>
-        <h2 class="section-title reveal-blur">Discover <span>Vision Science</span></h2>
-        <p class="section-subtitle reveal stagger-2">A specialized offering designed exclusively for our valued OptiLux patients.</p>
+        <span class="section-label" style="justify-content:center">Our Authors</span>
+        <h2 class="section-title reveal" style="text-align:center">Meet the Vision Experts <span>Behind Every Article</span></h2>
+        <p class="section-subtitle reveal stagger-2" style="max-width:700px;margin-inline:auto">Every article published by OptiLux is reviewed and written by experienced optometrists and optical specialists committed to evidence-based eye care.</p>
       </div>
-      <div class="grid grid-3 gap-6">
-        <div class="card-glass card-3d reveal-blur stagger-1">
-          <div style="color:var(--sapphire);margin-bottom:var(--space-4)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
-          <h4 style="margin-bottom:var(--space-2)">Unmatched Clarity</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Leveraging state-of-the-art physics to bend light perfectly to your retina's exact curvature.</p>
-        </div>
-        <div class="card-glass card-3d reveal-blur stagger-2">
-          <div style="color:var(--cyan);margin-bottom:var(--space-4)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-          <h4 style="margin-bottom:var(--space-2)">Ergonomic Design</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Every element is weighted and balanced to sit weightlessly upon your unique facial structure.</p>
-        </div>
-        <div class="card-glass card-3d reveal-blur stagger-3">
-          <div style="color:var(--emerald);margin-bottom:var(--space-4)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-          <h4 style="margin-bottom:var(--space-2)">Lifetime Assurance</h4>
-          <p style="font-size:var(--text-sm);color:var(--text-secondary)">Because vision science requires a commitment that outlasts standard industry warranties.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ═══ INJECTED UNIQUE SECTION 16 ═══ -->
-  <section class="section" style="background:var(--graphite-deep);color:#fff" aria-label="Frame Materials Banner">
-    <div class="container">
-      <div style="background:linear-gradient(135deg, rgba(42,157,143,0.1) 0%, rgba(212,165,90,0.1) 100%);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-2xl);padding:clamp(3rem,6vw,5rem);text-align:center" class="reveal-scale">
-        <span class="section-label" style="justify-content:center;color:var(--cyan)">Frame Materials</span>
-        <h2 class="section-title" style="color:#fff">The Tailored <span>Difference</span></h2>
-        <p style="color:rgba(255,255,255,0.7);max-width:700px;margin:0 auto var(--space-8);font-size:var(--text-lg)">We redefine what it means to experience world-class optical care. This is not just eyecare; this is a completely tailored sensory upgrade.</p>
-        <div style="display:inline-flex;gap:var(--space-4)">
-            <a href="contact.html" class="btn btn-primary btn-lg">Explore Frame Materials</a>
-            <a href="about.html" class="btn btn-white btn-lg" style="background:transparent;border:1px solid rgba(255,255,255,0.2);color:#fff">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ INJECTED UNIQUE SECTION 17 ═══ -->
-  <section class="section bg-primary" aria-label="Unrivaled Clinical Technology">
-    <div class="container">
-      <div class="grid" style="grid-template-columns:1fr 1fr;gap:var(--space-12);align-items:center">
-        <div class="reveal-left">
-          <span class="section-label">Blog Exclusive</span>
-          <h2 class="section-title" style="text-align:left;margin-bottom:var(--space-4)">Unrivaled <span>Clinical Technology</span></h2>
-          <p style="color:var(--text-secondary);margin-bottom:var(--space-6)">Experience the pinnacle of optical precision. Our clinical technology division is specifically tailored for those who demand excellence in every detail. We utilize unrivaled methodologies to ensure your vision is uncompromised.</p>
-          <div style="display:flex;gap:var(--space-4)">
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg)">
-                <h4 style="color:var(--cyan);margin-bottom:4px">100%</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Precision Rate</div>
-             </div>
-             <div class="glass-container float-anim" style="padding:var(--space-4);border-radius:var(--radius-lg);animation-delay:1s">
-                <h4 style="color:var(--sapphire);margin-bottom:4px">24/7</h4>
-                <div style="font-size:var(--text-xs);color:var(--text-muted)">Support Available</div>
-             </div>
+      <div class="contributors-grid">
+        
+        <!-- Author 1 -->
+        <div class="contributor-card reveal">
+          <div class="contributor-photo-wrap">
+            <img src="assets/images/team_1.png" alt="Dr. Suresh Iyer" />
           </div>
+          <h3>Dr. Suresh Iyer</h3>
+          <span class="contributor-role">Chief Optometrist</span>
+          <p style="font-size:var(--text-xs); color:var(--text-secondary); margin-bottom:var(--space-3)">Specializes in computerized diagnostics, axial length scans, and advanced progressive fitting.</p>
+          <div class="contributor-stats">
+            <span>Experience: <strong>15+ Yrs</strong></span>
+            <span>|</span>
+            <span>Articles: <strong>24 Published</strong></span>
+          </div>
+          <a href="blog.html?author=suresh" class="btn btn-primary btn-sm contributor-btn" style="border-radius:var(--radius-full)">View Articles</a>
         </div>
-        <div class="reveal-blur" style="border-radius:var(--radius-2xl);overflow:hidden;position:relative;height:450px;box-shadow:var(--shadow-xl)">
-          <img src="assets/images/prod_aviator.png" alt="Clinical Technology" style="width:100%;height:100%;object-fit:cover" />
+
+        <!-- Author 2 -->
+        <div class="contributor-card reveal stagger-2">
+          <div class="contributor-photo-wrap">
+            <img src="assets/images/team_2.png" alt="Dr. Ananya Sharma" />
+          </div>
+          <h3>Dr. Ananya Sharma</h3>
+          <span class="contributor-role">Pediatric Optometrist</span>
+          <p style="font-size:var(--text-xs); color:var(--text-secondary); margin-bottom:var(--space-3)">Focuses on children's vision development, childhood myopia control, and binocular alignment.</p>
+          <div class="contributor-stats">
+            <span>Experience: <strong>8+ Yrs</strong></span>
+            <span>|</span>
+            <span>Articles: <strong>16 Published</strong></span>
+          </div>
+          <a href="blog.html?author=ananya" class="btn btn-primary btn-sm contributor-btn" style="border-radius:var(--radius-full)">View Articles</a>
         </div>
+
+        <!-- Author 3 -->
+        <div class="contributor-card reveal stagger-3">
+          <div class="contributor-photo-wrap">
+            <img src="assets/images/team_stylist.png" alt="Priya Nair" />
+          </div>
+          <h3>Priya Nair</h3>
+          <span class="contributor-role">Senior Styling Consultant</span>
+          <p style="font-size:var(--text-xs); color:var(--text-secondary); margin-bottom:var(--space-3)">Expert in frame morphology, bridge geometries, color theory, and Japanese titanium curation.</p>
+          <div class="contributor-stats">
+            <span>Experience: <strong>10+ Yrs</strong></span>
+            <span>|</span>
+            <span>Articles: <strong>12 Published</strong></span>
+          </div>
+          <a href="blog.html?author=priya" class="btn btn-primary btn-sm contributor-btn" style="border-radius:var(--radius-full)">View Articles</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NEW SECTION 3: MONTHLY KNOWLEDGE DIGEST ═══ -->
+  <section class="section bg-primary" aria-label="Monthly Knowledge Digest">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-label" style="justify-content:center">Featured Insights</span>
+        <h2 class="section-title reveal" style="text-align:center">This Month's <span>Vision Highlights</span></h2>
+        <p class="section-subtitle reveal stagger-2" style="max-width:700px;margin-inline:auto">A curated summary of the latest clinical discoveries, eyewear innovations, and optical lifestyle recommendations from our editorial team.</p>
+      </div>
+
+      <div class="digest-row">
+        
+        <!-- Left: Image -->
+        <div class="reveal-left" style="border-radius:var(--radius-2xl);overflow:hidden;height:520px;box-shadow:var(--shadow-xl)">
+          <img src="assets/images/diag_lab.png" alt="Modern optician diagnostic laboratory workstation" style="width:100%;height:100%;object-fit:cover" />
+        </div>
+
+        <!-- Right: Highlights list -->
+        <div class="reveal-right digest-list">
+          
+          <div class="digest-item">
+            <div class="digest-item-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.8 20h14.4c.4 0 .8-.2.8-.6V4.6c0-.4-.4-.6-.8-.6H4.8c-.4 0-.8.2-.8.6v14.8c0 .4.4.6.8.6z"/><path d="M16 8H8"/><path d="M16 12H8"/></svg>
+            </div>
+            <div>
+              <h3>Latest Research</h3>
+              <p>Evaluating new peripheral defocus lenses for childhood myopia control in double-blind clinical trials.</p>
+              <a href="blog-details.html" class="digest-item-link">Learn More &rarr;</a>
+            </div>
+          </div>
+
+          <div class="digest-item">
+            <div class="digest-item-icon" style="color:var(--cyan); border-color:rgba(42, 157, 143, 0.2)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-6 6"/><path d="m10.2 7.8 6 6"/></svg>
+            </div>
+            <div>
+              <h3>Editor's Recommendation</h3>
+              <p>Top Japanese titanium aviator structures built with Beta-Titanium alloys for ultra-flexible temples.</p>
+              <a href="blog-details.html" class="digest-item-link">Learn More &rarr;</a>
+            </div>
+          </div>
+
+          <div class="digest-item">
+            <div class="digest-item-icon" style="color:var(--gold); border-color:rgba(212, 165, 90, 0.2)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <div>
+              <h3>Most Read Guide</h3>
+              <p>varifocal centration guidelines: How pupil distance alignment dictates visual field widths.</p>
+              <a href="blog-details.html" class="digest-item-link">Learn More &rarr;</a>
+            </div>
+          </div>
+
+          <div class="digest-item">
+            <div class="digest-item-icon" style="color:var(--emerald); border-color:rgba(46, 196, 182, 0.2)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+            </div>
+            <div>
+              <h3>Frame Innovation</h3>
+              <p>The rise of plant-based bio-acetate: Combining circular durability with crystal frame clarity.</p>
+              <a href="blog-details.html" class="digest-item-link">Learn More &rarr;</a>
+            </div>
+          </div>
+
+          <div class="digest-item">
+            <div class="digest-item-icon" style="color:var(--cyan); border-color:rgba(42, 157, 143, 0.2)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h3>Eye Wellness Tip</h3>
+              <p>Combatting computer fatigue with the 20-20-20 rule and targeted meibomian gland compresses.</p>
+              <a href="blog-details.html" class="digest-item-link">Learn More &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </div>
   </section>
