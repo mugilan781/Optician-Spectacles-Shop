@@ -744,6 +744,17 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  line-height: 0;
+}
+
+.nav-icon-btn span svg {
+  display: block;
+}
+
+/* Force flex display for theme toggles when shown by JS */
+.nav-icon-btn span[style*="display: block"],
+.nav-icon-btn span[style*="display:block"] {
+  display: inline-flex !important;
 }
 
 /* Profile Dropdown */

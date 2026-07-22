@@ -32,8 +32,8 @@ const ThemeManager = (() => {
     document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
       const sunIcon = btn.querySelector('.icon-sun');
       const moonIcon = btn.querySelector('.icon-moon');
-      if (sunIcon) sunIcon.style.display = current === 'dark' ? 'block' : 'none';
-      if (moonIcon) moonIcon.style.display = current === 'light' ? 'block' : 'none';
+      if (sunIcon) sunIcon.style.display = current === 'dark' ? 'inline-flex' : 'none';
+      if (moonIcon) moonIcon.style.display = current === 'light' ? 'inline-flex' : 'none';
       btn.setAttribute('title', current === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode');
     });
   };
