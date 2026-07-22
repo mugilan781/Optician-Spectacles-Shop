@@ -35,7 +35,8 @@
 
   /* ─── Index Hero — stack to 1-col; keep slider 100vh ─── */
   .hero-slide-grid { grid-template-columns: 1fr !important; gap: var(--space-8) !important; min-height: auto !important; }
-  .slide-content { text-align: center; }
+  .slide-content { text-align: center; margin-inline: auto; }
+  .slide-title { font-size: clamp(2.2rem, 5vw, 3.5rem); }
   .slide-actions { justify-content: center; }
   .hero-info-cards { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: var(--space-4) !important; max-width: 600px; margin-inline: auto; }
 
@@ -101,12 +102,14 @@
   /* ─── HERO SLIDER — proper mobile ─── */
   .hero-slide-grid { grid-template-columns: 1fr !important; gap: var(--space-6) !important; min-height: auto !important; padding-block: var(--space-6) !important; }
   .slide-content { text-align: center; padding-block: var(--space-4); max-width: 100% !important; }
+  .slide-desc { font-size: var(--text-sm) !important; }
   .slide-actions { justify-content: center; flex-direction: column !important; align-items: stretch !important; }
   .slide-actions .btn { justify-content: center; width: 100% !important; }
   .hero-info-cards { display: grid !important; grid-template-columns: 1fr !important; gap: var(--space-3) !important; max-width: 100% !important; margin-inline: auto; }
   .hero-info-card { text-align: center; }
   .hero-info-card-header { justify-content: center; }
   .slider-controls { bottom: var(--space-4) !important; }
+  .scroll-indicator { display: none !important; }
 
   /* ─── ALL inline 1fr 1fr grids → 1 column ─── */
   [style*="grid-template-columns:1fr 1fr;"] { grid-template-columns: 1fr !important; }
@@ -260,7 +263,6 @@
   section[style*="min-height:38vh"] { min-height: 20vh !important; }
   section[style*="min-height:35vh"] { min-height: 18vh !important; }
   section[style*="min-height:55vh"] { min-height: 28vh !important; }
-  .slide-title { font-size: clamp(1.6rem, 8vw, 2.5rem); }
   .stats-bar .stat-number { font-size: var(--text-2xl) !important; }
 
   /* ─── Home2 image mosaic → 1 column ─── */
