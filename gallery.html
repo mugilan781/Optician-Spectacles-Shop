@@ -200,6 +200,137 @@
         gap: var(--space-8) !important;
       }
     }
+
+    /* ─── Custom Lightbox Showcase Styles ─── */
+    .custom-lightbox {
+      position: fixed !important;
+      inset: 0 !important;
+      background: rgba(9, 13, 22, 0.95) !important;
+      z-index: 10000 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      transition: opacity 0.4s ease, visibility 0.4s ease !important;
+      backdrop-filter: blur(8px) !important;
+    }
+
+    .custom-lightbox.open {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .lightbox-content-wrap {
+      position: relative !important;
+      max-width: 85vw !important;
+      max-height: 75vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    .lightbox-img {
+      max-height: 70vh !important;
+      max-width: 80vw !important;
+      object-fit: contain !important;
+      border-radius: var(--radius-xl) !important;
+      box-shadow: var(--shadow-xl) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .lightbox-caption {
+      color: #ffffff !important;
+      margin-top: var(--space-4) !important;
+      font-size: var(--text-md) !important;
+      font-family: var(--font-display) !important;
+      font-weight: 600 !important;
+      text-align: center !important;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .lightbox-btn {
+      position: absolute !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+      color: #ffffff !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      transition: all 0.3s ease !important;
+      backdrop-filter: blur(4px) !important;
+      z-index: 10001 !important;
+      outline: none !important;
+    }
+
+    .lightbox-btn.close-btn {
+      top: var(--space-6) !important;
+      right: var(--space-6) !important;
+      width: 48px !important;
+      height: 48px !important;
+      border-radius: var(--radius-full) !important;
+      font-size: 24px !important;
+    }
+
+    .lightbox-btn.close-btn:hover {
+      background: var(--rose) !important;
+      border-color: transparent !important;
+      transform: scale(1.05) !important;
+    }
+
+    .lightbox-btn.prev-btn {
+      left: var(--space-8) !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      width: 56px !important;
+      height: 56px !important;
+      border-radius: var(--radius-full) !important;
+      font-size: 20px !important;
+    }
+
+    .lightbox-btn.prev-btn:hover {
+      background: var(--sapphire) !important;
+      border-color: transparent !important;
+      transform: translateY(-50%) scale(1.08) !important;
+    }
+
+    .lightbox-btn.next-btn {
+      right: var(--space-8) !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      width: 56px !important;
+      height: 56px !important;
+      border-radius: var(--radius-full) !important;
+      font-size: 20px !important;
+    }
+
+    .lightbox-btn.next-btn:hover {
+      background: var(--sapphire) !important;
+      border-color: transparent !important;
+      transform: translateY(-50%) scale(1.08) !important;
+    }
+
+    @media (max-width: 768px) {
+      .lightbox-btn.prev-btn {
+        left: var(--space-4) !important;
+        width: 44px !important;
+        height: 44px !important;
+      }
+      .lightbox-btn.next-btn {
+        right: var(--space-4) !important;
+        width: 44px !important;
+        height: 44px !important;
+      }
+      .lightbox-btn.close-btn {
+        top: var(--space-4) !important;
+        right: var(--space-4) !important;
+        width: 40px !important;
+        height: 40px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -719,11 +850,14 @@
     let currentIndex = 0;
     
     const showImage = (index) => {
-      if (index < 0) index = galleryItems.length - 1;
-      if (index >= galleryItems.length) index = 0;
+      const visibleItems = galleryItems.filter(item => item.style.display !== 'none');
+      if (visibleItems.length === 0) return;
+      
+      if (index < 0) index = visibleItems.length - 1;
+      if (index >= visibleItems.length) index = 0;
       currentIndex = index;
       
-      const item = galleryItems[currentIndex];
+      const item = visibleItems[currentIndex];
       const imgSrc = item.getAttribute('data-lightbox') || item.querySelector('img').src;
       const caption = item.getAttribute('data-alt') || '';
       
@@ -732,7 +866,11 @@
       lightboxCaption.textContent = caption;
     };
     
-    const openLightbox = (index) => {
+    const openLightbox = (item) => {
+      const visibleItems = galleryItems.filter(item => item.style.display !== 'none');
+      const index = visibleItems.indexOf(item);
+      if (index === -1) return;
+      
       showImage(index);
       customLightbox.classList.add('open');
       customLightbox.setAttribute('aria-hidden', 'false');
@@ -746,11 +884,11 @@
     };
     
     // Attach listeners to items
-    galleryItems.forEach((item, index) => {
+    galleryItems.forEach((item) => {
       item.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopImmediatePropagation(); // Prevents global lightbox in main.js from executing!
-        openLightbox(index);
+        openLightbox(item);
       });
     });
     

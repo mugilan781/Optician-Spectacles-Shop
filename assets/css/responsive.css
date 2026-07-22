@@ -264,7 +264,7 @@
   .social-card-premium { padding: var(--space-5) var(--space-4) !important; }
 
   /* ─── Gallery ─── */
-  .collections-grid { grid-template-columns: 1fr !important; }
+  .collections-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .gallery-grid [style*="height:"] { height: 180px !important; }
   .showroom-feature-row { grid-template-columns: 1fr !important; }
 
@@ -328,8 +328,11 @@
   html { overflow-x: hidden; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .gallery-grid { columns: 1; }
-  .filter-nav { overflow-x: auto; flex-wrap: nowrap; gap: var(--space-2); justify-content: flex-start; }
+  .filter-nav { overflow-x: visible !important; flex-wrap: wrap !important; gap: var(--space-3) var(--space-2) !important; justify-content: center !important; }
   .filter-btn { white-space: nowrap; flex-shrink: 0; }
+  .collections-grid { grid-template-columns: 1fr !important; }
+  .collection-img-wrap { height: 180px !important; }
+  .collection-info-block { padding: var(--space-4) !important; }
   .btn-group { flex-direction: column; align-items: stretch; }
   .btn-group .btn { justify-content: center; }
   .toast-container { right: 1rem; left: 1rem; }
