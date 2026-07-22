@@ -7,6 +7,18 @@
   <meta name="description" content="OptiLux Home 2 — Alternate split-screen homepage layout with curated bespoke frames, diagnostics clinic showcase, and eye test booking." />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="assets/css/responsive.css" />
+  <style>
+    @media (min-width: 993px) {
+      .home2-hero-left {
+        padding-left: calc(max(0px, (100vw - var(--container-max)) / 2) + clamp(1rem, 5vw, 2rem)) !important;
+        padding-right: var(--space-12) !important;
+      }
+      [dir="rtl"] .home2-hero-left {
+        padding-right: calc(max(0px, (100vw - var(--container-max)) / 2) + clamp(1rem, 5vw, 2rem)) !important;
+        padding-left: var(--space-12) !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -84,7 +96,7 @@
   <!-- ═══ SECTION 1: SPLIT-SCREEN HERO ═══ -->
   <section style="min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:var(--nav-height)" aria-label="Hero">
     <!-- Left: Content -->
-    <div style="background:linear-gradient(135deg,var(--graphite-deep),var(--graphite));display:flex;align-items:center;padding:var(--space-16) clamp(2rem,5vw,4rem)">
+    <div class="home2-hero-left" style="background:linear-gradient(135deg,var(--graphite-deep),var(--graphite));display:flex;align-items:center;padding:var(--space-16) clamp(2rem,5vw,4rem)">
       <div>
         <div style="display:inline-flex;align-items:center;gap:var(--space-2);background:rgba(227,221,211,0.1);border:1px solid rgba(227,221,211,0.2);border-radius:var(--radius-full);padding:0.4rem 1rem;margin-bottom:var(--space-6)">
           <span style="width:8px;height:8px;border-radius:50%;background:var(--emerald-light);animation:pulse 2s infinite"></span>
