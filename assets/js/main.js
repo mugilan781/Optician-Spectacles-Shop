@@ -915,6 +915,414 @@ const Booking = (() => {
   return { init };
 })();
 
+// ─── Bespoke Eyewear Collections: Wishlist & Quick View ───────
+const BespokeCollections = (() => {
+  const STORAGE_KEY = 'optilux-wishlist';
+
+  // Core Product Data
+  const products = {
+    'aviator-pro-titanium': {
+      name: 'Aviator Pro Titanium',
+      category: 'Titanium Frames',
+      image: 'assets/images/prod_aviator.png',
+      rating: '★★★★★',
+      ratingCount: '128',
+      priceCurrent: '₹8,999',
+      priceOriginal: '₹12,000',
+      badge: 'New',
+      badgeClass: 'new',
+      description: 'Handcrafted from pure Japanese aerospace-grade titanium. The ultra-lightweight Aviator Pro offers extreme comfort, iconic double-bridge styling, and supreme corrosion resistance.',
+      specs: {
+        'Lens Type': 'Single Vision / Progressive',
+        'Frame Material': 'Beta-Titanium',
+        'Stock Status': 'In Stock',
+        'Frame Type': 'Full Rim'
+      },
+      colors: ['#D4A55A', '#E5E5E5', '#333333'] // Gold, Silver, Gunmetal
+    },
+    'uv400-elite-polarized': {
+      name: 'UV400 Elite Polarized',
+      category: 'Polarized Sunglasses',
+      image: 'assets/images/prod_sunglasses.png',
+      rating: '★★★★★',
+      ratingCount: '94',
+      priceCurrent: '₹6,499',
+      priceOriginal: '₹9,500',
+      badge: 'Hot',
+      badgeClass: 'hot',
+      description: 'Engineered with triple-layer polarized lenses to eliminate 99.9% of glare. Featuring a handcrafted cellulose acetate frame and complete UV400 block, perfect for maritime or driving conditions.',
+      specs: {
+        'Lens Type': 'Polarized UV400',
+        'Frame Material': 'Bio-Acetate',
+        'Stock Status': 'In Stock',
+        'Frame Type': 'Full Rim'
+      },
+      colors: ['#1C1C1C', '#8B5A2B', '#708090'] // Black, Tortoise, Slate Grey
+    },
+    'executive-half-rim-2-5': {
+      name: 'Executive Half-Rim +2.5',
+      category: 'Reading Lenses',
+      image: 'assets/images/prod_reading.png',
+      rating: '★★★★☆',
+      ratingCount: '67',
+      priceCurrent: '₹2,299',
+      priceOriginal: '₹3,500',
+      badge: 'Sale',
+      badgeClass: 'sale',
+      description: 'Designed for intensive desktop work and reading comfort. The half-rim design provides an unobstructed lower field of view, fitted with blue-light filtering reading lenses.',
+      specs: {
+        'Lens Type': 'Blue Light Reading',
+        'Frame Material': 'Stainless Steel',
+        'Stock Status': 'Low Stock',
+        'Frame Type': 'Half-Rim'
+      },
+      colors: ['#0A1D37', '#222831', '#800000'] // Navy, Black, Burgundy
+    },
+    'flexiframe-junior-series': {
+      name: 'FlexiFrame Junior Series',
+      category: 'Paediatric Collection',
+      image: 'assets/images/prod_kids.png',
+      rating: '★★★★★',
+      ratingCount: '203',
+      priceCurrent: '₹3,799',
+      priceOriginal: '₹5,200',
+      badge: 'New',
+      badgeClass: 'new',
+      description: 'Virtually indestructible frames engineered for active children. Created from hypoallergenic, BPA-free polymer with a 180-degree flexible hinge and custom head-strap compatibility.',
+      specs: {
+        'Lens Type': 'Shatterproof Polycarbonate',
+        'Frame Material': 'TR90 Flexible Polymer',
+        'Stock Status': 'In Stock',
+        'Frame Type': 'Full Rim'
+      },
+      colors: ['#00ADB5', '#FF2E93', '#79D70F'] // Aqua Blue, Pink, Lime Green
+    },
+    'gold-rimless-oval': {
+      name: 'Gold Rimless Oval',
+      category: 'Titanium Frames',
+      image: 'assets/images/prod_classic.png',
+      rating: '★★★★★',
+      ratingCount: '110',
+      priceCurrent: '₹6,499',
+      priceOriginal: '₹9,500',
+      badge: 'Premium',
+      badgeClass: '',
+      description: 'The absolute embodiment of minimalist luxury. Features delicate 18-karat gold plated titanium temples, custom compression mounting, and rimless contouring for an invisible feel.',
+      specs: {
+        'Lens Type': 'High-Index Anti-Reflective',
+        'Frame Material': 'Gold-Plated Titanium',
+        'Stock Status': 'In Stock',
+        'Frame Type': 'Rimless'
+      },
+      colors: ['#D4A55A', '#E6C280', '#E5E5E5'] // Gold, Rose Gold, Platinum
+    },
+    'cat-eye-fashion-luxe': {
+      name: 'Cat-Eye Fashion Luxe',
+      category: 'Polarized Sunglasses',
+      image: 'assets/images/hero_macro_glasses.png',
+      rating: '★★★★★',
+      ratingCount: '78',
+      priceCurrent: '₹7,999',
+      priceOriginal: '₹11,000',
+      badge: 'Trending',
+      badgeClass: 'hot',
+      description: 'A bold fashion statement blending retro cat-eye silhouettes with modern geometric facets. Oversized lenses offer maximum coverage and sophisticated UV protection.',
+      specs: {
+        'Lens Type': 'Gradient UV400',
+        'Frame Material': 'Premium Acetate',
+        'Stock Status': 'In Stock',
+        'Frame Type': 'Full Rim'
+      },
+      colors: ['#8B5A2B', '#1C1C1C', '#EAE6DF'] // Tortoise, Onyx Black, Ivory Rose
+    }
+  };
+
+  // Get wishlist list from localStorage
+  const getWishlist = () => {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    } catch (e) {
+      return [];
+    }
+  };
+
+  // Save wishlist to localStorage
+  const saveWishlist = (list) => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  };
+
+  // Toggle wishlist state
+  const toggleWishlist = (id) => {
+    const list = getWishlist();
+    const idx = list.indexOf(id);
+    let added = false;
+    if (idx === -1) {
+      list.push(id);
+      added = true;
+    } else {
+      list.splice(idx, 1);
+    }
+    saveWishlist(list);
+    return added;
+  };
+
+  // Update product card icon active state
+  const updateCardUI = (id, isInWishlist) => {
+    const card = document.querySelector(`.product-card[data-id="${id}"]`);
+    if (!card) return;
+    const wishlistBtn = card.querySelector('[data-action="wishlist"]');
+    if (!wishlistBtn) return;
+
+    if (isInWishlist) {
+      wishlistBtn.classList.add('wishlisted');
+      wishlistBtn.setAttribute('aria-pressed', 'true');
+      wishlistBtn.setAttribute('title', 'Remove from Wishlist');
+      wishlistBtn.setAttribute('aria-label', 'Remove from wishlist');
+    } else {
+      wishlistBtn.classList.remove('wishlisted');
+      wishlistBtn.setAttribute('aria-pressed', 'false');
+      wishlistBtn.setAttribute('title', 'Wishlist');
+      wishlistBtn.setAttribute('aria-label', 'Add to wishlist');
+    }
+  };
+
+  // Open the Premium Quick View Modal
+  const openQuickView = (id, triggerEl) => {
+    const product = products[id];
+    if (!product) return;
+
+    const wishlist = getWishlist();
+    const isWishlisted = wishlist.includes(id);
+
+    // Create modal elements
+    const backdrop = document.createElement('div');
+    backdrop.className = 'quickview-backdrop';
+    backdrop.setAttribute('role', 'dialog');
+    backdrop.setAttribute('aria-modal', 'true');
+    backdrop.setAttribute('aria-labelledby', 'qv-title');
+
+    // Build specs elements
+    let specsHtml = '';
+    for (const [key, val] of Object.entries(product.specs)) {
+      specsHtml += `
+        <div class="quickview-spec-item">
+          <span class="quickview-spec-label">${key}</span>
+          <span class="quickview-spec-value">${val}</span>
+        </div>`;
+    }
+
+    // Build colors temples list
+    let colorsHtml = '';
+    if (product.colors && product.colors.length > 0) {
+      colorsHtml += `
+        <div class="quickview-colors">
+          <span class="quickview-colors-label">Temple Color:</span>
+          <div class="quickview-color-options">`;
+      product.colors.forEach((color, i) => {
+        colorsHtml += `
+          <button class="quickview-color-dot ${i === 0 ? 'active' : ''}" 
+                  style="background-color: ${color}" 
+                  aria-label="Temple color option ${i + 1}"
+                  data-color-index="${i}"></button>`;
+      });
+      colorsHtml += `
+          </div>
+        </div>`;
+    }
+
+    const badgeHtml = product.badge
+      ? `<span class="product-badge ${product.badgeClass || ''}">${product.badge}</span>`
+      : '';
+
+    const originalPriceHtml = product.priceOriginal
+      ? `<span class="price-original">${product.priceOriginal}</span>`
+      : '';
+
+    backdrop.innerHTML = `
+      <div class="quickview-modal" tabindex="-1">
+        <button class="quickview-close" aria-label="Close details" title="Close">✕</button>
+        <div class="quickview-layout">
+          <div class="quickview-gallery">
+            <img src="${product.image}" alt="${product.name}" />
+            ${badgeHtml}
+          </div>
+          <div class="quickview-details">
+            <p class="quickview-category">${product.category}</p>
+            <h3 class="quickview-name" id="qv-title">${product.name}</h3>
+            <div class="quickview-rating" aria-label="Rated ${product.rating.length} out of 5 stars">
+              <span class="stars">${product.rating}</span>
+              <span class="rating-count">(${product.ratingCount} reviews)</span>
+            </div>
+            <div class="quickview-price">
+              <span class="price-current">${product.priceCurrent}</span>
+              ${originalPriceHtml}
+            </div>
+            <p class="quickview-desc">${product.description}</p>
+            
+            <div class="quickview-divider"></div>
+            
+            <p class="quickview-specs-title">Specifications</p>
+            <div class="quickview-specs">
+              ${specsHtml}
+            </div>
+            
+            ${colorsHtml}
+
+            <div class="quickview-divider"></div>
+            
+            <div class="quickview-actions">
+              <button class="btn ${isWishlisted ? 'btn-secondary' : 'btn-primary'}" data-qv-action="wishlist" aria-pressed="${isWishlisted}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="${isWishlisted ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" style="margin-inline-end:8px; vertical-align:middle;">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <span class="qv-wishlist-text">${isWishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}</span>
+              </button>
+              <button class="btn btn-outline" data-qv-action="close">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>`;
+
+    document.body.appendChild(backdrop);
+
+    // Prevent background page scrolling
+    document.body.style.overflow = 'hidden';
+
+    // Anim open & focus
+    setTimeout(() => {
+      backdrop.classList.add('open');
+      const modalEl = backdrop.querySelector('.quickview-modal');
+      if (modalEl) modalEl.focus();
+    }, 20);
+
+    const closeQV = () => {
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        backdrop.remove();
+        if (triggerEl) triggerEl.focus();
+      }, 400);
+    };
+
+    // Close logic listeners
+    backdrop.querySelector('.quickview-close').addEventListener('click', closeQV);
+    backdrop.querySelector('[data-qv-action="close"]').addEventListener('click', closeQV);
+
+    // Color selectors click handlers
+    backdrop.querySelectorAll('.quickview-color-dot').forEach(dot => {
+      dot.addEventListener('click', () => {
+        backdrop.querySelectorAll('.quickview-color-dot').forEach(d => d.classList.remove('active'));
+        dot.classList.add('active');
+      });
+    });
+
+    // Wishlist logic inside modal
+    const wishlistBtn = backdrop.querySelector('[data-qv-action="wishlist"]');
+    wishlistBtn.addEventListener('click', () => {
+      const added = toggleWishlist(id);
+      const nowWishlisted = getWishlist().includes(id);
+
+      // Card sync
+      updateCardUI(id, nowWishlisted);
+
+      // Button sync
+      const svg = wishlistBtn.querySelector('svg');
+      const textSpan = wishlistBtn.querySelector('.qv-wishlist-text');
+
+      if (nowWishlisted) {
+        wishlistBtn.classList.remove('btn-primary');
+        wishlistBtn.classList.add('btn-secondary');
+        wishlistBtn.setAttribute('aria-pressed', 'true');
+        svg.setAttribute('fill', 'currentColor');
+        textSpan.textContent = 'Remove from Wishlist';
+        Toast.show('Added to Wishlist', 'success');
+      } else {
+        wishlistBtn.classList.remove('btn-secondary');
+        wishlistBtn.classList.add('btn-primary');
+        wishlistBtn.setAttribute('aria-pressed', 'false');
+        svg.setAttribute('fill', 'none');
+        textSpan.textContent = 'Add to Wishlist';
+        Toast.show('Removed from Wishlist', 'info');
+      }
+    });
+
+    // Backdrop click outside closure
+    backdrop.addEventListener('click', (e) => {
+      const modal = backdrop.querySelector('.quickview-modal');
+      if (modal && !modal.contains(e.target)) {
+        closeQV();
+      }
+    });
+
+    // Key handlers: ESC & focus looping
+    const focusableSelectors = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+    const focusableElements = backdrop.querySelectorAll(focusableSelectors);
+    const firstFocusable = focusableElements[0];
+    const lastFocusable = focusableElements[focusableElements.length - 1];
+
+    backdrop.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeQV();
+      } else if (e.key === 'Tab') {
+        if (e.shiftKey) {
+          if (document.activeElement === firstFocusable || document.activeElement === backdrop.querySelector('.quickview-modal')) {
+            e.preventDefault();
+            lastFocusable.focus();
+          }
+        } else {
+          if (document.activeElement === lastFocusable) {
+            e.preventDefault();
+            firstFocusable.focus();
+          }
+        }
+      }
+    });
+  };
+
+  const init = () => {
+    // 1. Initial State Restoration
+    const wishlist = getWishlist();
+    wishlist.forEach(id => {
+      updateCardUI(id, true);
+    });
+
+    // 2. Setup Event Handlers via delegation
+    const collectionsSection = document.getElementById('collections');
+    if (!collectionsSection) return;
+
+    collectionsSection.addEventListener('click', (e) => {
+      const card = e.target.closest('.product-card');
+      if (!card) return;
+
+      const id = card.dataset.id;
+      if (!id) return;
+
+      const actionBtn = e.target.closest('.product-action-btn');
+      if (!actionBtn) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+
+      const action = actionBtn.dataset.action;
+      if (action === 'wishlist') {
+        const added = toggleWishlist(id);
+        const nowWishlisted = getWishlist().includes(id);
+        updateCardUI(id, nowWishlisted);
+
+        if (added) {
+          Toast.show('Added to Wishlist', 'success');
+        } else {
+          Toast.show('Removed from Wishlist', 'info');
+        }
+      } else if (action === 'quickview') {
+        openQuickView(id, actionBtn);
+      }
+    });
+  };
+
+  return { init };
+})();
+
 // ─── App Init ─────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   ThemeManager.init();
@@ -938,6 +1346,7 @@ document.addEventListener('DOMContentLoaded', () => {
   SmoothScroll.init();
   SectionHighlight.init();
   Booking.init();
+  BespokeCollections.init();
   HeroSlider.init(document.querySelector('.hero-slider'));
 
   // Make Toast globally accessible
